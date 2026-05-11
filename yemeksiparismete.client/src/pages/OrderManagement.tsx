@@ -1,10 +1,10 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useAuth } from '../context/AuthContext';
-import { Package, Clock, MapPin, CreditCard, RefreshCw, User, Bike, PhoneCall, Mail } from 'lucide-react';
+import { Package, Clock, MapPin, CreditCard, RefreshCw, User, Bike, PhoneCall, Mail, Shield } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const getStatusText = (status: string) => {
-  switch(status) {
+  switch (status) {
     case 'preparing': return 'Hazırlanıyor';
     case 'on_the_way': return 'Yolda';
     case 'delivered': return 'Teslim Edildi';
@@ -46,7 +46,7 @@ const OrderManagement = () => {
     try {
       const url = `/api/durum-guncelle/${orderId}/${newStatus}`;
       const response = await fetch(url);
-      
+
       if (response.ok) {
         setOrders(prev => prev.map(o => (o.id ?? o.Id) === orderId ? { ...o, status: newStatus, Status: newStatus } : o));
       } else {
@@ -89,6 +89,12 @@ const OrderManagement = () => {
     }
   }, []);
 
+  const refreshData = useCallback(() => {
+    if (activeTab === 'orders') fetchOrders();
+    else if (activeTab === 'customers') fetchCustomers();
+    else fetchCouriers();
+  }, [activeTab, fetchOrders, fetchCustomers, fetchCouriers]);
+
   const handleRepairData = useCallback(async () => {
     if (!window.confirm("Eksik telefon numaralarını kullanıcı profillerinden çekerek tamamlamak istiyor musunuz?")) return;
     try {
@@ -120,11 +126,7 @@ const OrderManagement = () => {
     }
   }, []);
 
-  const refreshData = useCallback(() => {
-    if (activeTab === 'orders') fetchOrders();
-    else if (activeTab === 'customers') fetchCustomers();
-    else fetchCouriers();
-  }, [activeTab, fetchOrders, fetchCustomers, fetchCouriers]);
+
 
   useEffect(() => {
     refreshData();
@@ -156,15 +158,15 @@ const OrderManagement = () => {
         <header className="admin-top-bar">
           <div className="top-left">
             <h2>
-              {activeTab === 'orders' ? 'Canlı Sipariş' : activeTab === 'customers' ? 'Müşteri' : 'Kurye'} 
+              {activeTab === 'orders' ? 'Canlı Sipariş' : activeTab === 'customers' ? 'Müşteri' : 'Kurye'}
               <span className="text-primary">
                 {activeTab === 'orders' ? ' Takibi' : activeTab === 'customers' ? ' Yönetimi' : ' Başvuruları'}
               </span>
             </h2>
             <p>
-              {activeTab === 'orders' ? 'Veritabanındaki tüm şubelerin sipariş akışı' : 
-               activeTab === 'customers' ? 'Sistemde kayıtlı olan ve sipariş veren tüm müşteriler' : 
-               'Sisteme yapılan yeni kurye başvuruları ve durumları'}
+              {activeTab === 'orders' ? 'Veritabanındaki tüm şubelerin sipariş akışı' :
+                activeTab === 'customers' ? 'Sistemde kayıtlı olan ve sipariş veren tüm müşteriler' :
+                  'Sisteme yapılan yeni kurye başvuruları ve durumları'}
             </p>
           </div>
           <div className="top-right">
@@ -203,12 +205,12 @@ const OrderManagement = () => {
 
               <AnimatePresence>
                 {orders.map((order) => (
-                  <motion.div 
+                  <motion.div
                     layout
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: 20 }}
-                    key={order.id ?? order.Id} 
+                    key={order.id ?? order.Id}
                     className={`order-row-lux ${order.status ?? order.Status}`}
                   >
                     <div className="col-id">
@@ -249,7 +251,7 @@ const OrderManagement = () => {
                       <span className="price-tag">{order.totalAmount} TL</span>
                       {(order.discountAmount > 0 || order.DiscountAmount > 0) && (
                         <div style={{ fontSize: '0.65rem', color: '#10b981', fontWeight: 900, marginTop: 4, textAlign: 'right' }}>
-                          KUPON: {order.couponCode || order.CouponCode}<br/>
+                          KUPON: {order.couponCode || order.CouponCode}<br />
                           -₺{order.discountAmount || order.DiscountAmount}
                         </div>
                       )}
@@ -271,7 +273,7 @@ const OrderManagement = () => {
                             className={`toggle-btn ${(order.status ?? order.Status) === s ? 'active' : ''} ${(s === 'canceled' || s === 'cancelled') ? 'cancel-btn' : ''}`}
                           >
                             {(order.status ?? order.Status) === s && (
-                              <motion.div 
+                              <motion.div
                                 layoutId={`active-bg-${order.id ?? order.Id}`}
                                 className="active-bg-glow"
                                 transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
@@ -300,12 +302,12 @@ const OrderManagement = () => {
 
               <AnimatePresence>
                 {customers.map((customer, index) => (
-                  <motion.div 
+                  <motion.div
                     layout
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: 20 }}
-                    key={index} 
+                    key={index}
                     className="order-row-lux"
                   >
                     <div className="col-c-id">
@@ -315,7 +317,7 @@ const OrderManagement = () => {
                     </div>
 
                     <div className="col-c-name">
-                      <div className="cust-name"><User size={14} style={{ display: 'inline', marginRight: 5 }}/> {customer.customerName}</div>
+                      <div className="cust-name"><User size={14} style={{ display: 'inline', marginRight: 5 }} /> {customer.customerName}</div>
                     </div>
 
                     <div className="col-c-phone">
@@ -362,12 +364,12 @@ const OrderManagement = () => {
                   const cId = courier.id ?? courier.Id;
                   const cStatus = (courier.status ?? courier.Status)?.toLowerCase();
                   return (
-                    <motion.div 
+                    <motion.div
                       layout
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
                       exit={{ opacity: 0, x: 20 }}
-                      key={cId} 
+                      key={cId}
                       className={`order-row-lux ${cStatus}`}
                     >
                       <div className="col-cour-id">
@@ -378,17 +380,17 @@ const OrderManagement = () => {
                         <div className="cust-name">{courier.fullName ?? courier.FullName}</div>
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', marginTop: '8px' }}>
                           <a href={`tel:${courier.phoneNumber ?? courier.PhoneNumber}`} style={{ color: '#aaa', textDecoration: 'none', fontSize: '0.9rem', display: 'flex', alignItems: 'center', transition: '0.3s' }} onMouseOver={(e) => e.currentTarget.style.color = '#fff'} onMouseOut={(e) => e.currentTarget.style.color = '#aaa'}>
-                            <PhoneCall size={14} style={{ marginRight: 6, color: 'var(--primary)' }}/> {courier.phoneNumber ?? courier.PhoneNumber}
+                            <PhoneCall size={14} style={{ marginRight: 6, color: 'var(--primary)' }} /> {courier.phoneNumber ?? courier.PhoneNumber}
                           </a>
                           <a href={`mailto:${(courier.email ?? courier.Email)?.replace(/^E-posta\s*/i, '')}`} style={{ color: '#aaa', textDecoration: 'none', fontSize: '0.9rem', display: 'flex', alignItems: 'center', transition: '0.3s' }} onMouseOver={(e) => e.currentTarget.style.color = '#fff'} onMouseOut={(e) => e.currentTarget.style.color = '#aaa'}>
-                            <Mail size={14} style={{ marginRight: 6, color: 'var(--primary)' }}/> {(courier.email ?? courier.Email)?.replace(/^E-posta\s*/i, '')}
+                            <Mail size={14} style={{ marginRight: 6, color: 'var(--primary)' }} /> {(courier.email ?? courier.Email)?.replace(/^E-posta\s*/i, '')}
                           </a>
                         </div>
                       </div>
 
                       <div className="col-cour-vehicle">
                         <div className="item-badge" style={{ background: 'rgba(255,126,0,0.1)', color: 'var(--primary)', border: '1px solid rgba(255,126,0,0.3)' }}>
-                          <Bike size={14} style={{ display: 'inline', marginRight: 5, verticalAlign: 'middle' }}/> 
+                          <Bike size={14} style={{ display: 'inline', marginRight: 5, verticalAlign: 'middle' }} />
                           {courier.vehicleType ?? courier.VehicleType}
                         </div>
                         <div className="item-badge" style={{ marginTop: '5px' }}>Ehliyet: {courier.driverLicenseType ?? courier.DriverLicenseType}</div>

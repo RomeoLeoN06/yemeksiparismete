@@ -366,3 +366,4 @@ C:\Users\Monster\Desktop\yemeksiparismete\yemeksiparismete\yemeksiparismete.Serv
 C:\Users\Monster\Desktop\yemeksiparismete\yemeksiparismete\yemeksiparismete.Server\bin\Debug\net8.0\package-lock.json
 C:\Users\Monster\Desktop\yemeksiparismete\yemeksiparismete\yemeksiparismete.Server\bin\Debug\net8.0\yemeksiparismete.Server.staticwebassets.runtime.json
 C:\Users\Monster\Desktop\yemeksiparismete\yemeksiparismete\yemeksiparismete.Server\bin\Debug\net8.0\Microsoft.Bcl.Memory.dll
+C:\Users\Monster\Desktop\yemeksiparismete\yemeksiparismete\yemeksiparismete.Server\obj\Debug\net8.0\yemeksiparismete.Server.sourcelink.json
