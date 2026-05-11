@@ -1,0 +1,2 @@
+C:\Users\emree\Desktop\yemeksiparismete\yemeksiparismete.client\obj\Debug\yemeksiparismete.client.esproj.CoreCompileInputs.cache
+C:\Users\Monster\Desktop\yemeksiparismete\yemeksiparismete\yemeksiparismete.client\obj\Debug\yemeksiparismete.client.esproj.CoreCompileInputs.cache

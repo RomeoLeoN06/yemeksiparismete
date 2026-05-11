@@ -1,0 +1,5 @@
+Starting FULL Automatic Database Seed...
+Connected to database.
+Database cleared.
+Cities and Districts added.
+FULL Seeding completed successfully.

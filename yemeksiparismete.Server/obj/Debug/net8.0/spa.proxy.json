@@ -1,0 +1,10 @@
+{
+"SpaProxyServer": {
+"ServerUrl": "https://localhost:54405",
+"RedirectUrl": "",
+"LaunchCommand": "npm run dev",
+"WorkingDirectory": "C:\\Users\\Monster\\Desktop\\yemeksiparismete\\yemeksiparismete\\yemeksiparismete.Server\\..\\yemeksiparismete.client",
+"MaxTimeoutInSeconds": "120",
+"KeepRunning": "false"
+}
+}
