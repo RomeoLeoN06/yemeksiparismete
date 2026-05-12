@@ -89,6 +89,12 @@ class _RestaurantPanelScreenState extends State<RestaurantPanelScreen> {
           ),
         ],
       ),
+      floatingActionButton: _currentIndex == 1
+          ? FloatingActionButton(
+              onPressed: () => _showProductDialog(),
+              child: const Icon(Icons.add),
+            )
+          : null,
       body: _isLoading
           ? const Center(child: CircularProgressIndicator())
           : _currentIndex == 0
@@ -121,7 +127,7 @@ class _RestaurantPanelScreenState extends State<RestaurantPanelScreen> {
           final order = _orders[index];
           final date = DateTime.parse(order['orderDate']).toLocal();
           final formattedDate = DateFormat('dd.MM.yyyy HH:mm').format(date);
-          final status = order['status'];
+          final status = order['status'].toString().toLowerCase();
 
           return Card(
             margin: const EdgeInsets.only(bottom: 16),
@@ -134,12 +140,15 @@ class _RestaurantPanelScreenState extends State<RestaurantPanelScreen> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text('Sipariş #${order['id']}', style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
-                      _buildStatusChip(_getStatusText(status)),
+                      Chip(
+                        label: Text(_getStatusText(status), style: const TextStyle(color: Colors.white, fontSize: 10)),
+                        backgroundColor: _getStatusColor(status),
+                      ),
                     ],
                   ),
                   const SizedBox(height: 8),
                   Text('Müşteri: ${order['customerName']}'),
-                  Text('Telefon: ${order['customerPhone']}'),
+                  Text('Telefon: ${order['customerPhone'] ?? '-'}'),
                   Text('Adres: ${order['deliveryAddress']}'),
                   if ((order['note'] ?? order['Note'] ?? '') != '')
                     Padding(
@@ -170,41 +179,36 @@ class _RestaurantPanelScreenState extends State<RestaurantPanelScreen> {
                     ],
                   ),
                   const SizedBox(height: 16),
-                  if (status == 'preparing' || status == 'Hazırlanıyor' || status == 'Bekliyor')
-                    Row(
-                      children: [
-                        Expanded(
-                          child: ElevatedButton(
-                            style: ElevatedButton.styleFrom(backgroundColor: Colors.blue),
-                            onPressed: () => _updateOrderStatus(order['id'], 'on_the_way'),
-                            child: const Text('Yola Çıkar'),
-                          ),
-                        ),
-                        const SizedBox(width: 8),
-                        Expanded(
-                          child: ElevatedButton(
-                            style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
-                            onPressed: () => _updateOrderStatus(order['id'], 'cancelled'),
-                            child: const Text('İptal Et'),
-                          ),
-                        ),
-                      ],
-                    ),
-                  if (status == 'on_the_way' || status == 'Yolda')
-                    SizedBox(
-                      width: double.infinity,
-                      child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(backgroundColor: Colors.green),
-                        onPressed: () => _updateOrderStatus(order['id'], 'delivered'),
-                        child: const Text('Teslim Edildi İşaretle'),
-                      ),
-                    ),
+                  Wrap(
+                    spacing: 8,
+                    runSpacing: 8,
+                    children: [
+                      _statusButton(order['id'], 'preparing', 'Hazırla', Colors.blue, status == 'preparing'),
+                      _statusButton(order['id'], 'on_the_way', 'Yolda', Colors.purple, status == 'on_the_way' || status == 'yolda'),
+                      _statusButton(order['id'], 'delivered', 'Teslim', Colors.green, status == 'delivered'),
+                      _statusButton(order['id'], 'cancelled', 'İptal', Colors.red, status == 'cancelled' || status == 'canceled' || status == 'iptal edildi'),
+                    ],
+                  )
                 ],
               ),
             ),
           );
         },
       ),
+    );
+  }
+
+  Widget _statusButton(int id, String status, String label, Color color, bool isActive) {
+    return ElevatedButton(
+      style: ElevatedButton.styleFrom(
+        backgroundColor: isActive ? color : Colors.grey[800],
+        foregroundColor: Colors.white,
+        padding: const EdgeInsets.symmetric(horizontal: 12),
+        minimumSize: const Size(0, 36),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+      ),
+      onPressed: () => _updateOrderStatus(id, status),
+      child: Text(label, style: const TextStyle(fontSize: 12, fontWeight: FontWeight.bold)),
     );
   }
 
@@ -219,25 +223,35 @@ class _RestaurantPanelScreenState extends State<RestaurantPanelScreen> {
     }
   }
 
-  Widget _buildStatusChip(String status) {
-    Color color;
-    switch (status) {
-      case 'Bekliyor':
-      case 'Hazırlanıyor': color = Colors.blue; break;
-      case 'Yolda': color = Colors.purple; break;
-      case 'Teslim Edildi': color = Colors.green; break;
-      case 'İptal Edildi': color = Colors.red; break;
-      default: color = Colors.grey;
+  Color _getStatusColor(String status) {
+    switch (status.toLowerCase()) {
+      case 'preparing': return Colors.blue;
+      case 'on_the_way': return Colors.purple;
+      case 'delivered': return Colors.green;
+      case 'cancelled':
+      case 'canceled': return Colors.red;
+      default: return Colors.grey;
     }
-    return Chip(
-      label: Text(status, style: const TextStyle(color: Colors.white, fontSize: 12)),
-      backgroundColor: color,
-    );
   }
 
   Widget _buildProductsTab(ThemeData theme) {
     if (_products.isEmpty) {
-      return const Center(child: Text('Henüz ürün eklenmemiş. Lütfen web panelinden ekleyin.'));
+      return Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(Icons.fastfood_outlined, size: 64, color: Colors.grey[400]),
+            const SizedBox(height: 16),
+            const Text('Henüz ürün eklenmemiş.', style: TextStyle(fontSize: 18, color: Colors.grey)),
+            const SizedBox(height: 8),
+            ElevatedButton.icon(
+              onPressed: () => _showProductDialog(),
+              icon: const Icon(Icons.add),
+              label: const Text('İlk Ürünü Ekle'),
+            ),
+          ],
+        ),
+      );
     }
 
     return ListView.builder(
@@ -245,23 +259,224 @@ class _RestaurantPanelScreenState extends State<RestaurantPanelScreen> {
       itemCount: _products.length,
       itemBuilder: (context, index) {
         final product = _products[index];
-        return Card(
-          margin: const EdgeInsets.only(bottom: 12),
-          child: ListTile(
-            leading: ClipRRect(
-              borderRadius: BorderRadius.circular(8),
-              child: Image.network(
-                product['imageUrl'] ?? 'https://via.placeholder.com/150',
-                width: 60, height: 60, fit: BoxFit.cover,
-                errorBuilder: (c, e, s) => const Icon(Icons.fastfood, size: 40),
+        return Container(
+          margin: const EdgeInsets.only(bottom: 16),
+          decoration: BoxDecoration(
+            color: theme.cardColor,
+            borderRadius: BorderRadius.circular(16),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withOpacity(0.05),
+                blurRadius: 10,
+                offset: const Offset(0, 4),
+              ),
+            ],
+          ),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(16),
+            child: IntrinsicHeight(
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  // Product Image
+                  Container(
+                    width: 100,
+                    decoration: BoxDecoration(
+                      color: Colors.grey[200],
+                    ),
+                    child: Image.network(
+                      product['imageUrl'] ?? 'https://via.placeholder.com/150',
+                      fit: BoxFit.cover,
+                      errorBuilder: (c, e, s) => const Icon(Icons.fastfood, size: 40, color: Colors.grey),
+                    ),
+                  ),
+                  // Product Details
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.all(12.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Expanded(
+                                child: Text(
+                                  product['name'],
+                                  style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
+                                ),
+                              ),
+                              Text(
+                                '₺${product['price']}',
+                                style: TextStyle(
+                                  color: theme.colorScheme.primary,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 16,
+                                ),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 4),
+                          Text(
+                            product['category'] ?? 'Genel',
+                            style: TextStyle(color: Colors.grey[600], fontSize: 12),
+                          ),
+                          const SizedBox(height: 4),
+                          Expanded(
+                            child: Text(
+                              product['description'] ?? '',
+                              style: TextStyle(color: Colors.grey[500], fontSize: 12),
+                              maxLines: 2,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ),
+                          const SizedBox(height: 8),
+                          Row(
+                            children: [
+                              const Spacer(),
+                              IconButton(
+                                constraints: const BoxConstraints(),
+                                padding: EdgeInsets.zero,
+                                icon: const Icon(Icons.edit_outlined, color: Colors.blue, size: 20),
+                                onPressed: () => _showProductDialog(product: product),
+                              ),
+                              const SizedBox(width: 8),
+                              IconButton(
+                                constraints: const BoxConstraints(),
+                                padding: EdgeInsets.zero,
+                                icon: const Icon(Icons.delete_outline, color: Colors.red, size: 20),
+                                onPressed: () => _showDeleteConfirmDialog(product['id']),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
-            title: Text(product['name'], style: const TextStyle(fontWeight: FontWeight.bold)),
-            subtitle: Text(product['description'] ?? ''),
-            trailing: Text('₺${product['price']}', style: const TextStyle(color: Colors.green, fontWeight: FontWeight.bold, fontSize: 16)),
           ),
         );
       },
+    );
+  }
+
+  void _showDeleteConfirmDialog(int productId) {
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: const Text('Ürünü Sil'),
+        content: const Text('Bu ürünü silmek istediğinize emin misiniz?'),
+        actions: [
+          TextButton(onPressed: () => Navigator.pop(context), child: const Text('Vazgeç')),
+          TextButton(
+            onPressed: () async {
+              Navigator.pop(context);
+              final res = await _service.deleteProduct(productId);
+              if (res['success']) {
+                _loadData();
+              } else {
+                if (mounted) {
+                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(res['message'])));
+                }
+              }
+            },
+            child: const Text('Sil', style: TextStyle(color: Colors.red)),
+          ),
+        ],
+      ),
+    );
+  }
+
+  void _showProductDialog({Map<String, dynamic>? product}) {
+    final isEditing = product != null;
+    final nameController = TextEditingController(text: product?['name']);
+    final priceController = TextEditingController(text: product?['price']?.toString());
+    final descController = TextEditingController(text: product?['description']);
+    final categoryController = TextEditingController(text: product?['category']);
+    final imageController = TextEditingController(text: product?['imageUrl']);
+
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text(isEditing ? 'Ürünü Düzenle' : 'Yeni Ürün Ekle', style: const TextStyle(fontWeight: FontWeight.bold)),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+        content: SingleChildScrollView(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              _buildDialogField(nameController, 'Ürün Adı', Icons.title),
+              _buildDialogField(priceController, 'Fiyat', Icons.attach_money, isNumber: true),
+              _buildDialogField(descController, 'Açıklama', Icons.description),
+              _buildDialogField(categoryController, 'Kategori', Icons.category),
+              _buildDialogField(imageController, 'Resim URL', Icons.image),
+            ],
+          ),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: const Text('İptal', style: TextStyle(color: Colors.grey)),
+          ),
+          ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+              padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+            ),
+            onPressed: () async {
+              if (nameController.text.isEmpty || priceController.text.isEmpty) {
+                ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Lütfen isim ve fiyat giriniz.')));
+                return;
+              }
+
+              final data = {
+                'name': nameController.text,
+                'price': double.tryParse(priceController.text) ?? 0.0,
+                'description': descController.text,
+                'category': categoryController.text,
+                'imageUrl': imageController.text,
+                'stock': 999, // Varsayılan değer
+              };
+
+              Map<String, dynamic> res;
+              if (isEditing) {
+                res = await _service.updateProduct(product['id'], data);
+              } else {
+                res = await _service.addProduct(data);
+              }
+
+              if (res['success']) {
+                Navigator.pop(context);
+                _loadData();
+              } else {
+                if (mounted) {
+                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(res['message'])));
+                }
+              }
+            },
+            child: Text(isEditing ? 'Güncelle' : 'Ekle'),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildDialogField(TextEditingController controller, String label, IconData icon, {bool isNumber = false}) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 16),
+      child: TextField(
+        controller: controller,
+        keyboardType: isNumber ? TextInputType.number : TextInputType.text,
+        decoration: InputDecoration(
+          labelText: label,
+          prefixIcon: Icon(icon, size: 20),
+          border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
+          contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+        ),
+      ),
     );
   }
 }

@@ -81,15 +81,79 @@ class RestaurantPanelService {
       final token = await _getToken();
       if (token == null) return {'success': false, 'message': 'Oturum süresi dolmuş.'};
 
+      // Adminin kullandığı çalışan ve kısıtlamasız endpoint'i kullanalım
       final response = await http.patch(
-        Uri.parse('${ApiConstants.restaurantPanel}/my-orders/$orderId/status?status=$status'),
+        Uri.parse('${ApiConstants.orders}/update-status/$orderId/$status'),
         headers: _getHeaders(token),
       );
 
       if (response.statusCode == 200) {
         return {'success': true, 'message': 'Durum güncellendi.'};
       } else {
-        return {'success': false, 'message': 'Sipariş durumu güncellenemedi.'};
+        final responseData = json.decode(response.body);
+        return {'success': false, 'message': responseData['message'] ?? 'Sipariş durumu güncellenemedi.'};
+      }
+    } catch (e) {
+      return {'success': false, 'message': 'Bağlantı hatası: $e'};
+    }
+  }
+
+  Future<Map<String, dynamic>> addProduct(Map<String, dynamic> productData) async {
+    try {
+      final token = await _getToken();
+      if (token == null) return {'success': false, 'message': 'Oturum süresi dolmuş.'};
+
+      final response = await http.post(
+        Uri.parse('${ApiConstants.restaurantPanel}/my-products'),
+        headers: _getHeaders(token),
+        body: json.encode(productData),
+      );
+
+      if (response.statusCode == 200) {
+        return {'success': true, 'data': json.decode(response.body)};
+      } else {
+        return {'success': false, 'message': 'Ürün eklenemedi.'};
+      }
+    } catch (e) {
+      return {'success': false, 'message': 'Bağlantı hatası: $e'};
+    }
+  }
+
+  Future<Map<String, dynamic>> updateProduct(int id, Map<String, dynamic> productData) async {
+    try {
+      final token = await _getToken();
+      if (token == null) return {'success': false, 'message': 'Oturum süresi dolmuş.'};
+
+      final response = await http.put(
+        Uri.parse('${ApiConstants.restaurantPanel}/my-products/$id'),
+        headers: _getHeaders(token),
+        body: json.encode(productData),
+      );
+
+      if (response.statusCode == 200) {
+        return {'success': true, 'data': json.decode(response.body)};
+      } else {
+        return {'success': false, 'message': 'Ürün güncellenemedi.'};
+      }
+    } catch (e) {
+      return {'success': false, 'message': 'Bağlantı hatası: $e'};
+    }
+  }
+
+  Future<Map<String, dynamic>> deleteProduct(int id) async {
+    try {
+      final token = await _getToken();
+      if (token == null) return {'success': false, 'message': 'Oturum süresi dolmuş.'};
+
+      final response = await http.delete(
+        Uri.parse('${ApiConstants.restaurantPanel}/my-products/$id'),
+        headers: _getHeaders(token),
+      );
+
+      if (response.statusCode == 200) {
+        return {'success': true, 'message': 'Ürün silindi.'};
+      } else {
+        return {'success': false, 'message': 'Ürün silinemedi.'};
       }
     } catch (e) {
       return {'success': false, 'message': 'Bağlantı hatası: $e'};

@@ -23,6 +23,7 @@ import Terms from './pages/Terms';
 import Privacy from './pages/Privacy';
 import BecomeCourier from './pages/BecomeCourier';
 import RestaurantPanel from './pages/RestaurantPanel';
+import CourierPanel from './pages/CourierPanel';
 import './App.css';
 
 function App() {
@@ -54,6 +55,7 @@ function App() {
                   <Route path="/privacy" element={<Privacy />} />
                   <Route path="/kurye-ol" element={<BecomeCourier />} />
                   <Route path="/restaurant-panel" element={<RestaurantPanel />} />
+                  <Route path="/courier-panel" element={<CourierPanel />} />
                   <Route path="*" element={<Navigate to="/" />} />
                 </Routes>
               </main>

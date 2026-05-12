@@ -18,6 +18,8 @@ namespace yemeksiparismete.Server.Models
         public string? CouponCode { get; set; }
         public decimal DiscountAmount { get; set; } = 0;
         public string? Note { get; set; }
+        public string? CourierId { get; set; }
+        public string? CourierName { get; set; }
         public List<OrderItem> Items { get; set; } = new List<OrderItem>();
     }
 

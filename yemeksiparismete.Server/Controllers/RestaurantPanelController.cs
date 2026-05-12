@@ -136,23 +136,25 @@ namespace yemeksiparismete.Server.Controllers
         {
             var userId = GetUserId();
             var restaurant = await _context.Restaurants.FirstOrDefaultAsync(r => r.OwnerId == userId);
-            if (restaurant == null) return NotFound();
+            if (restaurant == null) return NotFound(new { success = false, message = "Restoran bulunamadı." });
 
             var order = await _context.Orders.FirstOrDefaultAsync(o => o.Id == id && o.RestaurantId == restaurant.Id);
-            if (order == null) return NotFound();
+            if (order == null) return NotFound(new { success = false, message = "Sipariş bulunamadı veya bu restorana ait değil." });
 
-            if (order.Status == "cancelled" || order.Status == "canceled")
+            order.Status = status.Trim().ToLower();
+            _context.Entry(order).State = EntityState.Modified;
+            
+            try 
             {
-                return BadRequest(new { success = false, message = "İptal edilmiş bir siparişin durumu güncellenemez." });
+                await _context.SaveChangesAsync();
+                await _hubContext.Clients.All.SendAsync("UpdateStatus", id, order.Status);
+                await _hubContext.Clients.All.SendAsync("OrderStatusUpdated", new { id, status = order.Status });
+                return Ok(new { success = true, message = "Durum başarıyla güncellendi.", order });
             }
-
-            order.Status = status;
-            await _context.SaveChangesAsync();
-
-            // SignalR ile müşteriye bildir
-            await _hubContext.Clients.All.SendAsync("UpdateStatus", id, status);
-
-            return Ok(new { success = true, order });
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { success = false, message = $"Hata: {ex.Message}" });
+            }
         }
     }
 }

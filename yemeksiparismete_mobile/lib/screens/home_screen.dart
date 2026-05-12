@@ -9,6 +9,9 @@ import '../models/restaurant.dart';
 import 'restaurant_detail_screen.dart';
 import 'cart_screen.dart';
 import 'profile_screen.dart';
+import 'admin_panel_screen.dart';
+import 'restaurant_panel_screen.dart';
+import 'courier_panel_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -559,6 +562,38 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
               ],
             ),
+      floatingActionButton: (user != null && (
+          (user['role']?.toString().toLowerCase() == 'admin' || user['Role']?.toString().toLowerCase() == 'admin') ||
+          (user['role']?.toString().toLowerCase() == 'restaurant_owner' || user['Role']?.toString().toLowerCase() == 'restaurant_owner') ||
+          (user['role']?.toString().toLowerCase() == 'courier' || user['Role']?.toString().toLowerCase() == 'courier')
+        ))
+          ? FloatingActionButton.extended(
+              onPressed: () {
+                final role = (user['role'] ?? user['Role']).toString().toLowerCase();
+                if (role == 'admin') {
+                  Navigator.push(context, MaterialPageRoute(builder: (_) => const AdminPanelScreen()));
+                } else if (role == 'restaurant_owner') {
+                  Navigator.push(context, MaterialPageRoute(builder: (_) => const RestaurantPanelScreen()));
+                } else if (role == 'courier') {
+                  Navigator.push(context, MaterialPageRoute(builder: (_) => const CourierPanelScreen()));
+                }
+              },
+              backgroundColor: theme.colorScheme.primary,
+              icon: const Icon(Icons.dashboard, color: Colors.black),
+              label: Text(
+                roleText(user),
+                style: const TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+              ),
+            )
+          : null,
     );
+  }
+
+  String roleText(Map<String, dynamic> user) {
+    final role = (user['role'] ?? user['Role']).toString().toLowerCase();
+    if (role == 'admin') return 'Yönetici Paneli';
+    if (role == 'restaurant_owner') return 'Restoran Paneli';
+    if (role == 'courier') return 'Kurye Paneli';
+    return 'Panel';
   }
 }

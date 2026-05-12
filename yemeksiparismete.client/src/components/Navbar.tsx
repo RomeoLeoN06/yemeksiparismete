@@ -86,6 +86,12 @@ const Navbar = () => {
                         <span>Restoran Paneli</span>
                       </Link>
                     )}
+                    {user.role === 'courier' && (
+                      <Link to="/courier-panel" className="lux-user-link dashboard-link">
+                        <Bike size={18} />
+                        <span>Kurye Paneli</span>
+                      </Link>
+                    )}
                   </div>
 
                   <Link to="/checkout" className="lux-cart-pill">
@@ -158,7 +164,11 @@ const Navbar = () => {
                     </div>
                     <div className="user-details-box">
                       <span className="user-name-sidebar">{user.FullName || user.name}</span>
-                      <span className="user-role-sidebar">{user.role === 'admin' ? 'Yönetici' : user.role === 'restaurant_owner' ? 'Restoran Sahibi' : 'Müşteri'}</span>
+                      <span className="user-role-sidebar">
+                        {user.role === 'admin' ? 'Yönetici' : 
+                         user.role === 'restaurant_owner' ? 'Restoran Sahibi' : 
+                         user.role === 'courier' ? 'Kurye' : 'Müşteri'}
+                      </span>
                     </div>
                   </div>
                 )}
@@ -193,6 +203,12 @@ const Navbar = () => {
                         <Link to="/restaurant-panel" className="sidebar-link highlight" onClick={() => setIsSidebarOpen(false)}>
                           <Package size={20} />
                           <span>Restoran Paneli</span>
+                        </Link>
+                      )}
+                      {user.role === 'courier' && (
+                        <Link to="/courier-panel" className="sidebar-link highlight" onClick={() => setIsSidebarOpen(false)}>
+                          <Bike size={20} />
+                          <span>Kurye Paneli</span>
                         </Link>
                       )}
                       <button onClick={handleLogout} className="sidebar-link text-primary logout-btn-sidebar">

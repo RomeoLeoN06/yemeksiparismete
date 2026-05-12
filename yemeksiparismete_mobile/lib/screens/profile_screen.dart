@@ -9,6 +9,7 @@ import 'login_screen.dart';
 import 'admin_panel_screen.dart';
 import 'restaurant_panel_screen.dart';
 import 'courier_application_screen.dart';
+import 'courier_panel_screen.dart';
 import 'package:intl/intl.dart';
 import 'dart:async';
 
@@ -270,6 +271,23 @@ class _ProfileScreenState extends State<ProfileScreen> with SingleTickerProvider
                             role == 'admin' ? 'Yönetici Paneli' : 'Restoran Paneli',
                             style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
                           ),
+                        ),
+                      );
+                    } else if (role == 'courier') {
+                      return Padding(
+                        padding: const EdgeInsets.only(top: 24.0),
+                        child: ElevatedButton.icon(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.blueAccent,
+                            foregroundColor: Colors.white,
+                            minimumSize: const Size.fromHeight(50),
+                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                          ),
+                          onPressed: () {
+                            Navigator.push(context, MaterialPageRoute(builder: (_) => const CourierPanelScreen()));
+                          },
+                          icon: const Icon(Icons.bike_scooter),
+                          label: const Text('Kurye Dashboard', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
                         ),
                       );
                     } else if (role == 'customer') {

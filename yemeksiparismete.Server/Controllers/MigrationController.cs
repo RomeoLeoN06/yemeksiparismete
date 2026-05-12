@@ -164,5 +164,36 @@ namespace yemeksiparismete.Server.Controllers
                 return StatusCode(500, new { error = ex.Message });
             }
         }
+        [HttpGet("fix-restaurants")]
+        public async Task<IActionResult> FixRestaurants()
+        {
+            var sqlConnectionString = _config.GetConnectionString("DefaultConnection");
+            try
+            {
+                using var sqlConn = new SqlConnection(sqlConnectionString);
+                await sqlConn.OpenAsync();
+                
+                // Orders tablosundaki eksik RestaurantId alanlarını OrderItems üzerinden Product->RestaurantId ile eşleştir
+                var updateSql = @"
+                    UPDATE O
+                    SET O.RestaurantId = P.RestaurantId
+                    FROM Orders O
+                    INNER JOIN OrderItems OI ON O.Id = OI.OrderId
+                    INNER JOIN Products P ON OI.ProductId = P.Id
+                    WHERE O.RestaurantId IS NULL";
+                    
+                using var cmd = new SqlCommand(updateSql, sqlConn);
+                int rowsAffected = await cmd.ExecuteNonQueryAsync();
+                
+                return Ok(new { 
+                    message = $"Başarıyla {rowsAffected} siparişin restoran eşleştirmesi yapıldı.", 
+                    rowsAffected
+                });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { error = ex.Message });
+            }
+        }
     }
 }

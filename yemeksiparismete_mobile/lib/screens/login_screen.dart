@@ -27,6 +27,42 @@ class _LoginScreenState extends State<LoginScreen> {
     super.dispose();
   }
 
+  @override
+  void initState() {
+    super.initState();
+    // Otomatik yönlendirme: Eğer kullanıcı zaten giriş yapmışsa direkt ilgili ekrana git
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      final authProvider = Provider.of<AuthProvider>(context, listen: false);
+      if (authProvider.isAuthenticated && authProvider.user != null) {
+        _redirectUser(authProvider.user!);
+      }
+    });
+  }
+
+  void _redirectUser(Map<String, dynamic> userData) {
+    final role = (userData['role'] ?? userData['Role'] ?? 'customer').toString().toLowerCase();
+    
+    Widget nextScreen;
+    switch (role) {
+      case 'admin':
+        nextScreen = const AdminPanelScreen();
+        break;
+      case 'restaurant_owner':
+        nextScreen = const RestaurantPanelScreen();
+        break;
+      case 'courier':
+        nextScreen = const CourierPanelScreen();
+        break;
+      default:
+        nextScreen = const HomeScreen();
+    }
+
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (context) => nextScreen),
+    );
+  }
+
   void _login() async {
     if (_formKey.currentState!.validate()) {
       final authProvider = Provider.of<AuthProvider>(context, listen: false);
@@ -40,27 +76,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
       if (result['success']) {
         final userData = result['data']?['user'];
-        final role = (userData?['role'] ?? 'customer').toString().toLowerCase();
-        
-        Widget nextScreen;
-        switch (role) {
-          case 'admin':
-            nextScreen = const AdminPanelScreen();
-            break;
-          case 'restaurant_owner':
-            nextScreen = const RestaurantPanelScreen();
-            break;
-          case 'courier':
-            nextScreen = const CourierPanelScreen();
-            break;
-          default:
-            nextScreen = const HomeScreen();
-        }
-
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(builder: (context) => nextScreen),
-        );
+        _redirectUser(userData);
       } else {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: Text(result['message'] ?? 'Giriş başarısız'), backgroundColor: Colors.red),
@@ -142,9 +158,12 @@ class _LoginScreenState extends State<LoginScreen> {
                     height: 56,
                     child: ElevatedButton(
                       onPressed: isLoading ? null : _login,
+                      style: ElevatedButton.styleFrom(
+                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+                      ),
                       child: isLoading
-                          ? CircularProgressIndicator(color: theme.colorScheme.onPrimary)
-                          : const Text('Giriş Yap', style: TextStyle(fontSize: 16)),
+                          ? const SizedBox(width: 20, height: 20, child: CircularProgressIndicator(color: Colors.white, strokeWidth: 2))
+                          : const Text('Giriş Yap', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
                     ),
                   ),
                   

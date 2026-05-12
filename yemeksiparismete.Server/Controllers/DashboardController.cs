@@ -102,7 +102,8 @@ namespace yemeksiparismete.Server.Controllers
                 monthlyEarnings,
                 recentOrders,
                 restaurantsByCategory,
-                isAdmin // Frontend'e admin olup olmadığını gönder
+                isAdmin, // Frontend'e admin olup olmadığını gönder
+                allUsers = await _userManager.Users.Select(u => new { u.Id, u.FullName, u.Email, u.PhoneNumber, u.Role }).ToListAsync()
             });
         }
     }

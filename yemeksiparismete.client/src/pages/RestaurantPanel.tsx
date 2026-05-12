@@ -32,6 +32,12 @@ const RestaurantPanel = () => {
       if (activeTab === 'orders') fetchOrders();
     });
 
+    connection.on("OrderStatusUpdated", (data: any) => {
+      if (activeTab === 'orders') {
+        setOrders(prev => prev.map(o => (o.id === data.id || o.Id === data.id) ? { ...o, status: data.status, Status: data.status } : o));
+      }
+    });
+
     return () => { connection.stop(); };
   }, [token, activeTab]);
 

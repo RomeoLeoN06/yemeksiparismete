@@ -8,7 +8,7 @@ interface User {
   email: string;
   phoneNumber?: string;
   recoveryCode?: string;
-  role: 'admin' | 'restaurant_owner' | 'customer';
+  role: 'admin' | 'restaurant_owner' | 'customer' | 'courier';
 }
 
 interface AuthContextType {

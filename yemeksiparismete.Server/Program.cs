@@ -128,13 +128,22 @@ app.MapGet("/api/direct-customers", async (AppDbContext db) => {
 
     var customers = orderGroups.Select(c => {
         string matchedUserId = c.UserId;
+        string matchedEmail = "";
+        
         // Eğer siparişte UserId yoksa, ismine (FullName) bakarak veritabanından ID'sini bul
         if (string.IsNullOrEmpty(matchedUserId)) {
             var foundUser = allUsers.FirstOrDefault(u => u.FullName != null && u.FullName.Trim().ToLower() == c.CustomerName.Trim().ToLower());
             if (foundUser != null) {
                 matchedUserId = foundUser.Id;
+                matchedEmail = foundUser.Email ?? "";
+            }
+        } else {
+            var foundUser = allUsers.FirstOrDefault(u => u.Id == matchedUserId);
+            if (foundUser != null) {
+                matchedEmail = foundUser.Email ?? "";
             }
         }
+        
         return new {
             c.CustomerName,
             c.CustomerPhone,

@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { Package, Clock, MapPin, CreditCard, RefreshCw, User, Bike, PhoneCall, Mail, Shield } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import * as signalR from '@microsoft/signalr';
 
 const getStatusText = (status: string) => {
   switch (status) {
@@ -130,9 +131,30 @@ const OrderManagement = () => {
 
   useEffect(() => {
     refreshData();
-    const interval = setInterval(refreshData, 30000); // 30 saniyede bir otomatik tazele
-    return () => clearInterval(interval);
-  }, [refreshData]);
+    
+    // SignalR Bağlantısı
+    const connection = new signalR.HubConnectionBuilder()
+      .withUrl("/orderhub")
+      .withAutomaticReconnect()
+      .build();
+
+    connection.start()
+      .then(() => {
+        connection.on("ReceiveNewOrder", () => {
+          if (activeTab === 'orders') fetchOrders();
+        });
+        connection.on("OrderStatusUpdated", (data: any) => {
+          if (activeTab === 'orders') {
+            setOrders(prev => prev.map(o => (o.id === data.id || o.Id === data.id) ? { ...o, status: data.status, Status: data.status } : o));
+          }
+        });
+      })
+      .catch(err => console.error("SignalR Connection Error: ", err));
+
+    return () => { 
+      connection.stop();
+    };
+  }, [refreshData, activeTab, fetchOrders]);
 
 
 
