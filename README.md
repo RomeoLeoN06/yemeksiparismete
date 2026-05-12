@@ -10,11 +10,9 @@ yemeksiparismete/
 ├── 📁 .jpeg/          # Dokümantasyon: UI/UX Ekran Görüntüleri
 ├── 🗄️ YemekSiparisDb_Yedek.sql # Veritabanı Yedeği (Hızlı Kurulum İçin)
 ├── 📄 README.md       # Proje Dokümantasyonu
+├── 📄 screenshot/README.md  #Projenin Hem Web Hem Mobil Üzerinden Çalıştığına Dair Kanıtlar
 └── 🧪 AutoSeeder/     # Mock Data: Akıllı Test Veri Üreticisi
 ```
-
----
-
 # 💎 YemekSiparisMete: Teknolojik Mükemmeliyet ve Mimari Vizyon Raporu
 
 Bu döküman, **YemekSiparisMete** projesinin sadece bir yazılım değil, Veterans aynı zamanda mühendislik ve estetiğin harmanlandığı dijital bir sanat eseri olduğunu kanıtlayan en kapsamlı teknik analiz ve vizyon belgesidir. Sistemimizin her bir satır kodu, kullanıcı deneyimini zirveye taşımak ve sürdürülebilir bir teknolojik altyapı oluşturmak amacıyla titizlikle işlenmiştir.
@@ -78,5 +76,3 @@ Kullanıcılarımızın güvenliği bizim için bir seçenek değil, mutlak bir 
 
 **YemekSiparisMete**, teknolojik sınırların zorlandığı, kullanıcı mutluluğunun her şeyin önünde tutulduğu ve modern yazılım mimarisinin tüm nimetlerinden faydalanan devasa bir ekosistemdir. Bu sistem, hem bir ticari platform hem de teknik bir başarı hikayesidir.
 
----
-*Hazırlayan: Antigravity AI*
