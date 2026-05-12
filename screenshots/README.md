@@ -163,3 +163,55 @@
     </tbody>
   </table>
 </div>
+<br>
+<div align="center">
+  <table style="width: 100%; table-layout: fixed; border-collapse: collapse !important; border: 4px solid #FF0000 !important;">
+    <thead>
+      <tr style="border: 4px solid #FF0000 !important; background-color: transparent !important;">
+        <th colspan="4" align="center" style="border: 4px solid #FF0000 !important; padding: 20px 0;">
+          <h3>⚙️ Yönetim Paneli (Web)</h3>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Satır 1 -->
+      <tr style="border: 4px solid #FF0000 !important; background-color: transparent !important;">
+        <td align="center" style="border: 4px solid #FF0000 !important; padding: 10px; vertical-align: top;">
+          <img src="yoneticianasayfa.jpeg" style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 12px; border: 2px solid #333; box-shadow: 0 10px 20px rgba(0,0,0,0.4);">
+          <br><sub><b>📊 Yönetici Özeti</b></sub>
+        </td>
+        <td align="center" style="border: 4px solid #FF0000 !important; padding: 10px; vertical-align: top;">
+          <img src="sipariskontrol.jpeg" style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 12px; border: 2px solid #333; box-shadow: 0 10px 20px rgba(0,0,0,0.4);">
+          <br><sub><b>📑 Sipariş Denetimi</b></sub>
+        </td>
+        <td align="center" style="border: 4px solid #FF0000 !important; padding: 10px; vertical-align: top;">
+          <img src="musteriler.jpeg" style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 12px; border: 2px solid #333; box-shadow: 0 10px 20px rgba(0,0,0,0.4);">
+          <br><sub><b>👥 Müşteri Portföyü</b></sub>
+        </td>
+        <td align="center" style="border: 4px solid #FF0000 !important; padding: 10px; vertical-align: top;">
+          <img src="kuryeyönetim.jpeg" style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 12px; border: 2px solid #333; box-shadow: 0 10px 20px rgba(0,0,0,0.4);">
+          <br><sub><b>🛵 Kurye Operasyonu</b></sub>
+        </td>
+      </tr>
+      <!-- Satır 2 -->
+      <tr style="border: 4px solid #FF0000 !important; background-color: transparent !important;">
+        <td align="center" style="border: 4px solid #FF0000 !important; padding: 10px; vertical-align: top;">
+          <img src="yoneticiprofil.jpeg" style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 12px; border: 2px solid #333; box-shadow: 0 10px 20px rgba(0,0,0,0.4);">
+          <br><sub><b>👤 Yetki & Hesap Ayarları</b></sub>
+        </td>
+        <td align="center" style="border: 4px solid #FF0000 !important; padding: 10px; vertical-align: top;">
+          <img src="guvenlikadmin.jpeg" style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 12px; border: 2px solid #333; box-shadow: 0 10px 20px rgba(0,0,0,0.4);">
+          <br><sub><b>🛡️ Admin Güvenlik Duvarı</b></sub>
+        </td>
+        <td align="center" style="border: 4px solid #FF0000 !important; padding: 10px; vertical-align: top;">
+          <img src="yonetimkontrol.jpeg" style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 12px; border: 2px solid #333; box-shadow: 0 10px 20px rgba(0,0,0,0.4);">
+          <br><sub><b>🎮 Genel Kontrol Merkezi</b></sub>
+        </td>
+        <td align="center" style="border: 4px solid #FF0000 !important; padding: 10px; vertical-align: top;">
+          <img src="kuryekontrol.jpeg" style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 12px; border: 2px solid #333; box-shadow: 0 10px 20px rgba(0,0,0,0.4);">
+          <br><sub><b>📡 Kurye Kabul ve Red</b></sub>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
