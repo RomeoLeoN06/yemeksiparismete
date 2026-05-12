@@ -7,8 +7,7 @@ yemeksiparismete/
 ├── 🌐 .Server/        # Core API: Business Logic & SignalR Hubs
 ├── 💻 .client/        # Web App: React 19 Design System
 ├── 📱 _mobile/        # Mobile App: Flutter Real-time Engine
-├── 📁 .jpeg/          # Dokümantasyon: UI/UX Ekran Görüntüleri
-├── 🗄️ YemekSiparisDb_Yedek.sql # Veritabanı Yedeği (Hızlı Kurulum İçin)
+├── 🗄️ sqlserver/YemekSiparisDb_Yedek.sql    # Veritabanı Yedeği (Hızlı Kurulum İçin)
 ├── 📄 README.md       # Proje Dokümantasyonu
 ├── 📄 screenshot/README.md  #Projenin Hem Web Hem Mobil Üzerinden Çalıştığına Dair Kanıtlar
 └── 🧪 AutoSeeder/     # Mock Data: Akıllı Test Veri Üreticisi
