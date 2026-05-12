@@ -3,7 +3,7 @@
     <thead>
       <tr style="border: 4px solid #FF0000 !important; background-color: transparent !important;">
         <th colspan="4" align="center" style="border: 4px solid #FF0000 !important; padding: 20px 0;">
-          <h3>⚙️ Web Kullanıcı Paneli (Web)</h3>
+          <h3>⚙️ Web Kullanıcı Paneli </h3>
         </th>
       </tr>
     </thead>
@@ -169,7 +169,7 @@
     <thead>
       <tr style="border: 4px solid #FF0000 !important; background-color: transparent !important;">
         <th colspan="4" align="center" style="border: 4px solid #FF0000 !important; padding: 20px 0;">
-          <h3>⚙️ Web Yönetim Paneli (Web)</h3>
+          <h3>⚙️ Web Yönetim Paneli </h3>
         </th>
       </tr>
     </thead>
