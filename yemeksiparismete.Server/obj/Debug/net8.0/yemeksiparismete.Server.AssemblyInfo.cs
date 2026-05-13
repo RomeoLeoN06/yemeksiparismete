@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("yemeksiparismete.Server")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+391fe826e7285ab6ad1c30f5ed4f3561b59d3607")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1680325d5248ea6cf3fd602a80e00c787235dee4")]
 [assembly: System.Reflection.AssemblyProductAttribute("yemeksiparismete.Server")]
 [assembly: System.Reflection.AssemblyTitleAttribute("yemeksiparismete.Server")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
