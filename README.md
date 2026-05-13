@@ -87,7 +87,53 @@ yemeksiparismete/
 
 
 <br>
+<!-- 5. WEB FRONTEND BÖLÜMÜ -->
+<div align="left" style="background-color: #FDFBF7; padding: 20px; border-radius: 12px; border: 1px solid #EAE8E1; font-family: sans-serif;">
+  
+  <!-- BAŞLIK -->
+  <h2 style="color: #4A4A4A; display: flex; align-items: center; gap: 10px; margin-top: 0;">
+    🎨 5. Web Frontend: Estetik ve Fonksiyonelliğin Senfonisi
+  </h2>
+  
+  <!-- AÇIKLAMA METNİ -->
+  <p style="color: #666; font-size: 15px; line-height: 1.6; margin-bottom: 20px;">
+    Web arayüzü, <b>React 19</b> ve modern CSS teknikleriyle tasarlanmış, kullanıcı deneyimini (UX) odağına alan bir görsel şölen sunar.
+  </p>
 
+  <!-- TABLO -->
+  <table style="width: 100%; border-collapse: collapse; background-color: #FFFFFF; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+    <thead>
+      <tr style="background-color: #E2E0D6; border-bottom: 2px solid #C5C3B6;">
+        <th align="left" style="padding: 12px; color: #4A4A4A; font-size: 14px;">Bileşen</th>
+        <th align="left" style="padding: 12px; color: #4A4A4A; font-size: 14px;">Teknolojik Derinlik</th>
+        <th align="left" style="padding: 12px; color: #4A4A4A; font-size: 14px;">Stratejik Avantaj</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="border-bottom: 1px solid #EAE8E1;">
+        <td style="padding: 12px; font-size: 14px;"><b>React 19</b></td>
+        <td style="padding: 12px; font-size: 14px; color: #666;">Latest Release</td>
+        <td style="padding: 12px; font-size: 14px; color: #333;">Modern rendering ve üstün component hiyerarşisi.</td>
+      </tr>
+      <tr style="border-bottom: 1px solid #EAE8E1;">
+        <td style="padding: 12px; font-size: 14px;"><b>Vite Engine</b></td>
+        <td style="padding: 12px; font-size: 14px; color: #666;">Ultra Fast</td>
+        <td style="padding: 12px; font-size: 14px; color: #333;">Saniyeler içinde yüklenen sayfalar ve optimize bundle.</td>
+      </tr>
+      <tr style="border-bottom: 1px solid #EAE8E1;">
+        <td style="padding: 12px; font-size: 14px;"><b>TypeScript</b></td>
+        <td style="padding: 12px; font-size: 14px; color: #666;">Type-Safe</td>
+        <td style="padding: 12px; font-size: 14px; color: #333;">Çalışma zamanı hatalarını sıfıra indiren güçlü kod yapısı.</td>
+      </tr>
+      <tr>
+        <td style="padding: 12px; font-size: 14px;"><b>Framer Motion</b></td>
+        <td style="padding: 12px; font-size: 14px; color: #666;">3D & Glass</td>
+        <td style="padding: 12px; font-size: 14px; color: #333;">3D hover efektleri ve premium cam efekti (Glassmorphism).</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<br>
 <!-- AĞ VE GÜVENLİK -->
 <table style="width: 100%; border-collapse: collapse; border: 2px solid #FF0000;">
   <tr style="background-color: #fff5f5;">
