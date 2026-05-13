@@ -1036,4 +1036,164 @@ yemeksiparismete/
   </table>
 </div>
 <br>
+<div align="center">
+  <table style="width: 100%; table-layout: fixed; border-collapse: collapse !important; border: 4px solid #EAE8E1 !important;">
+    <thead>
+      <tr style="border: 4px solid #EAE8E1 !important; background-color: #E2E0D6 !important;">
+        <th colspan="4" align="center" style="border: 4px solid #EAE8E1 !important; padding: 20px 0;">
+          <h3 style="color: #4A4A4A; margin: 0; font-family: sans-serif;">📊 1. Bölüm: Veritabanı Temel Tanımlamaları</h3>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="border: 4px solid #EAE8E1 !important; background-color: transparent !important;">
+        <td align="center" style="border: 4px solid #EAE8E1 !important; padding: 15px; vertical-align: top;">
+          <img src="./Kullanicilarsql.jpeg" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 8px; border: 1px solid #C5C3B6; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+          <br><sub style="font-family: sans-serif; font-size: 12px; color: #4A4A4A; display: block; margin-top: 8px;"><b>📁 Kullanicilarsql</b></sub>
+        </td>
+        <td align="center" style="border: 4px solid #EAE8E1 !important; padding: 15px; vertical-align: top;">
+          <img src="./Kullanicilarsql2.jpeg" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 8px; border: 1px solid #C5C3B6; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+          <br><sub style="font-family: sans-serif; font-size: 12px; color: #4A4A4A; display: block; margin-top: 8px;"><b>📁 Kullanicilarsql2</b></sub>
+        </td>
+        <td align="center" style="border: 4px solid #EAE8E1 !important; padding: 15px; vertical-align: top;">
+          <img src="./sehirlersql.jpeg" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 8px; border: 1px solid #C5C3B6; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+          <br><sub style="font-family: sans-serif; font-size: 12px; color: #4A4A4A; display: block; margin-top: 8px;"><b>📁 sehirlersql</b></sub>
+        </td>
+        <td align="center" style="border: 4px solid #EAE8E1 !important; padding: 15px; vertical-align: top;">
+          <img src="./kuponlarsql.jpeg" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 8px; border: 1px solid #C5C3B6; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+          <br><sub style="font-family: sans-serif; font-size: 12px; color: #4A4A4A; display: block; margin-top: 8px;"><b>📁 kuponlarsql</b></sub>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<br>
+<div align="center" style="margin-top: 25px;">
+  <table style="width: 100%; table-layout: fixed; border-collapse: collapse !important; border: 4px solid #EAE8E1 !important;">
+    <thead>
+      <tr style="border: 4px solid #EAE8E1 !important; background-color: #E2E0D6 !important;">
+        <th colspan="4" align="center" style="border: 4px solid #EAE8E1 !important; padding: 20px 0;">
+          <h3 style="color: #4A4A4A; margin: 0; font-family: sans-serif;">📊 2. Bölüm: Operasyonel Kontroller ve Sipariş Yönetimi</h3>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="border: 4px solid #EAE8E1 !important; background-color: transparent !important;">
+        <td align="center" style="border: 4px solid #EAE8E1 !important; padding: 15px; vertical-align: top;">
+          <img src="./kuryekontrolsql.jpeg" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 8px; border: 1px solid #C5C3B6; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+          <br><sub style="font-family: sans-serif; font-size: 12px; color: #4A4A4A; display: block; margin-top: 8px;"><b>📁 kuryekontrolsql</b></sub>
+        </td>
+        <td align="center" style="border: 4px solid #EAE8E1 !important; padding: 15px; vertical-align: top;">
+          <img src="./ilcelersql.jpeg" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 8px; border: 1px solid #C5C3B6; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+          <br><sub style="font-family: sans-serif; font-size: 12px; color: #4A4A4A; display: block; margin-top: 8px;"><b>📁 ilcelersql</b></sub>
+        </td>
+        <td align="center" style="border: 4px solid #EAE8E1 !important; padding: 15px; vertical-align: top;">
+          <img src="./siparislersql.jpeg" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 8px; border: 1px solid #C5C3B6; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+          <br><sub style="font-family: sans-serif; font-size: 12px; color: #4A4A4A; display: block; margin-top: 8px;"><b>📁 siparislersql</b></sub>
+        </td>
+        <td align="center" style="border: 4px solid #EAE8E1 !important; padding: 15px; vertical-align: top;">
+          <img src="./ortakgrupsql.jpeg" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 8px; border: 1px solid #C5C3B6; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+          <br><sub style="font-family: sans-serif; font-size: 12px; color: #4A4A4A; display: block; margin-top: 8px;"><b>📁 ortakgrupsql</b></sub>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<br>
+<div align="center" style="margin-top: 25px;">
+  <table style="width: 100%; table-layout: fixed; border-collapse: collapse !important; border: 4px solid #EAE8E1 !important;">
+    <thead>
+      <tr style="border: 4px solid #EAE8E1 !important; background-color: #E2E0D6 !important;">
+        <th colspan="4" align="center" style="border: 4px solid #EAE8E1 !important; padding: 20px 0;">
+          <h3 style="color: #4A4A4A; margin: 0; font-family: sans-serif;">📊 3. Bölüm: Restoran Ürünleri ve Müşteri Sipariş İlişkileri</h3>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="border: 4px solid #EAE8E1 !important; background-color: transparent !important;">
+        <td align="center" style="border: 4px solid #EAE8E1 !important; padding: 15px; vertical-align: top;">
+          <img src="./restauranturunsql.jpeg" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 8px; border: 1px solid #C5C3B6; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+          <br><sub style="font-family: sans-serif; font-size: 12px; color: #4A4A4A; display: block; margin-top: 8px;"><b>📁 restauranturunsql</b></sub>
+        </td>
+        <td align="center" style="border: 4px solid #EAE8E1 !important; padding: 15px; vertical-align: top;">
+          <img src="./musterisql.jpeg" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 8px; border: 1px solid #C5C3B6; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+          <br><sub style="font-family: sans-serif; font-size: 12px; color: #4A4A4A; display: block; margin-top: 8px;"><b>📁 musterisql</b></sub>
+        </td>
+        <td align="center" style="border: 4px solid #EAE8E1 !important; padding: 15px; vertical-align: top;">
+          <img src="./musterisiparis2.jpeg" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 8px; border: 1px solid #C5C3B6; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+          <br><sub style="font-family: sans-serif; font-size: 12px; color: #4A4A4A; display: block; margin-top: 8px;"><b>📁 musterisiparis2</b></sub>
+        </td>
+        <td align="center" style="border: 4px solid #EAE8E1 !important; padding: 15px; vertical-align: top;">
+          <img src="./urunler2.jpeg" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 8px; border: 1px solid #C5C3B6; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+          <br><sub style="font-family: sans-serif; font-size: 12px; color: #4A4A4A; display: block; margin-top: 8px;"><b>📁 urunler2</b></sub>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<br>
+<div align="center" style="margin-top: 25px;">
+  <table style="width: 100%; table-layout: fixed; border-collapse: collapse !important; border: 4px solid #EAE8E1 !important;">
+    <thead>
+      <tr style="border: 4px solid #EAE8E1 !important; background-color: #E2E0D6 !important;">
+        <th colspan="4" align="center" style="border: 4px solid #EAE8E1 !important; padding: 20px 0;">
+          <h3 style="color: #4A4A4A; margin: 0; font-family: sans-serif;">📊 4. Bölüm: Restoran Değerlendirmeleri ve Kullanıcı Kayıt Bilgileri</h3>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="border: 4px solid #EAE8E1 !important; background-color: transparent !important;">
+        <td align="center" style="border: 4px solid #EAE8E1 !important; padding: 15px; vertical-align: top;">
+          <img src="./restaurantyildizsql.jpeg" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 8px; border: 1px solid #C5C3B6; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+          <br><sub style="font-family: sans-serif; font-size: 12px; color: #4A4A4A; display: block; margin-top: 8px;"><b>📁 restaurantyildizsql</b></sub>
+        </td>
+        <td align="center" style="border: 4px solid #EAE8E1 !important; padding: 15px; vertical-align: top;">
+          <img src="./restaurantbilgilerisql.jpeg" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 8px; border: 1px solid #C5C3B6; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+          <br><sub style="font-family: sans-serif; font-size: 12px; color: #4A4A4A; display: block; margin-top: 8px;"><b>📁 restaurantbilgilerisql</b></sub>
+        </td>
+        <td align="center" style="border: 4px solid #EAE8E1 !important; padding: 15px; vertical-align: top;">
+          <img src="./ornekkartkaydisql.jpeg" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 8px; border: 1px solid #C5C3B6; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+          <br><sub style="font-family: sans-serif; font-size: 12px; color: #4A4A4A; display: block; margin-top: 8px;"><b>📁 ornekkartkaydisql</b></sub>
+        </td>
+        <td align="center" style="border: 4px solid #EAE8E1 !important; padding: 15px; vertical-align: top;">
+          <img src="./ornekadreskayitsql.jpeg" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 8px; border: 1px solid #C5C3B6; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+          <br><sub style="font-family: sans-serif; font-size: 12px; color: #4A4A4A; display: block; margin-top: 8px;"><b>📁 ornekadreskayitsql</b></sub>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<br>
+<div align="center" style="margin-top: 25px;">
+  <table style="width: 100%; table-layout: fixed; border-collapse: collapse !important; border: 4px solid #EAE8E1 !important;">
+    <thead>
+      <tr style="border: 4px solid #EAE8E1 !important; background-color: #E2E0D6 !important;">
+        <th colspan="4" align="center" style="border: 4px solid #EAE8E1 !important; padding: 20px 0;">
+          <h3 style="color: #4A4A4A; margin: 0; font-family: sans-serif;">📊 5. Bölüm: Rol Yönetimi ve Gelişmiş Fonksiyonlar</h3>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="border: 4px solid #EAE8E1 !important; background-color: transparent !important;">
+        <td align="center" style="border: 4px solid #EAE8E1 !important; padding: 15px; vertical-align: top;">
+          <img src="./ornekrolsql.jpeg" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 8px; border: 1px solid #C5C3B6; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+          <br><sub style="font-family: sans-serif; font-size: 12px; color: #4A4A4A; display: block; margin-top: 8px;"><b>📁 ornekrolsql</b></sub>
+        </td>
+        <td align="center" style="border: 4px solid #EAE8E1 !important; padding: 15px; vertical-align: top;">
+          <img src="./rolatamalari.jpeg" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 8px; border: 1px solid #C5C3B6; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+          <br><sub style="font-family: sans-serif; font-size: 12px; color: #4A4A4A; display: block; margin-top: 8px;"><b>📁 rolatamalari</b></sub>
+        </td>
+        <td align="center" style="border: 4px solid #EAE8E1 !important; padding: 15px; vertical-align: top;">
+          <img src="./fonksiyondegiskensql.jpeg" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 8px; border: 1px solid #C5C3B6; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+          <br><sub style="font-family: sans-serif; font-size: 12px; color: #4A4A4A; display: block; margin-top: 8px;"><b>📁 fonksiyondegiskensql</b></sub>
+        </td>
+        <td align="center" style="border: 4px solid #EAE8E1 !important; padding: 15px; vertical-align: top;">
+          <img src="./devami.jpeg" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 8px; border: 1px solid #C5C3B6; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+          <br><sub style="font-family: sans-serif; font-size: 12px; color: #4A4A4A; display: block; margin-top: 8px;"><b>📁 devami</b></sub>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<br>
 
