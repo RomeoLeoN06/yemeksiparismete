@@ -1180,7 +1180,7 @@ yemeksiparismete/
           <br><sub style="font-family: sans-serif; font-size: 12px; color: #4A4A4A; display: block; margin-top: 8px;"><b>📁 ornekrolsql</b></sub>
         </td>
         <td align="center" style="border: 4px solid #EAE8E1 !important; padding: 15px; vertical-align: top;">
-          <img src="./rolatamalari.jpeg" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 8px; border: 1px solid #C5C3B6; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+          <img src="./rolatamaları.jpeg" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 8px; border: 1px solid #C5C3B6; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
           <br><sub style="font-family: sans-serif; font-size: 12px; color: #4A4A4A; display: block; margin-top: 8px;"><b>📁 rolatamalari</b></sub>
         </td>
         <td align="center" style="border: 4px solid #EAE8E1 !important; padding: 15px; vertical-align: top;">
