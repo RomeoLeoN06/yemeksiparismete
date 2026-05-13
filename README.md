@@ -13,18 +13,6 @@ yemeksiparismete/
 └── 🧪 AutoSeeder/     # Mock Data: Akıllı Test Veri Üreticisi
 ```
 <div align="center" style="width: 100%; box-sizing: border-box; overflow-x: hidden;">
-
-<div style="width: 100%; box-sizing: border-box;">
-  <table width="100%" style="width: 100%; min-width: 100%; border-collapse: collapse; border: 3px solid #FF0000; box-sizing: border-box;">
-    <tr>
-      <td align="center" style="padding: 20px;">
-        <h1>🍕 YemekSiparisMete</h1>
-        <p><b>Gastronomi ve Teknolojinin Kusursuz Senfonisi</b></p>
-      </td>
-    </tr>
-  </table>
-</div>
-
 <br>
 <div align="left" style="background-color: #FDFBF7; padding: 30px; border-radius: 15px; border: 1px solid #EAE8E1; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; width: 100%; box-sizing: border-box;">
   
