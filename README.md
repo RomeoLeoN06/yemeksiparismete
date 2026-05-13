@@ -319,6 +319,8 @@ yemeksiparismete/
       </tbody>
     </table>
   </div>
+  <br>
+  <br>
   <div align="left" style="background-color: #FDFBF7; padding: 30px; border-radius: 12px; border: 1px solid #EAE8E1; font-family: sans-serif; width: 100%; box-sizing: border-box;">
   <h2 style="color: #4A4A4A; display: flex; align-items: center; gap: 10px; margin-top: 0; word-wrap: break-word;">
     🌱 8. Sosyal Sinerji ve Ekolojik Vizyon: Kolektif Sipariş & Sürdürülebilir Sıralama
