@@ -352,7 +352,6 @@ yemeksiparismete/
       </tbody>
     </table>
   </div>
-</div>
 <br>
 <div style="width: 100%; display: block; box-sizing: border-box;">
   <table style="width: 100%; display: table; border-collapse: collapse; border: 2px solid #333; box-sizing: border-box;">
