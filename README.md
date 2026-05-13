@@ -44,9 +44,21 @@ yemeksiparismete/
 <br>
 
 <!-- 2. BACKEND MÜHENDİSLİĞİ BÖLÜMÜ -->
-<div align="left">
-  <table style="width: 100%; border-collapse: collapse; font-family: sans-serif; background-color: #FDFBF7; border-radius: 8px; overflow: hidden;">
-    <!-- BAŞLIK KISMI -->
+<!-- 2. BACKEND MÜHENDİSLİĞİ BÖLÜMÜ -->
+<div align="left" style="background-color: #FDFBF7; padding: 20px; border-radius: 12px; border: 1px solid #EAE8E1; font-family: sans-serif;">
+  
+  <!-- BAŞLIK -->
+  <h2 style="color: #4A4A4A; display: flex; align-items: center; gap: 10px; margin-top: 0;">
+    🛡️ 2. Backend Mühendisliği: Verimlilik ve Ölçeklenebilirlik
+  </h2>
+  
+  <!-- AÇIKLAMA METNİ -->
+  <p style="color: #666; font-size: 15px; line-height: 1.6; margin-bottom: 20px;">
+    Sistemin kalbi olan backend tarafında, kurumsal düzeyde (enterprise-grade) teknolojiler kullanılarak sarsılmaz bir iş mantığı katmanı oluşturulmuştur.
+  </p>
+
+  <!-- TABLO -->
+  <table style="width: 100%; border-collapse: collapse; background-color: #FFFFFF; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
     <thead>
       <tr style="background-color: #E2E0D6; border-bottom: 2px solid #C5C3B6;">
         <th align="left" style="padding: 12px; color: #4A4A4A; font-size: 14px;">Teknoloji</th>
@@ -54,7 +66,6 @@ yemeksiparismete/
         <th align="left" style="padding: 12px; color: #4A4A4A; font-size: 14px;">Görev & Stratejik Avantaj</th>
       </tr>
     </thead>
-    <!-- İÇERİK KISMI -->
     <tbody>
       <tr style="border-bottom: 1px solid #EAE8E1;">
         <td style="padding: 12px; font-size: 14px;"><b>Microsoft .NET Core</b></td>
@@ -84,8 +95,6 @@ yemeksiparismete/
     </tbody>
   </table>
 </div>
-
-
 <br>
 <!-- 5. WEB FRONTEND BÖLÜMÜ -->
 <div align="left" style="background-color: #FDFBF7; padding: 20px; border-radius: 12px; border: 1px solid #EAE8E1; font-family: sans-serif;">
