@@ -31,11 +31,9 @@ yemeksiparismete/
   <h2 style="color: #2C3E50; margin-top: 0; border-bottom: 2px solid #E2E0D6; padding-bottom: 10px; word-wrap: break-word;">
     🏛️ 1. Mimari Şaheser: Sistem Topolojisi
   </h2>
-  
   <p style="color: #7F8C8D; font-size: 15px; margin-bottom: 40px; word-wrap: break-word;">
     Sistem, yüksek erişilebilirlik ve sürdürülebilirlik için <b>N-Tier (Çok Katmanlı)</b> mimari standartlarında kurgulanmıştır.
   </p>
-
   <div style="width: 100%; overflow-x: auto; padding-bottom: 15px; text-align: center; box-sizing: border-box;">
     <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" style="border: none; background: transparent; margin: auto; width: 100%; min-width: 100%;">
           <tr>
@@ -99,15 +97,12 @@ yemeksiparismete/
 </div>
 <br>
 <div align="left" style="background-color: #FDFBF7; padding: 30px; border-radius: 12px; border: 1px solid #EAE8E1; font-family: sans-serif; width: 100%; box-sizing: border-box;">
-  
     <h2 style="color: #4A4A4A; display: flex; align-items: center; gap: 10px; margin-top: 0; word-wrap: break-word;">
     🛡️ 2. Backend Mühendisliği: Verimlilik ve Ölçeklenebilirlik
   </h2>
-  
     <p style="color: #666; font-size: 15px; line-height: 1.6; margin-bottom: 20px; word-wrap: break-word;">
     Sistemin kalbi olan backend tarafında, kurumsal düzeyde (enterprise-grade) teknolojiler kullanılarak sarsılmaz bir iş mantığı katmanı oluşturulmuştur.
   </p>
-
   <div style="width: 100%; overflow-x: auto; box-sizing: border-box;">
     <table width="100%" style="width: 100%; min-width: 100%; border-collapse: collapse; background-color: #FFFFFF; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); box-sizing: border-box;">
       <thead>
@@ -149,15 +144,12 @@ yemeksiparismete/
 </div>
 <br>
 <div align="left" style="background-color: #FDFBF7; padding: 30px; border-radius: 12px; border: 1px solid #EAE8E1; font-family: sans-serif; width: 100%; box-sizing: border-box;">
-  
     <h2 style="color: #4A4A4A; display: flex; align-items: center; gap: 10px; margin-top: 0; word-wrap: break-word;">
     🗄️ 3. Veritabanı ve Veri Yönetimi (SQL Server)
   </h2>
-  
     <p style="color: #666; font-size: 15px; line-height: 1.6; margin-bottom: 20px; word-wrap: break-word;">
     Projenin veri ambarı, <b>Microsoft SQL Server</b> üzerinde optimize edilmiştir. Veri bütünlüğü (integrity) ve ilişkisel modelleme (relational mapping) en üst seviyededir.
   </p>
-
   <div style="width: 100%; overflow-x: auto; box-sizing: border-box;">
     <table width="100%" style="width: 100%; min-width: 100%; border-collapse: collapse; background-color: #FFFFFF; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); box-sizing: border-box;">
       <thead>
@@ -185,15 +177,12 @@ yemeksiparismete/
 </div>
 <br>
 <div align="left" style="background-color: #FDFBF7; padding: 30px; border-radius: 12px; border: 1px solid #EAE8E1; font-family: sans-serif; width: 100%; box-sizing: border-box;">
-  
     <h2 style="color: #4A4A4A; display: flex; align-items: center; gap: 10px; margin-top: 0; word-wrap: break-word;">
     🌐 4. Ağ Topolojisi ve IPv4 Erişim Dinamikleri
   </h2>
-  
     <p style="color: #666; font-size: 15px; line-height: 1.6; margin-bottom: 20px; word-wrap: break-word;">
     Çapraz platform (Cross-platform) haberleşmesi, sistemin en güçlü yanlarından biridir. Mobil ve Web istemcilerinin merkezi sunucuyla sorunsuz etkileşimi için özel bir ağ yapılandırması uygulanmıştır.
-  </p>
-
+    </p>
   <div style="width: 100%; overflow-x: auto; box-sizing: border-box;">
     <table width="100%" style="width: 100%; min-width: 100%; border-collapse: collapse; background-color: #FFFFFF; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); box-sizing: border-box;">
       <thead>
@@ -222,22 +211,18 @@ yemeksiparismete/
       </tbody>
     </table>
   </div>
-
     <p style="color: #888; font-size: 13px; margin-top: 15px; font-style: italic; word-wrap: break-word;">
     * Bu yapılandırma, <b>localhost</b> sınırlarını aşarak gerçek dünya ağ senaryolarında projenin kesintisiz çalışmasını garanti altına alır.
   </p>
 </div>
 <br>
 <div align="left" style="background-color: #FDFBF7; padding: 30px; border-radius: 12px; border: 1px solid #EAE8E1; font-family: sans-serif; width: 100%; box-sizing: border-box;">
-  
     <h2 style="color: #4A4A4A; display: flex; align-items: center; gap: 10px; margin-top: 0; word-wrap: break-word;">
     🎨 5. Web Frontend: Estetik ve Fonksiyonelliğin Senfonisi
   </h2>
-  
     <p style="color: #666; font-size: 15px; line-height: 1.6; margin-bottom: 20px; word-wrap: break-word;">
     Web arayüzü, <b>React 19</b> ve modern CSS teknikleriyle tasarlanmış, kullanıcı deneyimini (UX) odağına alan bir görsel şölen sunar.
   </p>
-
   <div style="width: 100%; overflow-x: auto; box-sizing: border-box;">
     <table width="100%" style="width: 100%; min-width: 100%; border-collapse: collapse; background-color: #FFFFFF; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); box-sizing: border-box;">
       <thead>
@@ -274,15 +259,12 @@ yemeksiparismete/
 </div>
 <br>
 <div align="left" style="background-color: #FDFBF7; padding: 30px; border-radius: 12px; border: 1px solid #EAE8E1; font-family: sans-serif; width: 100%; box-sizing: border-box;">
-  
     <h2 style="color: #4A4A4A; display: flex; align-items: center; gap: 10px; margin-top: 0; word-wrap: break-word;">
     📲 6. Mobil Teknoloji: Avucunuzdaki Hız ve Zarafet
   </h2>
-  
     <p style="color: #666; font-size: 15px; line-height: 1.6; margin-bottom: 20px; word-wrap: break-word;">
     Flutter ile inşa edilen mobil uygulama, native performansını şık bir tasarım diliyle birleştirir.
   </p>
-
   <div style="width: 100%; overflow-x: auto; box-sizing: border-box;">
     <table width="100%" style="width: 100%; min-width: 100%; border-collapse: collapse; background-color: #FFFFFF; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); box-sizing: border-box;">
       <thead>
@@ -319,15 +301,12 @@ yemeksiparismete/
 </div>
 <br>
 <div align="left" style="background-color: #FDFBF7; padding: 30px; border-radius: 12px; border: 1px solid #EAE8E1; font-family: sans-serif; width: 100%; box-sizing: border-box;">
-  
     <h2 style="color: #4A4A4A; display: flex; align-items: center; gap: 10px; margin-top: 0; word-wrap: break-word;">
     🔐 7. Siber Güvenlik: Kırılmaz Bir Dijital Kale
   </h2>
-  
     <p style="color: #666; font-size: 15px; line-height: 1.6; margin-bottom: 20px; word-wrap: break-word;">
     Kullanıcı verileri ve sistem bütünlüğü, endüstri standardı modern siber güvenlik protokolleri ile korunmaktadır:
   </p>
-
   <div style="width: 100%; overflow-x: auto; box-sizing: border-box;">
     <table width="100%" style="width: 100%; min-width: 100%; border-collapse: collapse; background-color: #FFFFFF; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); box-sizing: border-box;">
       <thead>
