@@ -18,9 +18,10 @@ Bu rapor, YemekSiparisMete ekosisteminin teknolojik derinliğini, mimari olgunlu
 🏛️ 1. Mimari Şaheser: N-Tier Katmanlı Yapı ve Entegrasyon Stratejisi
 Sistemimiz, birbirinden bağımsız çalışan ancak mükemmel bir uyum içerisinde haberleşen üç ana devasa katman üzerine inşa edilmiştir. Bu mimari tercih, projenin on binlerce kullanıcıya aynı anda hizmet verebilecek esnekliğe sahip olmasını sağlar.
 
-🛡️ Core Backend (Merkezi Güç Merkezi): ASP.NET Core 8.0 teknolojisiyle donatılmış, projenin beynini oluşturan bu katman; tüm veri akışını, güvenlik protokollerini ve iş mantığını yöneten devasa bir orkestra şefidir.
-✨ Web Client (İnteraktif Portal): React 19 ve TypeScript'in gücünü arkasına alan web arayüzü, kullanıcılara sadece bir sipariş platformu değil, aynı zamanda akıcı animasyonlarla bezenmiş dijital bir deneyim alanı sunar.
-📱 Mobile Application (Mobil Ekosistem): Flutter ve Dart'ın sunduğu yerel (native) performans avantajlarıyla, hem iOS hem de Android dünyasında ödün vermeyen, hızlı ve sezgisel bir kullanım vaat eder.
+🛡️ Core Backend (Merkezi Güç Merkezi): ASP.NET Core 8.0 teknolojisiyle donatılmış, projenin beynini oluşturan bu katman; tüm veri akışını, güvenlik protokollerini ve iş mantığını yöneten devasa bir orkestra şefidir.<br>
+✨ Web Client (İnteraktif Portal): React 19 ve TypeScript'in gücünü arkasına alan web arayüzü, kullanıcılara sadece bir sipariş platformu değil, aynı zamanda akıcı animasyonlarla bezenmiş dijital bir deneyim alanı sunar.<br>
+📱 Mobile Application (Mobil Ekosistem): Flutter ve Dart'ın sunduğu yerel (native) performans avantajlarıyla, hem iOS hem de Android dünyasında ödün vermeyen, hızlı ve sezgisel bir kullanım vaat eder.<br>
+
 ⚙️ 2. Backend Mühendisliği ve SQL Server Veri Yönetim Stratejisi
 Sistemin kalbi olan backend tarafında, verinin milisaniyeler içerisinde işlenmesi ve en yüksek tutarlılıkla saklanması amacıyla Microsoft SQL Server Enterprise veri tabanı yönetim sistemi tercih edilmiştir. Veri tabanı mimarimiz, karmaşık ilişkisel sorguların (JOIN operasyonları) en optimize şekilde çalışmasını sağlayan indeksleme stratejileriyle donatılmıştır.
 
