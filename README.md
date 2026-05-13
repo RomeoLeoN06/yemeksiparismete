@@ -883,38 +883,6 @@ yemeksiparismete/
     <thead>
       <tr style="border: 4px solid #FF0000 !important; background-color: transparent !important;">
         <th colspan="4" align="center" style="border: 4px solid #FF0000 !important; padding: 20px 0;">
-          <h3>⚙️ Mobil Admin Yönetim Paneli</h3>
-        </th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr style="border: 4px solid #FF0000 !important; background-color: transparent !important;">
-        <td align="center" style="border: 4px solid #FF0000 !important; padding: 10px; vertical-align: top;">
-          <img src="screenshots/kuryeyönetimmobil.jpeg" style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 12px; border: 2px solid #333; box-shadow: 0 10px 20px rgba(0,0,0,0.4);">
-          <br><sub><b>🛵 Kurye Yönetimi</b></sub>
-        </td>
-        <td align="center" style="border: 4px solid #FF0000 !important; padding: 10px; vertical-align: top;">
-          <img src="screenshots/mobilsiparisler.jpeg" style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 12px; border: 2px solid #333; box-shadow: 0 10px 20px rgba(0,0,0,0.4);">
-          <br><sub><b>📝 Sipariş Listesi</b></sub>
-        </td>
-        <td align="center" style="border: 4px solid #FF0000 !important; padding: 10px; vertical-align: top;">
-          <img src="screenshots/mobiliptaldeneme.jpeg" style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 12px; border: 2px solid #333; box-shadow: 0 10px 20px rgba(0,0,0,0.4);">
-          <br><sub><b>❌ İptal Prosedürü</b></sub>
-        </td>
-        <td align="center" style="border: 4px solid #FF0000 !important; padding: 10px; vertical-align: top;">
-          <img src="screenshots/mobilmüsteriler.jpeg" style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 12px; border: 2px solid #333; box-shadow: 0 10px 20px rgba(0,0,0,0.4);">
-          <br><sub><b>👥 Müşteri Rehberi</b></sub>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-<br>
-<div align="center">
-  <table style="width: 100%; table-layout: fixed; border-collapse: collapse !important; border: 4px solid #FF0000 !important;">
-    <thead>
-      <tr style="border: 4px solid #FF0000 !important; background-color: transparent !important;">
-        <th colspan="4" align="center" style="border: 4px solid #FF0000 !important; padding: 20px 0;">
           <h3>⚙️ Mobil Restaurant Yönetim Paneli</h3>
         </th>
       </tr>
