@@ -12,380 +12,359 @@ yemeksiparismete/
 ├── 📄 screenshot/README.md  #Projenin Hem Web Hem Mobil Üzerinden Çalıştığına Dair Kanıtlar
 └── 🧪 AutoSeeder/     # Mock Data: Akıllı Test Veri Üreticisi
 ```
-<div align="center">
+<div align="center" style="width: 100%; max-width: 100%; box-sizing: border-box; overflow-x: hidden;">
 
-<!-- BAŞLIK VE BADGE'LER -->
-<table style="width: 100%; border-collapse: collapse; border: 3px solid #FF0000;">
-  <tr>
-    <td align="center" style="padding: 20px;">
-      <h1>🍕 YemekSiparisMete</h1>
-      <p><b>Gastronomi ve Teknolojinin Kusursuz Senfonisi</b></p>
-    </td>
-  </tr>
-</table>
-
-<br>
-<!-- 1. SİSTEM TOPOLOJİSİ BÖLÜMÜ -->
-<!-- 1. PROFESYONEL SİSTEM TOPOLOJİSİ -->
-<div align="left" style="background-color: #FDFBF7; padding: 30px; border-radius: 15px; border: 1px solid #EAE8E1; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
-  
-  <h2 style="color: #2C3E50; margin-top: 0; border-bottom: 2px solid #E2E0D6; padding-bottom: 10px;">
-    🏛️ 1. Mimari Şaheser: Sistem Topolojisi
-  </h2>
-  
-  <p style="color: #7F8C8D; font-size: 15px; margin-bottom: 40px;">
-    Sistem, yüksek erişilebilirlik ve sürdürülebilirlik için <b>N-Tier (Çok Katmanlı)</b> mimari standartlarında kurgulanmıştır.
-  </p>
-
-  <!-- DİYAGRAM ALANI -->
-  <table border="0" cellpadding="0" cellspacing="0" align="center" style="border: none; background: transparent;">
-    <!-- CLIENT KATMANI -->
-    <tr>
-      <td align="center">
-        <div style="background: #FFFFFF; border: 2px solid #3498DB; padding: 15px 25px; border-radius: 8px; min-width: 160px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-          <span style="font-size: 20px;">📱</span><br><b style="color: #2980B9;">Flutter Mobile</b>
-        </div>
-      </td>
-      <td width="80" align="center"></td>
-      <td align="center">
-        <div style="background: #FFFFFF; border: 2px solid #3498DB; padding: 15px 25px; border-radius: 8px; min-width: 160px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-          <span style="font-size: 20px;">💻</span><br><b style="color: #2980B9;">React 19 Web</b>
-        </div>
-      </td>
-    </tr>
-    <!-- BAĞLANTI OKLARI 1 -->
-    <tr>
-      <td align="center" style="padding: 10px 0;">
-        <small style="color: #95A5A6;">IPv4 Access</small><br>
-        <span style="font-size: 24px; color: #BDC3C7;">↓</span>
-      </td>
-      <td></td>
-      <td align="center" style="padding: 10px 0;">
-        <small style="color: #95A5A6;">SignalR Realtime</small><br>
-        <span style="font-size: 24px; color: #BDC3C7;">↓</span>
-      </td>
-    </tr>
-    <!-- API KATMANI -->
-    <tr>
-      <td colspan="3" align="center">
-        <div style="background: #2C3E50; border: 2px solid #1A252F; padding: 20px 50px; border-radius: 10px; color: #ECF0F1; min-width: 200px; box-shadow: 0 6px 12px rgba(0,0,0,0.2);">
-          <span style="font-size: 22px;">⚙️</span><br><b>.NET 8 CORE API</b>
-          <br><small style="color: #BDC3C7; font-weight: normal;">Central Orchestrator</small>
-        </div>
-      </td>
-    </tr>
-    <!-- BAĞLANTI OKLARI 2 -->
-    <tr>
-      <td align="center" style="padding: 10px 0;">
-        <span style="font-size: 24px; color: #BDC3C7;">↓</span><br>
-        <small style="color: #95A5A6;">Persistence</small>
-      </td>
-      <td></td>
-      <td align="center" style="padding: 10px 0;">
-        <span style="font-size: 24px; color: #BDC3C7;">↓</span><br>
-        <small style="color: #95A5A6;">Push Notify</small>
-      </td>
-    </tr>
-    <!-- DATA & REALTIME KATMANI -->
-    <tr>
-      <td align="center">
-        <div style="background: #FFFFFF; border: 2px solid #7F8C8D; padding: 15px 25px; border-radius: 10px; min-width: 160px;">
-          <span style="font-size: 20px;">🗄️</span><br><b style="color: #34495E;">SQL SERVER</b>
-        </div>
-      </td>
-      <td></td>
-      <td align="center">
-        <div style="background: #FFFFFF; border: 2px solid #E67E22; padding: 15px 25px; border-radius: 8px; min-width: 160px;">
-          <span style="font-size: 20px;">📡</span><br><b style="color: #D35400;">SignalR Hub</b>
-        </div>
-      </td>
-    </tr>
+<div style="width: 100%; overflow-x: auto; box-sizing: border-box;">
+  <table style="width: 100%; min-width: 300px; border-collapse: collapse; border: 3px solid #FF0000; box-sizing: border-box;">
+    <tr>
+      <td align="center" style="padding: 20px;">
+        <h1>🍕 YemekSiparisMete</h1>
+        <p><b>Gastronomi ve Teknolojinin Kusursuz Senfonisi</b></p>
+      </td>
+    </tr>
   </table>
 </div>
+
 <br>
-<!-- 2. BACKEND MÜHENDİSLİĞİ BÖLÜMÜ -->
-<!-- 2. BACKEND MÜHENDİSLİĞİ BÖLÜMÜ -->
-<div align="left" style="background-color: #FDFBF7; padding: 20px; border-radius: 12px; border: 1px solid #EAE8E1; font-family: sans-serif;">
-  
-  <!-- BAŞLIK -->
-  <h2 style="color: #4A4A4A; display: flex; align-items: center; gap: 10px; margin-top: 0;">
-    🛡️ 2. Backend Mühendisliği: Verimlilik ve Ölçeklenebilirlik
-  </h2>
-  
-  <!-- AÇIKLAMA METNİ -->
-  <p style="color: #666; font-size: 15px; line-height: 1.6; margin-bottom: 20px;">
-    Sistemin kalbi olan backend tarafında, kurumsal düzeyde (enterprise-grade) teknolojiler kullanılarak sarsılmaz bir iş mantığı katmanı oluşturulmuştur.
-  </p>
+<div align="left" style="background-color: #FDFBF7; padding: 20px; border-radius: 15px; border: 1px solid #EAE8E1; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; width: 100%; box-sizing: border-box;">
+  
+  <h2 style="color: #2C3E50; margin-top: 0; border-bottom: 2px solid #E2E0D6; padding-bottom: 10px; word-wrap: break-word;">
+    🏛️ 1. Mimari Şaheser: Sistem Topolojisi
+  </h2>
+  
+  <p style="color: #7F8C8D; font-size: 15px; margin-bottom: 40px; word-wrap: break-word;">
+    Sistem, yüksek erişilebilirlik ve sürdürülebilirlik için <b>N-Tier (Çok Katmanlı)</b> mimari standartlarında kurgulanmıştır.
+  </p>
 
-  <!-- TABLO -->
-  <table style="width: 100%; border-collapse: collapse; background-color: #FFFFFF; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
-    <thead>
-      <tr style="background-color: #E2E0D6; border-bottom: 2px solid #C5C3B6;">
-        <th align="left" style="padding: 12px; color: #4A4A4A; font-size: 14px;">Teknoloji</th>
-        <th align="left" style="padding: 12px; color: #4A4A4A; font-size: 14px;">Versiyon</th>
-        <th align="left" style="padding: 12px; color: #4A4A4A; font-size: 14px;">Görev & Stratejik Avantaj</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr style="border-bottom: 1px solid #EAE8E1;">
-        <td style="padding: 12px; font-size: 14px;"><b>Microsoft .NET Core</b></td>
-        <td style="padding: 12px; font-size: 14px; color: #666;">8.0</td>
-        <td style="padding: 12px; font-size: 14px; color: #333;">Yüksek işlem kapasiteli, düşük gecikme süreli ana motor.</td>
-      </tr>
-      <tr style="border-bottom: 1px solid #EAE8E1;">
-        <td style="padding: 12px; font-size: 14px;"><b>Entity Framework Core</b></td>
-        <td style="padding: 12px; font-size: 14px; color: #666;">8.0</td>
-        <td style="padding: 12px; font-size: 14px; color: #333;">Veritabanı yönetiminde nesne-tabanlı (ORM) esneklik.</td>
-      </tr>
-      <tr style="border-bottom: 1px solid #EAE8E1;">
-        <td style="padding: 12px; font-size: 14px;"><b>SQL Server</b></td>
-        <td style="padding: 12px; font-size: 14px; color: #666;">Enterprise</td>
-        <td style="padding: 12px; font-size: 14px; color: #333;">ACID prensiplerine tam uyumlu, güvenilir veri depolama.</td>
-      </tr>
-      <tr style="border-bottom: 1px solid #EAE8E1;">
-        <td style="padding: 12px; font-size: 14px;"><b>SignalR</b></td>
-        <td style="padding: 12px; font-size: 14px; color: #666;">Real-Time</td>
-        <td style="padding: 12px; font-size: 14px; color: #333;">Mutfak ve müşteri arasında kesintisiz canlı veri akışı.</td>
-      </tr>
-      <tr>
-        <td style="padding: 12px; font-size: 14px;"><b>ASP.NET Identity</b></td>
-        <td style="padding: 12px; font-size: 14px; color: #666;">JWT</td>
-        <td style="padding: 12px; font-size: 14px; color: #333;">Role-based (Rol tabanlı) kriptografik güvenlik sistemi.</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-<br>
-<!-- 3. VERİTABANI VE VERİ YÖNETİMİ BÖLÜMÜ -->
-<div align="left" style="background-color: #FDFBF7; padding: 20px; border-radius: 12px; border: 1px solid #EAE8E1; font-family: sans-serif;">
-  
-  <!-- BAŞLIK -->
-  <h2 style="color: #4A4A4A; display: flex; align-items: center; gap: 10px; margin-top: 0;">
-    🗄️ 3. Veritabanı ve Veri Yönetimi (SQL Server)
-  </h2>
-  
-  <!-- AÇIKLAMA METNİ -->
-  <p style="color: #666; font-size: 15px; line-height: 1.6; margin-bottom: 20px;">
-    Projenin veri ambarı, <b>Microsoft SQL Server</b> üzerinde optimize edilmiştir. Veri bütünlüğü (integrity) ve ilişkisel modelleme (relational mapping) en üst seviyededir.
-  </p>
-
-  <!-- TABLO -->
-  <table style="width: 100%; border-collapse: collapse; background-color: #FFFFFF; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
-    <thead>
-      <tr style="background-color: #E2E0D6; border-bottom: 2px solid #C5C3B6;">
-        <th align="left" style="padding: 12px; color: #4A4A4A; font-size: 14px; width: 30%;">Mimari Özellik</th>
-        <th align="left" style="padding: 12px; color: #4A4A4A; font-size: 14px;">Teknik Detay & Operasyon</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr style="border-bottom: 1px solid #EAE8E1;">
-        <td style="padding: 12px; font-size: 14px;"><b>İlişkisel Mimari</b></td>
-        <td style="padding: 12px; font-size: 14px; color: #333;">Müşteriler, Restoranlar, Ürünler, Siparişler ve Kuryeler arasındaki karmaşık bağlar, verimli <code>Join</code> operasyonları ve indeksleme stratejileriyle yönetilir.</td>
-      </tr>
-      <tr style="border-bottom: 1px solid #EAE8E1;">
-        <td style="padding: 12px; font-size: 14px;"><b>Veri Güvenliği</b></td>
-        <td style="padding: 12px; font-size: 14px; color: #333;">Tüm hassas veriler, uygulama katmanında normalize edildikten sonra SQL Server'ın güvenli havuzuna aktarılır.</td>
-      </tr>
-      <tr>
-        <td style="padding: 12px; font-size: 14px;"><b>Hızlı Kurulum</b></td>
-        <td style="padding: 12px; font-size: 14px; color: #333;">Proje içerisinde bulunan <code>YemekSiparisDb_Yedek.sql</code> dosyası ile saniyeler içinde tüm şema ve test verileri ayağa kaldırılabilir.</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-<br><!-- 4. AĞ TOPOLOJİSİ VE IPV4 ERİŞİM BÖLÜMÜ -->
-<div align="left" style="background-color: #FDFBF7; padding: 20px; border-radius: 12px; border: 1px solid #EAE8E1; font-family: sans-serif;">
-  
-  <!-- BAŞLIK -->
-  <h2 style="color: #4A4A4A; display: flex; align-items: center; gap: 10px; margin-top: 0;">
-    🌐 4. Ağ Topolojisi ve IPv4 Erişim Dinamikleri
-  </h2>
-  
-  <!-- AÇIKLAMA METNİ -->
-  <p style="color: #666; font-size: 15px; line-height: 1.6; margin-bottom: 20px;">
-    Çapraz platform (Cross-platform) haberleşmesi, sistemin en güçlü yanlarından biridir. Mobil ve Web istemcilerinin merkezi sunucuyla sorunsuz etkileşimi için özel bir ağ yapılandırması uygulanmıştır.
-  </p>
-
-  <!-- TABLO -->
-  <table style="width: 100%; border-collapse: collapse; background-color: #FFFFFF; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
-    <thead>
-      <tr style="background-color: #E2E0D6; border-bottom: 2px solid #C5C3B6;">
-        <th align="left" style="padding: 12px; color: #4A4A4A; font-size: 14px; width: 35%;">Konfigürasyon Parametresi</th>
-        <th align="left" style="padding: 12px; color: #4A4A4A; font-size: 14px;">Tanımlanan Değer / Protokol</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr style="border-bottom: 1px solid #EAE8E1;">
-        <td style="padding: 12px; font-size: 14px;"><b>Sunucu IPv4 Adresi</b></td>
-        <td style="padding: 12px; font-size: 14px; color: #D32F2F; font-family: monospace;"><b>10.22.107.60</b></td>
-      </tr>
-      <tr style="border-bottom: 1px solid #EAE8E1;">
-        <td style="padding: 12px; font-size: 14px;"><b>Dinleme Portu</b></td>
-        <td style="padding: 12px; font-size: 14px; color: #333;">5101 (HTTP & TCP)</td>
-      </tr>
-      <tr style="border-bottom: 1px solid #EAE8E1;">
-        <td style="padding: 12px; font-size: 14px;"><b>Haberleşme Protokolü</b></td>
-        <td style="padding: 12px; font-size: 14px; color: #333;">HTTP/REST & WebSockets (SignalR)</td>
-      </tr>
-      <tr>
-        <td style="padding: 12px; font-size: 14px;"><b>Erişim Kapsamı</b></td>
-        <td style="padding: 12px; font-size: 14px; color: #333;">Physical Device Testing (Yerel Ağ Köprüsü)</td>
-      </tr>
-    </tbody>
-  </table>
-
-  <!-- ALT NOT -->
-  <p style="color: #888; font-size: 13px; margin-top: 15px; font-style: italic;">
-    * Bu yapılandırma, <b>localhost</b> sınırlarını aşarak gerçek dünya ağ senaryolarında projenin kesintisiz çalışmasını garanti altına alır.
-  </p>
+  <div style="width: 100%; overflow-x: auto; padding-bottom: 15px; text-align: center; box-sizing: border-box;">
+    <table border="0" cellpadding="0" cellspacing="0" align="center" style="border: none; background: transparent; margin: auto; min-width: 500px;">
+          <tr>
+        <td align="center">
+          <div style="background: #FFFFFF; border: 2px solid #3498DB; padding: 15px 25px; border-radius: 8px; min-width: 160px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+            <span style="font-size: 20px;">📱</span><br><b style="color: #2980B9;">Flutter Mobile</b>
+          </div>
+        </td>
+        <td width="80" align="center"></td>
+        <td align="center">
+          <div style="background: #FFFFFF; border: 2px solid #3498DB; padding: 15px 25px; border-radius: 8px; min-width: 160px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+            <span style="font-size: 20px;">💻</span><br><b style="color: #2980B9;">React 19 Web</b>
+          </div>
+        </td>
+      </tr>
+          <tr>
+        <td align="center" style="padding: 10px 0;">
+          <small style="color: #95A5A6;">IPv4 Access</small><br>
+          <span style="font-size: 24px; color: #BDC3C7;">↓</span>
+        </td>
+        <td></td>
+        <td align="center" style="padding: 10px 0;">
+          <small style="color: #95A5A6;">SignalR Realtime</small><br>
+          <span style="font-size: 24px; color: #BDC3C7;">↓</span>
+        </td>
+      </tr>
+          <tr>
+        <td colspan="3" align="center">
+          <div style="background: #2C3E50; border: 2px solid #1A252F; padding: 20px 50px; border-radius: 10px; color: #ECF0F1; min-width: 200px; box-shadow: 0 6px 12px rgba(0,0,0,0.2);">
+            <span style="font-size: 22px;">⚙️</span><br><b>.NET 8 CORE API</b>
+            <br><small style="color: #BDC3C7; font-weight: normal;">Central Orchestrator</small>
+          </div>
+        </td>
+      </tr>
+          <tr>
+        <td align="center" style="padding: 10px 0;">
+          <span style="font-size: 24px; color: #BDC3C7;">↓</span><br>
+          <small style="color: #95A5A6;">Persistence</small>
+        </td>
+        <td></td>
+        <td align="center" style="padding: 10px 0;">
+          <span style="font-size: 24px; color: #BDC3C7;">↓</span><br>
+          <small style="color: #95A5A6;">Push Notify</small>
+        </td>
+      </tr>
+          <tr>
+        <td align="center">
+          <div style="background: #FFFFFF; border: 2px solid #7F8C8D; padding: 15px 25px; border-radius: 10px; min-width: 160px;">
+            <span style="font-size: 20px;">🗄️</span><br><b style="color: #34495E;">SQL SERVER</b>
+          </div>
+        </td>
+        <td></td>
+        <td align="center">
+          <div style="background: #FFFFFF; border: 2px solid #E67E22; padding: 15px 25px; border-radius: 8px; min-width: 160px;">
+            <span style="font-size: 20px;">📡</span><br><b style="color: #D35400;">SignalR Hub</b>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
 </div>
 <br>
-<!-- 5. WEB FRONTEND BÖLÜMÜ -->
-<div align="left" style="background-color: #FDFBF7; padding: 20px; border-radius: 12px; border: 1px solid #EAE8E1; font-family: sans-serif;">
-  
-  <!-- BAŞLIK -->
-  <h2 style="color: #4A4A4A; display: flex; align-items: center; gap: 10px; margin-top: 0;">
-    🎨 5. Web Frontend: Estetik ve Fonksiyonelliğin Senfonisi
-  </h2>
-  
-  <!-- AÇIKLAMA METNİ -->
-  <p style="color: #666; font-size: 15px; line-height: 1.6; margin-bottom: 20px;">
-    Web arayüzü, <b>React 19</b> ve modern CSS teknikleriyle tasarlanmış, kullanıcı deneyimini (UX) odağına alan bir görsel şölen sunar.
-  </p>
+<div align="left" style="background-color: #FDFBF7; padding: 20px; border-radius: 12px; border: 1px solid #EAE8E1; font-family: sans-serif; width: 100%; box-sizing: border-box;">
+  
+    <h2 style="color: #4A4A4A; display: flex; align-items: center; gap: 10px; margin-top: 0; word-wrap: break-word;">
+    🛡️ 2. Backend Mühendisliği: Verimlilik ve Ölçeklenebilirlik
+  </h2>
+  
+    <p style="color: #666; font-size: 15px; line-height: 1.6; margin-bottom: 20px; word-wrap: break-word;">
+    Sistemin kalbi olan backend tarafında, kurumsal düzeyde (enterprise-grade) teknolojiler kullanılarak sarsılmaz bir iş mantığı katmanı oluşturulmuştur.
+  </p>
 
-  <!-- TABLO -->
-  <table style="width: 100%; border-collapse: collapse; background-color: #FFFFFF; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
-    <thead>
-      <tr style="background-color: #E2E0D6; border-bottom: 2px solid #C5C3B6;">
-        <th align="left" style="padding: 12px; color: #4A4A4A; font-size: 14px;">Bileşen</th>
-        <th align="left" style="padding: 12px; color: #4A4A4A; font-size: 14px;">Teknolojik Derinlik</th>
-        <th align="left" style="padding: 12px; color: #4A4A4A; font-size: 14px;">Stratejik Avantaj</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr style="border-bottom: 1px solid #EAE8E1;">
-        <td style="padding: 12px; font-size: 14px;"><b>React 19</b></td>
-        <td style="padding: 12px; font-size: 14px; color: #666;">Latest Release</td>
-        <td style="padding: 12px; font-size: 14px; color: #333;">Modern rendering ve üstün component hiyerarşisi.</td>
-      </tr>
-      <tr style="border-bottom: 1px solid #EAE8E1;">
-        <td style="padding: 12px; font-size: 14px;"><b>Vite Engine</b></td>
-        <td style="padding: 12px; font-size: 14px; color: #666;">Ultra Fast</td>
-        <td style="padding: 12px; font-size: 14px; color: #333;">Saniyeler içinde yüklenen sayfalar ve optimize bundle.</td>
-      </tr>
-      <tr style="border-bottom: 1px solid #EAE8E1;">
-        <td style="padding: 12px; font-size: 14px;"><b>TypeScript</b></td>
-        <td style="padding: 12px; font-size: 14px; color: #666;">Type-Safe</td>
-        <td style="padding: 12px; font-size: 14px; color: #333;">Çalışma zamanı hatalarını sıfıra indiren güçlü kod yapısı.</td>
-      </tr>
-      <tr>
-        <td style="padding: 12px; font-size: 14px;"><b>Framer Motion</b></td>
-        <td style="padding: 12px; font-size: 14px; color: #666;">3D & Glass</td>
-        <td style="padding: 12px; font-size: 14px; color: #333;">3D hover efektleri ve premium cam efekti (Glassmorphism).</td>
-      </tr>
-    </tbody>
-  </table>
+  <div style="width: 100%; overflow-x: auto; box-sizing: border-box;">
+    <table style="width: 100%; min-width: 500px; border-collapse: collapse; background-color: #FFFFFF; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); box-sizing: border-box;">
+      <thead>
+        <tr style="background-color: #E2E0D6; border-bottom: 2px solid #C5C3B6;">
+          <th align="left" style="padding: 12px; color: #4A4A4A; font-size: 14px;">Teknoloji</th>
+          <th align="left" style="padding: 12px; color: #4A4A4A; font-size: 14px;">Versiyon</th>
+          <th align="left" style="padding: 12px; color: #4A4A4A; font-size: 14px;">Görev & Stratejik Avantaj</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="border-bottom: 1px solid #EAE8E1;">
+          <td style="padding: 12px; font-size: 14px;"><b>Microsoft .NET Core</b></td>
+          <td style="padding: 12px; font-size: 14px; color: #666;">8.0</td>
+          <td style="padding: 12px; font-size: 14px; color: #333;">Yüksek işlem kapasiteli, düşük gecikme süreli ana motor.</td>
+        </tr>
+        <tr style="border-bottom: 1px solid #EAE8E1;">
+          <td style="padding: 12px; font-size: 14px;"><b>Entity Framework Core</b></td>
+          <td style="padding: 12px; font-size: 14px; color: #666;">8.0</td>
+          <td style="padding: 12px; font-size: 14px; color: #333;">Veritabanı yönetiminde nesne-tabanlı (ORM) esneklik.</td>
+        </tr>
+        <tr style="border-bottom: 1px solid #EAE8E1;">
+          <td style="padding: 12px; font-size: 14px;"><b>SQL Server</b></td>
+          <td style="padding: 12px; font-size: 14px; color: #666;">Enterprise</td>
+          <td style="padding: 12px; font-size: 14px; color: #333;">ACID prensiplerine tam uyumlu, güvenilir veri depolama.</td>
+        </tr>
+        <tr style="border-bottom: 1px solid #EAE8E1;">
+          <td style="padding: 12px; font-size: 14px;"><b>SignalR</b></td>
+          <td style="padding: 12px; font-size: 14px; color: #666;">Real-Time</td>
+          <td style="padding: 12px; font-size: 14px; color: #333;">Mutfak ve müşteri arasında kesintisiz canlı veri akışı.</td>
+        </tr>
+        <tr>
+          <td style="padding: 12px; font-size: 14px;"><b>ASP.NET Identity</b></td>
+          <td style="padding: 12px; font-size: 14px; color: #666;">JWT</td>
+          <td style="padding: 12px; font-size: 14px; color: #333;">Role-based (Rol tabanlı) kriptografik güvenlik sistemi.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
 <br>
-<!-- 6. MOBİL TEKNOLOJİ BÖLÜMÜ -->
-<div align="left" style="background-color: #FDFBF7; padding: 20px; border-radius: 12px; border: 1px solid #EAE8E1; font-family: sans-serif;">
-  
-  <!-- BAŞLIK -->
-  <h2 style="color: #4A4A4A; display: flex; align-items: center; gap: 10px; margin-top: 0;">
-    📲 6. Mobil Teknoloji: Avucunuzdaki Hız ve Zarafet
-  </h2>
-  
-  <!-- AÇIKLAMA METNİ -->
-  <p style="color: #666; font-size: 15px; line-height: 1.6; margin-bottom: 20px;">
-    Flutter ile inşa edilen mobil uygulama, native performansını şık bir tasarım diliyle birleştirir.
-  </p>
+<div align="left" style="background-color: #FDFBF7; padding: 20px; border-radius: 12px; border: 1px solid #EAE8E1; font-family: sans-serif; width: 100%; box-sizing: border-box;">
+  
+    <h2 style="color: #4A4A4A; display: flex; align-items: center; gap: 10px; margin-top: 0; word-wrap: break-word;">
+    🗄️ 3. Veritabanı ve Veri Yönetimi (SQL Server)
+  </h2>
+  
+    <p style="color: #666; font-size: 15px; line-height: 1.6; margin-bottom: 20px; word-wrap: break-word;">
+    Projenin veri ambarı, <b>Microsoft SQL Server</b> üzerinde optimize edilmiştir. Veri bütünlüğü (integrity) ve ilişkisel modelleme (relational mapping) en üst seviyededir.
+  </p>
 
-  <!-- TABLO -->
-  <table style="width: 100%; border-collapse: collapse; background-color: #FFFFFF; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
-    <thead>
-      <tr style="background-color: #E2E0D6; border-bottom: 2px solid #C5C3B6;">
-        <th align="left" style="padding: 12px; color: #4A4A4A; font-size: 14px;">Özellik</th>
-        <th align="left" style="padding: 12px; color: #4A4A4A; font-size: 14px;">Detay</th>
-        <th align="left" style="padding: 12px; color: #4A4A4A; font-size: 14px;">Kullanıcı Deneyimi (UX)</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr style="border-bottom: 1px solid #EAE8E1;">
-        <td style="padding: 12px; font-size: 14px;"><b>Flutter / Dart</b></td>
-        <td style="padding: 12px; font-size: 14px; color: #666;">Reaktif Mimari</td>
-        <td style="padding: 12px; font-size: 14px; color: #333;">Takılmayan, 60 FPS akıcılığında ekran geçişleri.</td>
-      </tr>
-      <tr style="border-bottom: 1px solid #EAE8E1;">
-        <td style="padding: 12px; font-size: 14px;"><b>Provider</b></td>
-        <td style="padding: 12px; font-size: 14px; color: #666;">State Management</td>
-        <td style="padding: 12px; font-size: 14px; color: #333;">Verilerin cihaz hafızasında anlık ve tutarlı yönetimi.</td>
-      </tr>
-      <tr style="border-bottom: 1px solid #EAE8E1;">
-        <td style="padding: 12px; font-size: 14px;"><b>Material 3</b></td>
-        <td style="padding: 12px; font-size: 14px; color: #666;">Tasarım Dili</td>
-        <td style="padding: 12px; font-size: 14px; color: #333;">Modern, temiz ve göz yormayan profesyonel arayüz.</td>
-      </tr>
-      <tr>
-        <td style="padding: 12px; font-size: 14px;"><b>API Sync</b></td>
-        <td style="padding: 12px; font-size: 14px; color: #666;">Optimized HTTP</td>
-        <td style="padding: 12px; font-size: 14px; color: #333;">Düşük internet hızına sahip ortamlarda bile kararlı veri alışverişi.</td>
-      </tr>
-    </tbody>
-  </table>
+  <div style="width: 100%; overflow-x: auto; box-sizing: border-box;">
+    <table style="width: 100%; min-width: 500px; border-collapse: collapse; background-color: #FFFFFF; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); box-sizing: border-box;">
+      <thead>
+        <tr style="background-color: #E2E0D6; border-bottom: 2px solid #C5C3B6;">
+          <th align="left" style="padding: 12px; color: #4A4A4A; font-size: 14px; width: 30%;">Mimari Özellik</th>
+          <th align="left" style="padding: 12px; color: #4A4A4A; font-size: 14px;">Teknik Detay & Operasyon</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="border-bottom: 1px solid #EAE8E1;">
+          <td style="padding: 12px; font-size: 14px;"><b>İlişkisel Mimari</b></td>
+          <td style="padding: 12px; font-size: 14px; color: #333;">Müşteriler, Restoranlar, Ürünler, Siparişler ve Kuryeler arasındaki karmaşık bağlar, verimli <code>Join</code> operasyonları ve indeksleme stratejileriyle yönetilir.</td>
+        </tr>
+        <tr style="border-bottom: 1px solid #EAE8E1;">
+          <td style="padding: 12px; font-size: 14px;"><b>Veri Güvenliği</b></td>
+          <td style="padding: 12px; font-size: 14px; color: #333;">Tüm hassas veriler, uygulama katmanında normalize edildikten sonra SQL Server'ın güvenli havuzuna aktarılır.</td>
+        </tr>
+        <tr>
+          <td style="padding: 12px; font-size: 14px;"><b>Hızlı Kurulum</b></td>
+          <td style="padding: 12px; font-size: 14px; color: #333;">Proje içerisinde bulunan <code>YemekSiparisDb_Yedek.sql</code> dosyası ile saniyeler içinde tüm şema ve test verileri ayağa kaldırılabilir.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
 <br>
-<!-- AĞ VE GÜVENLİK -->
-<!-- 7. SİBER GÜVENLİK BÖLÜMÜ -->
-<div align="left" style="background-color: #FDFBF7; padding: 20px; border-radius: 12px; border: 1px solid #EAE8E1; font-family: sans-serif;">
-  
-  <!-- BAŞLIK -->
-  <h2 style="color: #4A4A4A; display: flex; align-items: center; gap: 10px; margin-top: 0;">
-    🔐 7. Siber Güvenlik: Kırılmaz Bir Dijital Kale
-  </h2>
-  
-  <!-- AÇIKLAMA METNİ -->
-  <p style="color: #666; font-size: 15px; line-height: 1.6; margin-bottom: 20px;">
-    Kullanıcı verileri ve sistem bütünlüğü, endüstri standardı modern siber güvenlik protokolleri ile korunmaktadır:
-  </p>
+<div align="left" style="background-color: #FDFBF7; padding: 20px; border-radius: 12px; border: 1px solid #EAE8E1; font-family: sans-serif; width: 100%; box-sizing: border-box;">
+  
+    <h2 style="color: #4A4A4A; display: flex; align-items: center; gap: 10px; margin-top: 0; word-wrap: break-word;">
+    🌐 4. Ağ Topolojisi ve IPv4 Erişim Dinamikleri
+  </h2>
+  
+    <p style="color: #666; font-size: 15px; line-height: 1.6; margin-bottom: 20px; word-wrap: break-word;">
+    Çapraz platform (Cross-platform) haberleşmesi, sistemin en güçlü yanlarından biridir. Mobil ve Web istemcilerinin merkezi sunucuyla sorunsuz etkileşimi için özel bir ağ yapılandırması uygulanmıştır.
+  </p>
 
-  <!-- TABLO -->
-  <table style="width: 100%; border-collapse: collapse; background-color: #FFFFFF; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
-    <thead>
-      <tr style="background-color: #E2E0D6; border-bottom: 2px solid #C5C3B6;">
-        <th align="left" style="padding: 12px; color: #4A4A4A; font-size: 14px; width: 30%;">Güvenlik Katmanı</th>
-        <th align="left" style="padding: 12px; color: #4A4A4A; font-size: 14px;">Kullanılan Teknoloji & Metot</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr style="border-bottom: 1px solid #EAE8E1;">
-        <td style="padding: 12px; font-size: 14px;"><b>Parola Güvenliği</b></td>
-        <td style="padding: 12px; font-size: 14px; color: #333;"><code>PBKDF2</code> hashing algoritması ile binlerce kez tekrarlanmış tuzlama (salting) işlemi.</td>
-      </tr>
-      <tr style="border-bottom: 1px solid #EAE8E1;">
-        <td style="padding: 12px; font-size: 14px;"><b>Yetkilendirme</b></td>
-        <td style="padding: 12px; font-size: 14px; color: #333;"><code>JWT (JSON Web Token)</code> ile stateless, kriptografik imzalı ve güvenli oturum yönetimi.</td>
-      </tr>
-      <tr>
-        <td style="padding: 12px; font-size: 14px;"><b>Veri Validasyonu</b></td>
-        <td style="padding: 12px; font-size: 14px; color: #333;"><code>Fluent Validation</code> kütüphanesi ile backend tarafında enjekte edilen katı veri doğrulama kuralları.</td>
-      </tr>
-    </tbody>
-  </table>
+  <div style="width: 100%; overflow-x: auto; box-sizing: border-box;">
+    <table style="width: 100%; min-width: 500px; border-collapse: collapse; background-color: #FFFFFF; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); box-sizing: border-box;">
+      <thead>
+        <tr style="background-color: #E2E0D6; border-bottom: 2px solid #C5C3B6;">
+          <th align="left" style="padding: 12px; color: #4A4A4A; font-size: 14px; width: 35%;">Konfigürasyon Parametresi</th>
+          <th align="left" style="padding: 12px; color: #4A4A4A; font-size: 14px;">Tanımlanan Değer / Protokol</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="border-bottom: 1px solid #EAE8E1;">
+          <td style="padding: 12px; font-size: 14px;"><b>Sunucu IPv4 Adresi</b></td>
+          <td style="padding: 12px; font-size: 14px; color: #D32F2F; font-family: monospace;"><b>10.22.107.60</b></td>
+        </tr>
+        <tr style="border-bottom: 1px solid #EAE8E1;">
+          <td style="padding: 12px; font-size: 14px;"><b>Dinleme Portu</b></td>
+          <td style="padding: 12px; font-size: 14px; color: #333;">5101 (HTTP & TCP)</td>
+        </tr>
+        <tr style="border-bottom: 1px solid #EAE8E1;">
+          <td style="padding: 12px; font-size: 14px;"><b>Haberleşme Protokolü</b></td>
+          <td style="padding: 12px; font-size: 14px; color: #333;">HTTP/REST & WebSockets (SignalR)</td>
+        </tr>
+        <tr>
+          <td style="padding: 12px; font-size: 14px;"><b>Erişim Kapsamı</b></td>
+          <td style="padding: 12px; font-size: 14px; color: #333;">Physical Device Testing (Yerel Ağ Köprüsü)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+    <p style="color: #888; font-size: 13px; margin-top: 15px; font-style: italic; word-wrap: break-word;">
+    * Bu yapılandırma, <b>localhost</b> sınırlarını aşarak gerçek dünya ağ senaryolarında projenin kesintisiz çalışmasını garanti altına alır.
+  </p>
 </div>
 <br>
-<!-- SONUÇ TABLE -->
-<table style="width: 100%; border-collapse: collapse; border: 2px solid #333;">
-  <tr>
-    <td align="center" style="padding: 20px; background-color: #333; color: white;">
-      <b>🌟 YemekSiparisMete: Teknolojik Sınırların Ötesinde Bir Başarı Hikayesi</b><br>
-      <small>Bu proje, modern yazılım dünyasının tüm nimetlerinden faydalanan devasa bir ekosistemdir.</small>
-    </td>
-  </tr>
-</table>
+<div align="left" style="background-color: #FDFBF7; padding: 20px; border-radius: 12px; border: 1px solid #EAE8E1; font-family: sans-serif; width: 100%; box-sizing: border-box;">
+  
+    <h2 style="color: #4A4A4A; display: flex; align-items: center; gap: 10px; margin-top: 0; word-wrap: break-word;">
+    🎨 5. Web Frontend: Estetik ve Fonksiyonelliğin Senfonisi
+  </h2>
+  
+    <p style="color: #666; font-size: 15px; line-height: 1.6; margin-bottom: 20px; word-wrap: break-word;">
+    Web arayüzü, <b>React 19</b> ve modern CSS teknikleriyle tasarlanmış, kullanıcı deneyimini (UX) odağına alan bir görsel şölen sunar.
+  </p>
 
+  <div style="width: 100%; overflow-x: auto; box-sizing: border-box;">
+    <table style="width: 100%; min-width: 500px; border-collapse: collapse; background-color: #FFFFFF; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); box-sizing: border-box;">
+      <thead>
+        <tr style="background-color: #E2E0D6; border-bottom: 2px solid #C5C3B6;">
+          <th align="left" style="padding: 12px; color: #4A4A4A; font-size: 14px;">Bileşen</th>
+          <th align="left" style="padding: 12px; color: #4A4A4A; font-size: 14px;">Teknolojik Derinlik</th>
+          <th align="left" style="padding: 12px; color: #4A4A4A; font-size: 14px;">Stratejik Avantaj</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="border-bottom: 1px solid #EAE8E1;">
+          <td style="padding: 12px; font-size: 14px;"><b>React 19</b></td>
+          <td style="padding: 12px; font-size: 14px; color: #666;">Latest Release</td>
+          <td style="padding: 12px; font-size: 14px; color: #333;">Modern rendering ve üstün component hiyerarşisi.</td>
+        </tr>
+        <tr style="border-bottom: 1px solid #EAE8E1;">
+          <td style="padding: 12px; font-size: 14px;"><b>Vite Engine</b></td>
+          <td style="padding: 12px; font-size: 14px; color: #666;">Ultra Fast</td>
+          <td style="padding: 12px; font-size: 14px; color: #333;">Saniyeler içinde yüklenen sayfalar ve optimize bundle.</td>
+        </tr>
+        <tr style="border-bottom: 1px solid #EAE8E1;">
+          <td style="padding: 12px; font-size: 14px;"><b>TypeScript</b></td>
+          <td style="padding: 12px; font-size: 14px; color: #666;">Type-Safe</td>
+          <td style="padding: 12px; font-size: 14px; color: #333;">Çalışma zamanı hatalarını sıfıra indiren güçlü kod yapısı.</td>
+        </tr>
+        <tr>
+          <td style="padding: 12px; font-size: 14px;"><b>Framer Motion</b></td>
+          <td style="padding: 12px; font-size: 14px; color: #666;">3D & Glass</td>
+          <td style="padding: 12px; font-size: 14px; color: #333;">3D hover efektleri ve premium cam efekti (Glassmorphism).</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
+<br>
+<div align="left" style="background-color: #FDFBF7; padding: 20px; border-radius: 12px; border: 1px solid #EAE8E1; font-family: sans-serif; width: 100%; box-sizing: border-box;">
+  
+    <h2 style="color: #4A4A4A; display: flex; align-items: center; gap: 10px; margin-top: 0; word-wrap: break-word;">
+    📲 6. Mobil Teknoloji: Avucunuzdaki Hız ve Zarafet
+  </h2>
+  
+    <p style="color: #666; font-size: 15px; line-height: 1.6; margin-bottom: 20px; word-wrap: break-word;">
+    Flutter ile inşa edilen mobil uygulama, native performansını şık bir tasarım diliyle birleştirir.
+  </p>
 
+  <div style="width: 100%; overflow-x: auto; box-sizing: border-box;">
+    <table style="width: 100%; min-width: 500px; border-collapse: collapse; background-color: #FFFFFF; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); box-sizing: border-box;">
+      <thead>
+        <tr style="background-color: #E2E0D6; border-bottom: 2px solid #C5C3B6;">
+          <th align="left" style="padding: 12px; color: #4A4A4A; font-size: 14px;">Özellik</th>
+          <th align="left" style="padding: 12px; color: #4A4A4A; font-size: 14px;">Detay</th>
+          <th align="left" style="padding: 12px; color: #4A4A4A; font-size: 14px;">Kullanıcı Deneyimi (UX)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="border-bottom: 1px solid #EAE8E1;">
+          <td style="padding: 12px; font-size: 14px;"><b>Flutter / Dart</b></td>
+          <td style="padding: 12px; font-size: 14px; color: #666;">Reaktif Mimari</td>
+          <td style="padding: 12px; font-size: 14px; color: #333;">Takılmayan, 60 FPS akıcılığında ekran geçişleri.</td>
+        </tr>
+        <tr style="border-bottom: 1px solid #EAE8E1;">
+          <td style="padding: 12px; font-size: 14px;"><b>Provider</b></td>
+          <td style="padding: 12px; font-size: 14px; color: #666;">State Management</td>
+          <td style="padding: 12px; font-size: 14px; color: #333;">Verilerin cihaz hafızasında anlık ve tutarlı yönetimi.</td>
+        </tr>
+        <tr style="border-bottom: 1px solid #EAE8E1;">
+          <td style="padding: 12px; font-size: 14px;"><b>Material 3</b></td>
+          <td style="padding: 12px; font-size: 14px; color: #666;">Tasarım Dili</td>
+          <td style="padding: 12px; font-size: 14px; color: #333;">Modern, temiz ve göz yormayan profesyonel arayüz.</td>
+        </tr>
+        <tr>
+          <td style="padding: 12px; font-size: 14px;"><b>API Sync</b></td>
+          <td style="padding: 12px; font-size: 14px; color: #666;">Optimized HTTP</td>
+          <td style="padding: 12px; font-size: 14px; color: #333;">Düşük internet hızına sahip ortamlarda bile kararlı veri alışverişi.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<br>
+<div align="left" style="background-color: #FDFBF7; padding: 20px; border-radius: 12px; border: 1px solid #EAE8E1; font-family: sans-serif; width: 100%; box-sizing: border-box;">
+  
+    <h2 style="color: #4A4A4A; display: flex; align-items: center; gap: 10px; margin-top: 0; word-wrap: break-word;">
+    🔐 7. Siber Güvenlik: Kırılmaz Bir Dijital Kale
+  </h2>
+  
+    <p style="color: #666; font-size: 15px; line-height: 1.6; margin-bottom: 20px; word-wrap: break-word;">
+    Kullanıcı verileri ve sistem bütünlüğü, endüstri standardı modern siber güvenlik protokolleri ile korunmaktadır:
+  </p>
 
+  <div style="width: 100%; overflow-x: auto; box-sizing: border-box;">
+    <table style="width: 100%; min-width: 500px; border-collapse: collapse; background-color: #FFFFFF; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); box-sizing: border-box;">
+      <thead>
+        <tr style="background-color: #E2E0D6; border-bottom: 2px solid #C5C3B6;">
+          <th align="left" style="padding: 12px; color: #4A4A4A; font-size: 14px; width: 30%;">Güvenlik Katmanı</th>
+          <th align="left" style="padding: 12px; color: #4A4A4A; font-size: 14px;">Kullanılan Teknoloji & Metot</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="border-bottom: 1px solid #EAE8E1;">
+          <td style="padding: 12px; font-size: 14px;"><b>Parola Güvenliği</b></td>
+          <td style="padding: 12px; font-size: 14px; color: #333;"><code>PBKDF2</code> hashing algoritması ile binlerce kez tekrarlanmış tuzlama (salting) işlemi.</td>
+        </tr>
+        <tr style="border-bottom: 1px solid #EAE8E1;">
+          <td style="padding: 12px; font-size: 14px;"><b>Yetkilendirme</b></td>
+          <td style="padding: 12px; font-size: 14px; color: #333;"><code>JWT (JSON Web Token)</code> ile stateless, kriptografik imzalı ve güvenli oturum yönetimi.</td>
+        </tr>
+        <tr>
+          <td style="padding: 12px; font-size: 14px;"><b>Veri Validasyonu</b></td>
+          <td style="padding: 12px; font-size: 14px; color: #333;"><code>Fluent Validation</code> kütüphanesi ile backend tarafında enjekte edilen katı veri doğrulama kuralları.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<br>
+<div style="width: 100%; overflow-x: auto; box-sizing: border-box;">
+  <table style="width: 100%; min-width: 300px; border-collapse: collapse; border: 2px solid #333; box-sizing: border-box;">
+    <tr>
+      <td align="center" style="padding: 20px; background-color: #333; color: white;">
+        <b style="word-wrap: break-word;">🌟 YemekSiparisMete: Teknolojik Sınırların Ötesinde Bir Başarı Hikayesi</b><br>
+        <small style="word-wrap: break-word;">Bu proje, modern yazılım dünyasının tüm nimetlerinden faydalanan devasa bir ekosistemdir.</small>
+      </td>
+    </tr>
+  </table>
+</div>
+</div>
 <div align="center">
   <table style="width: 100%; table-layout: fixed; border-collapse: collapse !important; border: 4px solid #FF0000 !important;">
     <thead>
