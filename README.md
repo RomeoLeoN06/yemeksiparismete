@@ -313,51 +313,6 @@ yemeksiparismete/
   </table>
 </div>
 <br>
-
-<!-- GÖRSEL GALERİ - WEB KULLANICI -->
-<table style="width: 100%; border-collapse: collapse; border: 4px solid #FF0000;">
-  <thead>
-    <tr style="background-color: #f8f9fa;">
-      <th colspan="4" align="center" style="padding: 20px;"><h3>🖼️ Web Kullanıcı Deneyimi</h3></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td align="center" style="padding: 10px;"><img src="screenshot/web_konum.jpeg" width="100%"><br><sub><b>📍 Bölge Filtreleme</b></sub></td>
-      <td align="center" style="padding: 10px;"><img src="screenshot/anasayfaweb.jpeg" width="100%"><br><sub><b>🏠 Ana Dashboard</b></sub></td>
-      <td align="center" style="padding: 10px;"><img src="screenshot/restoran2.jpeg" width="100%"><br><sub><b>🍴 Restoran Katalog</b></sub></td>
-      <td align="center" style="padding: 10px;"><img src="screenshot/webaramakısmı.jpeg" width="100%"><br><sub><b>🔍 Akıllı Arama</b></sub></td>
-    </tr>
-    <tr>
-      <td align="center" style="padding: 10px;"><img src="screenshot/webpizza.jpeg" width="100%"><br><sub><b>🍕 Pizza Dünyası</b></sub></td>
-      <td align="center" style="padding: 10px;"><img src="screenshot/kebaplar.jpeg" width="100%"><br><sub><b>🍢 Kebap Kültürü</b></sub></td>
-      <td align="center" style="padding: 10px;"><img src="screenshot/webtatlılar.jpeg" width="100%"><br><sub><b>🍰 Tatlı Serüveni</b></sub></td>
-      <td align="center" style="padding: 10px;"><img src="screenshot/kahveler.jpeg" width="100%"><br><sub><b>☕ Kahve & İçecek</b></sub></td>
-    </tr>
-  </tbody>
-</table>
-
-<br>
-
-<!-- GÖRSEL GALERİ - MOBİL -->
-<table style="width: 100%; border-collapse: collapse; border: 4px solid #FF0000;">
-  <thead>
-    <tr style="background-color: #f8f9fa;">
-      <th colspan="4" align="center" style="padding: 20px;"><h3>📱 Mobil Uygulama Ekosistemi</h3></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td align="center" style="padding: 10px;"><img src="screenshot/mobilgiris.jpeg" width="100%"><br><sub><b>🔐 Güvenli Giriş</b></sub></td>
-      <td align="center" style="padding: 10px;"><img src="screenshot/mobildasboard.jpeg" width="100%"><br><sub><b>🏠 Dashboard</b></sub></td>
-      <td align="center" style="padding: 10px;"><img src="screenshot/mobilpizza.jpeg" width="100%"><br><sub><b>🍕 Kategoriler</b></sub></td>
-      <td align="center" style="padding: 10px;"><img src="screenshot/mobilsepetvekupon.jpeg" width="100%"><br><sub><b>🛒 Akıllı Sepet</b></sub></td>
-    </tr>
-  </tbody>
-</table>
-
-<br>
-
 <!-- SONUÇ TABLE -->
 <table style="width: 100%; border-collapse: collapse; border: 2px solid #333;">
   <tr>
