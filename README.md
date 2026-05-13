@@ -275,23 +275,43 @@ yemeksiparismete/
 </div>
 <br>
 <!-- AĞ VE GÜVENLİK -->
-<table style="width: 100%; border-collapse: collapse; border: 2px solid #FF0000;">
-  <tr style="background-color: #fff5f5;">
-    <th align="left" style="padding: 10px; border-bottom: 2px solid #FF0000;">🌐 Ağ ve Siber Güvenlik Yapılandırması</th>
-  </tr>
-  <tr>
-    <td style="padding: 15px;">
-      <b>📡 IPv4 Erişim Protokolü:</b> Mobil cihazların sunucuya erişimi için sistem <code>10.22.107.60:5101</code> statik adresi üzerinden yayın yapmaktadır.<br><br>
-      <b>🔒 Güvenlik Katmanları:</b>
-      <ul>
-        <li><b>PBKDF2:</b> Kriptografik şifreleme ve tuzlama (Salting).</li>
-        <li><b>JWT:</b> Güvenli ve stateless oturum yönetimi.</li>
-        <li><b>Validation:</b> Veri girişlerinde tam denetim (Fluent Validation).</li>
-      </ul>
-    </td>
-  </tr>
-</table>
+<!-- 7. SİBER GÜVENLİK BÖLÜMÜ -->
+<div align="left" style="background-color: #FDFBF7; padding: 20px; border-radius: 12px; border: 1px solid #EAE8E1; font-family: sans-serif;">
+  
+  <!-- BAŞLIK -->
+  <h2 style="color: #4A4A4A; display: flex; align-items: center; gap: 10px; margin-top: 0;">
+    🔐 7. Siber Güvenlik: Kırılmaz Bir Dijital Kale
+  </h2>
+  
+  <!-- AÇIKLAMA METNİ -->
+  <p style="color: #666; font-size: 15px; line-height: 1.6; margin-bottom: 20px;">
+    Kullanıcı verileri ve sistem bütünlüğü, endüstri standardı modern siber güvenlik protokolleri ile korunmaktadır:
+  </p>
 
+  <!-- TABLO -->
+  <table style="width: 100%; border-collapse: collapse; background-color: #FFFFFF; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+    <thead>
+      <tr style="background-color: #E2E0D6; border-bottom: 2px solid #C5C3B6;">
+        <th align="left" style="padding: 12px; color: #4A4A4A; font-size: 14px; width: 30%;">Güvenlik Katmanı</th>
+        <th align="left" style="padding: 12px; color: #4A4A4A; font-size: 14px;">Kullanılan Teknoloji & Metot</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="border-bottom: 1px solid #EAE8E1;">
+        <td style="padding: 12px; font-size: 14px;"><b>Parola Güvenliği</b></td>
+        <td style="padding: 12px; font-size: 14px; color: #333;"><code>PBKDF2</code> hashing algoritması ile binlerce kez tekrarlanmış tuzlama (salting) işlemi.</td>
+      </tr>
+      <tr style="border-bottom: 1px solid #EAE8E1;">
+        <td style="padding: 12px; font-size: 14px;"><b>Yetkilendirme</b></td>
+        <td style="padding: 12px; font-size: 14px; color: #333;"><code>JWT (JSON Web Token)</code> ile stateless, kriptografik imzalı ve güvenli oturum yönetimi.</td>
+      </tr>
+      <tr>
+        <td style="padding: 12px; font-size: 14px;"><b>Veri Validasyonu</b></td>
+        <td style="padding: 12px; font-size: 14px; color: #333;"><code>Fluent Validation</code> kütüphanesi ile backend tarafında enjekte edilen katı veri doğrulama kuralları.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 <br>
 
 <!-- GÖRSEL GALERİ - WEB KULLANICI -->
