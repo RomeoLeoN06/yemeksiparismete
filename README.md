@@ -942,4 +942,68 @@ yemeksiparismete/
   </table>
 </div>
 <br>
+<div align="center">
+  <table style="width: 100%; table-layout: fixed; border-collapse: collapse !important; border: 4px solid #FF0000 !important;">
+    <thead>
+      <tr style="border: 4px solid #FF0000 !important; background-color: transparent !important;">
+        <th colspan="4" align="center" style="border: 4px solid #FF0000 !important; padding: 20px 0;">
+          <h3>📱 Mobil Sosyal Etkileşim & Dashboard</h3>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="border: 4px solid #FF0000 !important; background-color: transparent !important;">
+        <td align="center" style="border: 4px solid #FF0000 !important; padding: 10px; vertical-align: top;">
+          <img src="screenshots/mobilcevredostusiralama.jpeg" style="width: 100%; aspect-ratio: 9/16; object-fit: cover; border-radius: 12px; border: 2px solid #333; box-shadow: 0 10px 20px rgba(0,0,0,0.4);">
+          <br><sub><b>🌿 Çevre Dostu Sıralama</b></sub>
+        </td>
+        <td align="center" style="border: 4px solid #FF0000 !important; padding: 10px; vertical-align: top;">
+          <img src="screenshots/mobilyenidashboard.jpeg" style="width: 100%; aspect-ratio: 9/16; object-fit: cover; border-radius: 12px; border: 2px solid #333; box-shadow: 0 10px 20px rgba(0,0,0,0.4);">
+          <br><sub><b>🏠 Yeni Dashboard</b></sub>
+        </td>
+        <td align="center" style="border: 4px solid #FF0000 !important; padding: 10px; vertical-align: top;">
+          <img src="screenshots/mobilsosyalsepet.jpeg" style="width: 100%; aspect-ratio: 9/16; object-fit: cover; border-radius: 12px; border: 2px solid #333; box-shadow: 0 10px 20px rgba(0,0,0,0.4);">
+          <br><sub><b>💬 Sosyal Sepet Paneli</b></sub>
+        </td>
+        <td align="center" style="border: 4px solid #FF0000 !important; padding: 10px; vertical-align: top;">
+          <img src="screenshots/mobilortaksipariskod.jpeg" style="width: 100%; aspect-ratio: 9/16; object-fit: cover; border-radius: 12px; border: 2px solid #333; box-shadow: 0 10px 20px rgba(0,0,0,0.4);">
+          <br><sub><b>🔑 Ortak Sipariş Kodu</b></sub>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<br>
+<div align="center">
+  <table style="width: 100%; table-layout: fixed; border-collapse: collapse !important; border: 4px solid #FF0000 !important;">
+    <thead>
+      <tr style="border: 4px solid #FF0000 !important; background-color: transparent !important;">
+        <th colspan="4" align="center" style="border: 4px solid #FF0000 !important; padding: 20px 0;">
+          <h3>🛍️ Mobil Sepet & Grup Sipariş Süreçleri</h3>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="border: 4px solid #FF0000 !important; background-color: transparent !important;">
+        <td align="center" style="border: 4px solid #FF0000 !important; padding: 10px; vertical-align: top;">
+          <img src="screenshots/mobilortaksipariskodveaktif.jpeg" style="width: 100%; aspect-ratio: 9/16; object-fit: cover; border-radius: 12px; border: 2px solid #333; box-shadow: 0 10px 20px rgba(0,0,0,0.4);">
+          <br><sub><b>✨ Aktif Sipariş Durumu</b></sub>
+        </td>
+        <td align="center" style="border: 4px solid #FF0000 !important; padding: 10px; vertical-align: top;">
+          <img src="screenshots/mobilsepetveurunekleme.jpeg" style="width: 100%; aspect-ratio: 9/16; object-fit: cover; border-radius: 12px; border: 2px solid #333; box-shadow: 0 10px 20px rgba(0,0,0,0.4);">
+          <br><sub><b>➕ Ürün Ekleme & Sepet</b></sub>
+        </td>
+        <td align="center" style="border: 4px solid #FF0000 !important; padding: 10px; vertical-align: top;">
+          <img src="screenshots/mobilortaksiparissepetim.jpeg" style="width: 100%; aspect-ratio: 9/16; object-fit: cover; border-radius: 12px; border: 2px solid #333; box-shadow: 0 10px 20px rgba(0,0,0,0.4);">
+          <br><sub><b>🛒 Ortak Sepet Detayı</b></sub>
+        </td>
+        <td align="center" style="border: 4px solid #FF0000 !important; padding: 10px; vertical-align: top;">
+          <img src="screenshots/mobilortaksiparislerim.jpeg" style="width: 100%; aspect-ratio: 9/16; object-fit: cover; border-radius: 12px; border: 2px solid #333; box-shadow: 0 10px 20px rgba(0,0,0,0.4);">
+          <br><sub><b>📂 Sipariş Geçmişim</b></sub>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<br>
 
