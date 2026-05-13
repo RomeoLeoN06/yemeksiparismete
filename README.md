@@ -143,6 +143,53 @@ yemeksiparismete/
   </table>
 </div>
 <br>
+<!-- 6. MOBİL TEKNOLOJİ BÖLÜMÜ -->
+<div align="left" style="background-color: #FDFBF7; padding: 20px; border-radius: 12px; border: 1px solid #EAE8E1; font-family: sans-serif;">
+  
+  <!-- BAŞLIK -->
+  <h2 style="color: #4A4A4A; display: flex; align-items: center; gap: 10px; margin-top: 0;">
+    📲 6. Mobil Teknoloji: Avucunuzdaki Hız ve Zarafet
+  </h2>
+  
+  <!-- AÇIKLAMA METNİ -->
+  <p style="color: #666; font-size: 15px; line-height: 1.6; margin-bottom: 20px;">
+    Flutter ile inşa edilen mobil uygulama, native performansını şık bir tasarım diliyle birleştirir.
+  </p>
+
+  <!-- TABLO -->
+  <table style="width: 100%; border-collapse: collapse; background-color: #FFFFFF; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+    <thead>
+      <tr style="background-color: #E2E0D6; border-bottom: 2px solid #C5C3B6;">
+        <th align="left" style="padding: 12px; color: #4A4A4A; font-size: 14px;">Özellik</th>
+        <th align="left" style="padding: 12px; color: #4A4A4A; font-size: 14px;">Detay</th>
+        <th align="left" style="padding: 12px; color: #4A4A4A; font-size: 14px;">Kullanıcı Deneyimi (UX)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="border-bottom: 1px solid #EAE8E1;">
+        <td style="padding: 12px; font-size: 14px;"><b>Flutter / Dart</b></td>
+        <td style="padding: 12px; font-size: 14px; color: #666;">Reaktif Mimari</td>
+        <td style="padding: 12px; font-size: 14px; color: #333;">Takılmayan, 60 FPS akıcılığında ekran geçişleri.</td>
+      </tr>
+      <tr style="border-bottom: 1px solid #EAE8E1;">
+        <td style="padding: 12px; font-size: 14px;"><b>Provider</b></td>
+        <td style="padding: 12px; font-size: 14px; color: #666;">State Management</td>
+        <td style="padding: 12px; font-size: 14px; color: #333;">Verilerin cihaz hafızasında anlık ve tutarlı yönetimi.</td>
+      </tr>
+      <tr style="border-bottom: 1px solid #EAE8E1;">
+        <td style="padding: 12px; font-size: 14px;"><b>Material 3</b></td>
+        <td style="padding: 12px; font-size: 14px; color: #666;">Tasarım Dili</td>
+        <td style="padding: 12px; font-size: 14px; color: #333;">Modern, temiz ve göz yormayan profesyonel arayüz.</td>
+      </tr>
+      <tr>
+        <td style="padding: 12px; font-size: 14px;"><b>API Sync</b></td>
+        <td style="padding: 12px; font-size: 14px; color: #666;">Optimized HTTP</td>
+        <td style="padding: 12px; font-size: 14px; color: #333;">Düşük internet hızına sahip ortamlarda bile kararlı veri alışverişi.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<br>
 <!-- AĞ VE GÜVENLİK -->
 <table style="width: 100%; border-collapse: collapse; border: 2px solid #FF0000;">
   <tr style="background-color: #fff5f5;">
