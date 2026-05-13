@@ -11,56 +11,73 @@ yemeksiparismete/
 ├── 📄 README.md       # Proje Dokümantasyonu
 ├── 📄 screenshot/README.md  #Projenin Hem Web Hem Mobil Üzerinden Çalıştığına Dair Kanıtlar
 └── 🧪 AutoSeeder/     # Mock Data: Akıllı Test Veri Üreticisi
+
 ```
-💎 YemekSiparisMete: Gastronomi Teknolojilerinde Yeni Nesil Dijital Dönüşüm ve Mühendislik Raporu
-Bu rapor, YemekSiparisMete ekosisteminin teknolojik derinliğini, mimari olgunluğunu ve modern yazılım prensiplerine olan bağlılığını en detaylı şekilde ortaya koymak amacıyla hazırlanmış bir teknik vizyon belgesidir. Sistem, sadece bir sipariş platformu olmanın ötesinde, yüksek erişilebilirlik ve ölçeklenebilirlik kriterlerini karşılayan devasa bir mühendislik çalışmasıdır.
+YemekSiparisMete, modern yazılım mimarilerinin tüm imkanları kullanılarak geliştirilmiş, uçtan uca bir yemek sipariş ve yönetim ekosistemidir. Bu proje; ölçeklenebilir bir Backend, estetik bir Web arayüzü ve yüksek performanslı bir Mobil uygulama üçlemesinden oluşmaktadır.
 
-🏛️ 1. Mimari Şaheser: N-Tier Katmanlı Yapı ve Entegrasyon Stratejisi
-Sistemimiz, birbirinden bağımsız çalışan ancak mükemmel bir uyum içerisinde haberleşen üç ana devasa katman üzerine inşa edilmiştir. Bu mimari tercih, projenin on binlerce kullanıcıya aynı anda hizmet verebilecek esnekliğe sahip olmasını sağlar.
+🏛️ 1. Mimari Şaheser: Sistem Topolojisi
+Sistem, N-Tier (Çok Katmanlı) mimari prensiplerine sadık kalınarak, her bir bileşenin kendi sorumluluğunu (Separation of Concerns) taşıdığı bir yapıda kurgulanmıştır.
 
-🛡️ Core Backend (Merkezi Güç Merkezi): ASP.NET Core 8.0 teknolojisiyle donatılmış, projenin beynini oluşturan bu katman; tüm veri akışını, güvenlik protokollerini ve iş mantığını yöneten devasa bir orkestra şefidir.<br>
-✨ Web Client (İnteraktif Portal): React 19 ve TypeScript'in gücünü arkasına alan web arayüzü, kullanıcılara sadece bir sipariş platformu değil, aynı zamanda akıcı animasyonlarla bezenmiş dijital bir deneyim alanı sunar.<br>
-📱 Mobile Application (Mobil Ekosistem): Flutter ve Dart'ın sunduğu yerel (native) performans avantajlarıyla, hem iOS hem de Android dünyasında ödün vermeyen, hızlı ve sezgisel bir kullanım vaat eder.<br>
+IPv4: 10.22.107.60:5101
+HTTP/SignalR
+EF Core 8
+Real-time
+📱 Flutter Mobile
+⚙️ .NET 8 API
+💻 React 19 Web
+🗄️ SQL Server
+📡 SignalR Hub
+⚙️ 2. Backend Mühendisliği: Verimlilik ve Ölçeklenebilirlik
+Sistemin kalbi olan backend tarafında, kurumsal düzeyde (enterprise-grade) teknolojiler kullanılarak sarsılmaz bir iş mantığı katmanı oluşturulmuştur.
 
-⚙️ 2. Backend Mühendisliği ve SQL Server Veri Yönetim Stratejisi
-Sistemin kalbi olan backend tarafında, verinin milisaniyeler içerisinde işlenmesi ve en yüksek tutarlılıkla saklanması amacıyla Microsoft SQL Server Enterprise veri tabanı yönetim sistemi tercih edilmiştir. Veri tabanı mimarimiz, karmaşık ilişkisel sorguların (JOIN operasyonları) en optimize şekilde çalışmasını sağlayan indeksleme stratejileriyle donatılmıştır.
+Teknoloji	Versiyon	Görev & Stratejik Avantaj
+Microsoft .NET Core	8.0	Yüksek işlem kapasiteli, düşük gecikme süreli ana motor.
+Entity Framework Core	8.0	Veritabanı yönetiminde nesne-tabanlı (ORM) esneklik.
+SQL Server	Enterprise	ACID prensiplerine tam uyumlu, güvenilir veri depolama.
+SignalR	Real-Time	Mutfak ve müşteri arasında kesintisiz canlı veri akışı.
+ASP.NET Identity	JWT	Role-based (Rol tabanlı) kriptografik güvenlik sistemi.
+🗄️ 3. Veritabanı ve Veri Yönetimi (SQL Server)
+Projenin veri ambarı, Microsoft SQL Server üzerinde optimize edilmiştir. Veri bütünlüğü (integrity) ve ilişkisel modelleme (relational mapping) en üst seviyededir.
 
-Entity Framework Core 8 kullanımı sayesinde, veritabanı üzerindeki tüm CRUD (Create, Read, Update, Delete) işlemleri nesne-yönelimli (Object-Oriented) bir yaklaşımla, tip güvenliği (type-safety) korunarak gerçekleştirilmektedir. Bu durum, veri bütünlüğünü en üst seviyeye taşırken, olası SQL Injection saldırılarına karşı da doğal bir savunma kalkanı oluşturmaktadır. Veritabanımız; kullanıcılar, restoranlar, ürünler, sepetler, siparişler ve kuryeler arasındaki devasa ilişki ağını (Relational Mapping) kusursuz bir şekilde yönetmektedir.
+İlişkisel Mimari: Müşteriler, Restoranlar, Ürünler, Siparişler ve Kuryeler arasındaki karmaşık bağlar, verimli Join operasyonları ve indeksleme stratejileriyle yönetilir.
+Veri Güvenliği: Tüm hassas veriler, uygulama katmanında normalize edildikten sonra SQL Server'ın güvenli havuzuna aktarılır.
+Hızlı Kurulum: Proje içerisinde bulunan YemekSiparisDb_Yedek.sql dosyası ile saniyeler içinde tüm şema ve test verileri ayağa kaldırılabilir.
+🌐 4. Ağ Topolojisi ve IPv4 Erişim Dinamikleri
+Çapraz platform (Cross-platform) haberleşmesi, sistemin en güçlü yanlarından biridir. Mobil ve Web istemcilerinin merkezi sunucuyla sorunsuz etkileşimi için özel bir ağ yapılandırması uygulanmıştır.
+
+IMPORTANT
+
+IPv4 Bağlantı Yapılandırması: Fiziksel cihazlar ve mobil emülatörlerin sunucuya erişebilmesi için Backend API, statik IPv4 adresi üzerinden yayın yapmaktadır.
+
+Sunucu IPv4 Adresi: 10.22.107.60
+Dinleme Portu: 5101
+Protokol: HTTP/REST & WebSockets (SignalR)
+Bu yapılandırma, localhost sınırlarını aşarak gerçek dünya ağ senaryolarında (Physical Device Testing) projenin kesintisiz çalışmasını garanti altına alır.
+
+🎨 5. Web Frontend: Estetik ve Fonksiyonelliğin Senfonisi
+Web arayüzü, React 19 ve modern CSS teknikleriyle tasarlanmış, kullanıcı deneyimini (UX) odağına alan bir görsel şölen sunar.
 
 Bileşen	Teknolojik Derinlik	Stratejik Avantaj
-Microsoft .NET 8.0	Dünyanın en hızlı ve güvenilir backend frameworklerinden biridir.	Düşük gecikme süresi (Low Latency) ve yüksek işlem kapasitesi.
-Entity Framework Core 8	Nesne-tabanlı (Object-Oriented) veri erişim mimarisidir.	Veritabanı sorgularında maksimum hız ve kod okunabilirliği sağlar.
-SQL Server Enterprise	Kritik verilerin milisaniyeler içinde işlendiği ana depolama merkezidir.	Veri tutarlılığı (ACID prensipleri) ve devasa veri setlerini yönetme kabiliyeti.
-SignalR Real-Time Hub	Sunucu ve istemci arasında kurulan çift yönlü canlı veri tünelidir.	Siparişlerin mutfaktan yola çıkışına kadar her anın anlık izlenebilmesi.
-🌐 3. Ağ Topolojisi ve IPv4 Tabanlı Çapraz Platform Haberleşme Dinamikleri
-Projemizin en kritik mühendislik başarılarından biri, farklı ekosistemlerin (Web, Mobil, Backend) birbirleriyle en düşük gecikmeyle haberleşebildiği optimize edilmiş ağ konfigürasyonudur. Özellikle mobil cihazların gerçek dünya senaryolarında sunucuya erişebilmesi için sistem, IPv4 (Internet Protocol Version 4) protokolü üzerinden statik bir ağ köprüsü üzerine kurulmuştur.
+React 19	Latest Release	Modern rendering ve üstün component hiyerarşisi.
+Vite Engine	Ultra Fast	Saniyeler içinde yüklenen sayfalar ve optimize bundle.
+TypeScript	Type-Safe	Çalışma zamanı hatalarını sıfıra indiren güçlü kod yapısı.
+Framer Motion	3D & Glass	3D hover efektleri ve premium cam efekti (Glassmorphism).
+📲 6. Mobil Teknoloji: Avucunuzdaki Hız ve Zarafet
+Flutter ile inşa edilen mobil uygulama, native performansını şık bir tasarım diliyle birleştirir.
 
-Backend sunucumuz, yerel ağ içerisinde 10.22.107.60 IPv4 adresi üzerinden 5101 portunu dinleyecek şekilde yapılandırılmıştır. Bu stratejik konfigürasyon, mobil uygulamanın (Flutter) fiziksel bir cihaz üzerinde çalışırken bile, bilgisayarımızdaki ana sunucuya (Backend) kesintisiz bir şekilde erişmesini ve gerçek zamanlı veri alışverişi yapmasını sağlamaktadır. Localhost kısıtlamalarını aşan bu ağ mimarisi, projenin gerçek bir üretim (production) ortamına hazır olduğunun en somut göstergesidir.
+Özellik	Detay	Kullanıcı Deneyimi (UX)
+Flutter / Dart	Reaktif Mimari	Takılmayan, 60 FPS akıcılığında ekran geçişleri.
+Provider	State Management	Verilerin cihaz hafızasında anlık ve tutarlı yönetimi.
+Material 3	Tasarım Dili	Modern, temiz ve göz yormayan profesyonel arayüz.
+API Sync	Optimized HTTP	Düşük internet hızına sahip ortamlarda bile kararlı veri alışverişi.
+🔐 7. Siber Güvenlik: Kırılmaz Bir Dijital Kale
+Kullanıcı verileri, en modern siber güvenlik standartları ile korunmaktadır:
 
-🎨 4. Web Frontend: Estetik ve Fonksiyonelliğin Teknolojik Dansı
-Web tarafında kullanılan React 19, projenin sadece bugününe değil, geleceğine de yatırım yapıldığının en büyük kanıtıdır. Vite derleyicisi sayesinde arayüz, ışık hızında yüklenerek kullanıcıyı asla bekletmez.
-
-Bileşen	Teknolojik Derinlik	Stratejik Avantaj
-React 19 (Latest)	En güncel bileşen tabanlı kütüphane ve Concurrent Rendering.	Üst düzey sayfa geçiş hızı ve daha akıcı kullanıcı etkileşimi.
-Vite Engine	Yeni nesil frontend derleyicisi ve HMR (Hot Module Replacement).	Saniyeler içinde açılan sayfalar ve geliştirme sürecinde maksimum verimlilik.
-TypeScript 5.x	Statik tip tanımlama ve gelişmiş hata yakalama mekanizması.	Kod kalitesinde %100 güvenilirlik ve büyük ölçekli sürdürülebilirlik.
-Framer Motion	Deklaratif animasyon ve 3D dönüşüm motoru.	Kullanıcıyı büyüleyen cam efekti (Glassmorphism) ve derinlik hissi veren arayüzler.
-📲 5. Mobil Teknoloji: Avucunuzdaki Hız ve Mühendislik Zarafeti
-Flutter ile hayat bulan mobil uygulamamız, kullanıcı dostu tasarımı ve teknik kapasitesiyle rakiplerinden ayrışır. Tek bir kod tabanıyla hem iOS hem Android'de kusursuz performans sunar.
-
-Bileşen	Teknolojik Derinlik	Stratejik Avantaj
-Flutter 3.x (Skia)	Piksel tabanlı grafik motoru ve yerel (native) performans.	60-120 FPS akıcılığında animasyonlar ve cihaz kaynaklarının optimum kullanımı.
-Dart Language	AOT (Ahead-of-Time) derleme ve güçlü asenkron yönetim.	Uygulama açılış hızında %40 artış ve gecikmesiz veri işleme.
-Provider State	Hafif ve etkili "Reaktif" durum yönetimi mimarisi.	Ekranlar arası veri senkronizasyonunda sıfır gecikme ve temiz kod yapısı.
-🔐 6. Siber Güvenlik: Kırılmaz Bir Dijital Kale ve Veri Bütünlüğü
-Kullanıcılarımızın güvenliği bizim için bir seçenek değil, mutlak bir zorunluluktur. Bu doğrultuda sistemimiz en üst düzey koruma mekanizmalarıyla donatılmıştır.
-
-🛡️ PBKDF2 Hashing Algoritması: Parolalar, brute-force saldırılarına karşı dünyanın en dirençli algoritmalarından biriyle binlerce kez tekrarlanarak şifrelenir.
-🎫 JWT & Stateless Auth: Her kullanıcı oturumu, kriptografik olarak imzalanmış benzersiz tokenlar ile yönetilir. Bu sayede sunucu tarafında gereksiz yük oluşmaz ve güvenlikten ödün verilmez.
-🧩 Veri Bütünlüğü ve Validasyon: Gelen her veri, backend tarafında en katı kurallardan geçirilerek (Fluent Validation mantığıyla) sisteme kabul edilir. Telefon numarası ve adres gibi kritik bilgiler, yanlış formatlara karşı otomatik olarak normalize edilir.
-
+Parola Güvenliği: PBKDF2 hashing algoritması ile binlerce kez tekrarlanmış tuzlama (salting) işlemi.
+Yetkilendirme: JWT (JSON Web Token) ile stateless ve güvenli oturum yönetimi.
+Veri Validasyonu: Fluent Validation ile backend tarafında enjekte edilen katı veri doğrulama kuralları.
 🌟 Sonuç
-YemekSiparisMete, teknolojik sınırların zorlandığı, kullanıcı mutluluğunun her şeyin önünde tutulduğu ve modern yazılım mimarisinin tüm nimetlerinden faydalanan devasa bir ekosistemdir. SQL Server'ın sarsılmaz veri yönetiminden, IPv4 tabanlı hibrit ağ erişimine kadar her detay; sürdürülebilir, güvenli ve performanslı bir gastronomi deneyimi sunmak üzere titizlikle işlenmiştir. Bu proje, hem bir ticari platform vizyonu hem de teknik bir başarı hikayesidir.
+YemekSiparisMete, sadece bir ödev veya hobi projesi değil; SQL Server'ın derinliklerinden React 19'un en güncel özelliklerine, IPv4 tabanlı hibrit ağ mimarisinden Flutter'ın performansına kadar her noktası titizlikle işlenmiş profesyonel bir yazılım ekosistemidir.
 
 <div align="center">
   <table style="width: 100%; table-layout: fixed; border-collapse: collapse !important; border: 4px solid #FF0000 !important;">
