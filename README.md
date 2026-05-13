@@ -20,29 +20,85 @@ yemeksiparismete/
     <td align="center" style="padding: 20px;">
       <h1>🍕 YemekSiparisMete</h1>
       <p><b>Gastronomi ve Teknolojinin Kusursuz Senfonisi</b></p>
-      <img src="https://img.shields.io/github/contributors/mete/yemeksiparismete?style=for-the-badge" />
-      <img src="https://img.shields.io/github/repo-size/mete/yemeksiparismete?style=for-the-badge" />
-      <img src="https://img.shields.io/github/languages/top/mete/yemeksiparismete?style=for-the-badge" />
     </td>
   </tr>
 </table>
 
 <br>
+<!-- 1. SİSTEM TOPOLOJİSİ BÖLÜMÜ -->
+<div align="left" style="background-color: #FDFBF7; padding: 20px; border-radius: 12px; border: 1px solid #EAE8E1; font-family: sans-serif;">
+  
+  <!-- BAŞLIK -->
+  <h2 style="color: #4A4A4A; display: flex; align-items: center; gap: 10px; margin-top: 0;">
+    🏛️ 1. Mimari Şaheser: Sistem Topolojisi
+  </h2>
+  
+  <!-- AÇIKLAMA METNİ -->
+  <p style="color: #666; font-size: 15px; line-height: 1.6; margin-bottom: 30px;">
+    Sistem, <b>N-Tier (Çok Katmanlı)</b> mimari prensiplerine sadık kalınarak, her bir bileşenin kendi sorumluluğunu taşıdığı bir yapıda kurgulanmıştır.
+  </p>
 
-<!-- PROJE ÖZETİ -->
-<table style="width: 100%; border-collapse: collapse; border: 2px solid #333;">
-  <tr style="background-color: #f8f9fa;">
-    <th align="left" style="padding: 10px; border-bottom: 2px solid #333;">📄 Proje Vizyonu</th>
-  </tr>
-  <tr>
-    <td style="padding: 15px; line-height: 1.6;">
-      YemekSiparisMete, modern yazılım mimarilerinin tüm imkanları kullanılarak geliştirilmiş, uçtan uca bir yemek sipariş ve yönetim ekosistemidir. Bu proje; ölçeklenebilir bir <b>Backend</b>, estetik bir <b>Web arayüzü</b> ve yüksek performanslı bir <b>Mobil uygulama</b> üçlemesinden oluşmaktadır. Her bir satır kod, kullanıcı deneyimini zirveye taşımak amacıyla titizlikle işlenmiştir.
-    </td>
-  </tr>
-</table>
-
+  <!-- DİYAGRAM TABLOSU -->
+  <table align="center" style="border-collapse: collapse; border: none; background: transparent;">
+    <!-- ÜST KATMAN: CLIENTS -->
+    <tr>
+      <td align="center" style="padding: 10px;">
+        <div style="background-color: #F0F0FF; border: 1px solid #B0B0FF; padding: 15px 25px; border-radius: 4px; color: #333; font-weight: bold;">
+          📱 Flutter Mobile
+        </div>
+      </td>
+      <td width="50"></td>
+      <td align="center" style="padding: 10px;">
+        <div style="background-color: #F0F0FF; border: 1px solid #B0B0FF; padding: 15px 25px; border-radius: 4px; color: #333; font-weight: bold;">
+          💻 React 19 Web
+        </div>
+      </td>
+    </tr>
+    <!-- OK KATMANI 1 -->
+    <tr>
+      <td align="center" style="padding: 5px; color: #888;">
+        IPv4: 10.22.107.60:5101<br><b>╲ </b>
+      </td>
+      <td></td>
+      <td align="center" style="padding: 5px; color: #888;">
+        HTTP / SignalR<br><b> ╱</b>
+      </td>
+    </tr>
+    <!-- ORTA KATMAN: API -->
+    <tr>
+      <td colspan="3" align="center" style="padding: 10px;">
+        <div style="background-color: #F5F0FF; border: 1px solid #D0B0FF; padding: 15px 40px; border-radius: 4px; color: #333; font-weight: bold; display: inline-block;">
+          ⚙️ .NET 8 API
+        </div>
+      </td>
+    </tr>
+    <!-- OK KATMANI 2 -->
+    <tr>
+      <td align="center" style="padding: 5px; color: #888;">
+        <b>↙</b><br>EF Core 8
+      </td>
+      <td></td>
+      <td align="center" style="padding: 5px; color: #888;">
+        <b>↘</b><br>Real-time
+      </td>
+    </tr>
+    <!-- ALT KATMAN: STORAGE & REALTIME -->
+    <tr>
+      <td align="center" style="padding: 10px;">
+        <div style="background-color: #FFFFFF; border: 1px solid #888; border-bottom: 4px solid #888; padding: 15px 25px; border-radius: 50% / 15%; color: #333; font-weight: bold;">
+          🗄️ SQL Server
+        </div>
+      </td>
+      <td></td>
+      <td align="center" style="padding: 10px;">
+        <div style="background-color: #F0F9FF; border: 1px solid #B0D0FF; padding: 15px 25px; border-radius: 4px; color: #333; font-weight: bold;">
+          📡 SignalR Hub
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
 <br>
-
 <!-- 2. BACKEND MÜHENDİSLİĞİ BÖLÜMÜ -->
 <!-- 2. BACKEND MÜHENDİSLİĞİ BÖLÜMÜ -->
 <div align="left" style="background-color: #FDFBF7; padding: 20px; border-radius: 12px; border: 1px solid #EAE8E1; font-family: sans-serif;">
