@@ -607,6 +607,122 @@ yemeksiparismete/
     <thead>
       <tr style="border: 4px solid #FF0000 !important; background-color: transparent !important;">
         <th colspan="4" align="center" style="border: 4px solid #FF0000 !important; padding: 20px 0;">
+          <h3>🛵 Web Kurye Yönetim Paneli</h3>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Birinci Satır -->
+      <tr style="border: 4px solid #FF0000 !important; background-color: transparent !important;">
+        <td align="center" style="border: 4px solid #FF0000 !important; padding: 10px; vertical-align: top;">
+          <img src="screenshots/kuryegirismail.jpeg" style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 12px; border: 2px solid #333; box-shadow: 0 10px 20px rgba(0,0,0,0.4);">
+          <br><sub><b>🔐 Kurye Girişi</b></sub>
+        </td>
+        <td align="center" style="border: 4px solid #FF0000 !important; padding: 10px; vertical-align: top;">
+          <img src="screenshots/webkuryerol.jpeg" style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 12px; border: 2px solid #333; box-shadow: 0 10px 20px rgba(0,0,0,0.4);">
+          <br><sub><b>👥 Rol Seçimi</b></sub>
+        </td>
+        <td align="center" style="border: 4px solid #FF0000 !important; padding: 10px; vertical-align: top;">
+          <img src="screenshots/webkuryedashboard.jpeg" style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 12px; border: 2px solid #333; box-shadow: 0 10px 20px rgba(0,0,0,0.4);">
+          <br><sub><b>📊 Kurye Paneli</b></sub>
+        </td>
+        <td align="center" style="border: 4px solid #FF0000 !important; padding: 10px; vertical-align: top;">
+          <img src="screenshots/webkuryecalismamodu.jpeg" style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 12px; border: 2px solid #333; box-shadow: 0 10px 20px rgba(0,0,0,0.4);">
+          <br><sub><b>🚥 Çalışma Modu</b></sub>
+        </td>
+      </tr>
+      <!-- İkinci Satır -->
+      <tr style="border: 4px solid #FF0000 !important; background-color: transparent !important;">
+        <td align="center" style="border: 4px solid #FF0000 !important; padding: 10px; vertical-align: top;">
+          <img src="screenshots/webibankontrol.jpeg" style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 12px; border: 2px solid #333; box-shadow: 0 10px 20px rgba(0,0,0,0.4);">
+          <br><sub><b>💳 IBAN Kontrol</b></sub>
+        </td>
+        <td align="center" style="border: 4px solid #FF0000 !important; padding: 10px; vertical-align: top;">
+          <img src="screenshots/webkuryeaktifgörev.jpeg" style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 12px; border: 2px solid #333; box-shadow: 0 10px 20px rgba(0,0,0,0.4);">
+          <br><sub><b>📍 Aktif Görev</b></sub>
+        </td>
+        <td align="center" style="border: 4px solid #FF0000 !important; padding: 10px; vertical-align: top;">
+          <img src="screenshots/webiptalkayit.jpeg" style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 12px; border: 2px solid #333; box-shadow: 0 10px 20px rgba(0,0,0,0.4);">
+          <br><sub><b>❌ İptal Kayıtları</b></sub>
+        </td>
+        <td align="center" style="border: 4px solid #FF0000 !important; padding: 10px; vertical-align: top;">
+          <img src="screenshots/webteslimkayit.jpeg" style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 12px; border: 2px solid #333; box-shadow: 0 10px 20px rgba(0,0,0,0.4);">
+          <br><sub><b>✅ Teslimat Kayıtları</b></sub>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<br>
+<div align="center">
+  <table style="width: 100%; table-layout: fixed; border-collapse: collapse !important; border: 4px solid #FF0000 !important;">
+    <thead>
+      <tr style="border: 4px solid #FF0000 !important; background-color: transparent !important;">
+        <th colspan="4" align="center" style="border: 4px solid #FF0000 !important; padding: 20px 0;">
+          <h3>🤝 Web Ortak Sipariş & Sosyal Modüller</h3>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="border: 4px solid #FF0000 !important; background-color: transparent !important;">
+        <td align="center" style="border: 4px solid #FF0000 !important; padding: 10px; vertical-align: top;">
+          <img src="screenshots/webortaksiparisim.jpeg" style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 12px; border: 2px solid #333; box-shadow: 0 10px 20px rgba(0,0,0,0.4);">
+          <br><sub><b>👥 Ortak Siparişlerim</b></sub>
+        </td>
+        <td align="center" style="border: 4px solid #FF0000 !important; padding: 10px; vertical-align: top;">
+          <img src="screenshots/webortaksiparis.jpeg" style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 12px; border: 2px solid #333; box-shadow: 0 10px 20px rgba(0,0,0,0.4);">
+          <br><sub><b>🛒 Sipariş Oluşturma</b></sub>
+        </td>
+        <td align="center" style="border: 4px solid #FF0000 !important; padding: 10px; vertical-align: top;">
+          <img src="screenshots/webdogadostuveödeme.jpeg" style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 12px; border: 2px solid #333; box-shadow: 0 10px 20px rgba(0,0,0,0.4);">
+          <br><sub><b>🌿 Doğa Dostu Ödeme</b></sub>
+        </td>
+        <td align="center" style="border: 4px solid #FF0000 !important; padding: 10px; vertical-align: top;">
+          <img src="screenshots/webortaksiparissepeti.jpeg" style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 12px; border: 2px solid #333; box-shadow: 0 10px 20px rgba(0,0,0,0.4);">
+          <br><sub><b>🛍️ Grup Sepeti</b></sub>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<br>
+<div align="center">
+  <table style="width: 100%; table-layout: fixed; border-collapse: collapse !important; border: 4px solid #FF0000 !important;">
+    <thead>
+      <tr style="border: 4px solid #FF0000 !important; background-color: transparent !important;">
+        <th colspan="4" align="center" style="border: 4px solid #FF0000 !important; padding: 20px 0;">
+          <h3>📊 Canlı Takip & Liderlik Tablosu</h3>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="border: 4px solid #FF0000 !important; background-color: transparent !important;">
+        <td align="center" style="border: 4px solid #FF0000 !important; padding: 10px; vertical-align: top;">
+          <img src="screenshots/webcanlisipariskodu.jpeg" style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 12px; border: 2px solid #333; box-shadow: 0 10px 20px rgba(0,0,0,0.4);">
+          <br><sub><b>⚡ Canlı Sipariş Kodu</b></sub>
+        </td>
+        <td align="center" style="border: 4px solid #FF0000 !important; padding: 10px; vertical-align: top;">
+          <img src="screenshots/webortaksiparispaneli.jpeg" style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 12px; border: 2px solid #333; box-shadow: 0 10px 20px rgba(0,0,0,0.4);">
+          <br><sub><b>🖥️ Yönetim Paneli</b></sub>
+        </td>
+        <td align="center" style="border: 4px solid #FF0000 !important; padding: 10px; vertical-align: top;">
+          <img src="screenshots/webdoğakorumaliderlik.jpeg" style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 12px; border: 2px solid #333; box-shadow: 0 10px 20px rgba(0,0,0,0.4);">
+          <br><sub><b>🥇 Çevre Liderliği</b></sub>
+        </td>
+        <td align="center" style="border: 4px solid #FF0000 !important; padding: 10px; vertical-align: top;">
+          <img src="screenshots/webliderliktablosuikonu.jpeg" style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 12px; border: 2px solid #333; box-shadow: 0 10px 20px rgba(0,0,0,0.4);">
+          <br><sub><b>✨ Başarı İkonları</b></sub>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<br>
+<div align="center">
+  <table style="width: 100%; table-layout: fixed; border-collapse: collapse !important; border: 4px solid #FF0000 !important;">
+    <thead>
+      <tr style="border: 4px solid #FF0000 !important; background-color: transparent !important;">
+        <th colspan="4" align="center" style="border: 4px solid #FF0000 !important; padding: 20px 0;">
           <h3>⚙️ Mobil Kullanıcı Paneli</h3>
         </th>
       </tr>
@@ -831,58 +947,6 @@ yemeksiparismete/
     <thead>
       <tr style="border: 4px solid #FF0000 !important; background-color: transparent !important;">
         <th colspan="4" align="center" style="border: 4px solid #FF0000 !important; padding: 20px 0;">
-          <h3>🛵 Web Kurye Yönetim Paneli</h3>
-        </th>
-      </tr>
-    </thead>
-    <tbody>
-      <!-- Birinci Satır -->
-      <tr style="border: 4px solid #FF0000 !important; background-color: transparent !important;">
-        <td align="center" style="border: 4px solid #FF0000 !important; padding: 10px; vertical-align: top;">
-          <img src="screenshots/kuryegirismail.jpeg" style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 12px; border: 2px solid #333; box-shadow: 0 10px 20px rgba(0,0,0,0.4);">
-          <br><sub><b>🔐 Kurye Girişi</b></sub>
-        </td>
-        <td align="center" style="border: 4px solid #FF0000 !important; padding: 10px; vertical-align: top;">
-          <img src="screenshots/webkuryerol.jpeg" style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 12px; border: 2px solid #333; box-shadow: 0 10px 20px rgba(0,0,0,0.4);">
-          <br><sub><b>👥 Rol Seçimi</b></sub>
-        </td>
-        <td align="center" style="border: 4px solid #FF0000 !important; padding: 10px; vertical-align: top;">
-          <img src="screenshots/webkuryedashboard.jpeg" style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 12px; border: 2px solid #333; box-shadow: 0 10px 20px rgba(0,0,0,0.4);">
-          <br><sub><b>📊 Kurye Paneli</b></sub>
-        </td>
-        <td align="center" style="border: 4px solid #FF0000 !important; padding: 10px; vertical-align: top;">
-          <img src="screenshots/webkuryecalismamodu.jpeg" style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 12px; border: 2px solid #333; box-shadow: 0 10px 20px rgba(0,0,0,0.4);">
-          <br><sub><b>🚥 Çalışma Modu</b></sub>
-        </td>
-      </tr>
-      <!-- İkinci Satır -->
-      <tr style="border: 4px solid #FF0000 !important; background-color: transparent !important;">
-        <td align="center" style="border: 4px solid #FF0000 !important; padding: 10px; vertical-align: top;">
-          <img src="screenshots/webibankontrol.jpeg" style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 12px; border: 2px solid #333; box-shadow: 0 10px 20px rgba(0,0,0,0.4);">
-          <br><sub><b>💳 IBAN Kontrol</b></sub>
-        </td>
-        <td align="center" style="border: 4px solid #FF0000 !important; padding: 10px; vertical-align: top;">
-          <img src="screenshots/webkuryeaktifgörev.jpeg" style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 12px; border: 2px solid #333; box-shadow: 0 10px 20px rgba(0,0,0,0.4);">
-          <br><sub><b>📍 Aktif Görev</b></sub>
-        </td>
-        <td align="center" style="border: 4px solid #FF0000 !important; padding: 10px; vertical-align: top;">
-          <img src="screenshots/webiptalkayit.jpeg" style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 12px; border: 2px solid #333; box-shadow: 0 10px 20px rgba(0,0,0,0.4);">
-          <br><sub><b>❌ İptal Kayıtları</b></sub>
-        </td>
-        <td align="center" style="border: 4px solid #FF0000 !important; padding: 10px; vertical-align: top;">
-          <img src="screenshots/webteslimkayit.jpeg" style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 12px; border: 2px solid #333; box-shadow: 0 10px 20px rgba(0,0,0,0.4);">
-          <br><sub><b>✅ Teslimat Kayıtları</b></sub>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-<br>
-<div align="center">
-  <table style="width: 100%; table-layout: fixed; border-collapse: collapse !important; border: 4px solid #FF0000 !important;">
-    <thead>
-      <tr style="border: 4px solid #FF0000 !important; background-color: transparent !important;">
-        <th colspan="4" align="center" style="border: 4px solid #FF0000 !important; padding: 20px 0;">
           <h3>📱 Mobil Kurye Yönetim Paneli</h3>
         </th>
       </tr>
@@ -910,66 +974,4 @@ yemeksiparismete/
   </table>
 </div>
 <br>
-<div align="center">
-  <table style="width: 100%; table-layout: fixed; border-collapse: collapse !important; border: 4px solid #FF0000 !important;">
-    <thead>
-      <tr style="border: 4px solid #FF0000 !important; background-color: transparent !important;">
-        <th colspan="4" align="center" style="border: 4px solid #FF0000 !important; padding: 20px 0;">
-          <h3>🤝 Web Ortak Sipariş & Sosyal Modüller</h3>
-        </th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr style="border: 4px solid #FF0000 !important; background-color: transparent !important;">
-        <td align="center" style="border: 4px solid #FF0000 !important; padding: 10px; vertical-align: top;">
-          <img src="screenshots/webortaksiparisim.jpeg" style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 12px; border: 2px solid #333; box-shadow: 0 10px 20px rgba(0,0,0,0.4);">
-          <br><sub><b>👥 Ortak Siparişlerim</b></sub>
-        </td>
-        <td align="center" style="border: 4px solid #FF0000 !important; padding: 10px; vertical-align: top;">
-          <img src="screenshots/webortaksiparis.jpeg" style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 12px; border: 2px solid #333; box-shadow: 0 10px 20px rgba(0,0,0,0.4);">
-          <br><sub><b>🛒 Sipariş Oluşturma</b></sub>
-        </td>
-        <td align="center" style="border: 4px solid #FF0000 !important; padding: 10px; vertical-align: top;">
-          <img src="screenshots/webdogadostuveödeme.jpeg" style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 12px; border: 2px solid #333; box-shadow: 0 10px 20px rgba(0,0,0,0.4);">
-          <br><sub><b>🌿 Doğa Dostu Ödeme</b></sub>
-        </td>
-        <td align="center" style="border: 4px solid #FF0000 !important; padding: 10px; vertical-align: top;">
-          <img src="screenshots/webortaksiparissepeti.jpeg" style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 12px; border: 2px solid #333; box-shadow: 0 10px 20px rgba(0,0,0,0.4);">
-          <br><sub><b>🛍️ Grup Sepeti</b></sub>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-<br>
-<div align="center">
-  <table style="width: 100%; table-layout: fixed; border-collapse: collapse !important; border: 4px solid #FF0000 !important;">
-    <thead>
-      <tr style="border: 4px solid #FF0000 !important; background-color: transparent !important;">
-        <th colspan="4" align="center" style="border: 4px solid #FF0000 !important; padding: 20px 0;">
-          <h3>📊 Canlı Takip & Liderlik Tablosu</h3>
-        </th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr style="border: 4px solid #FF0000 !important; background-color: transparent !important;">
-        <td align="center" style="border: 4px solid #FF0000 !important; padding: 10px; vertical-align: top;">
-          <img src="screenshots/webcanlisipariskodu.jpeg" style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 12px; border: 2px solid #333; box-shadow: 0 10px 20px rgba(0,0,0,0.4);">
-          <br><sub><b>⚡ Canlı Sipariş Kodu</b></sub>
-        </td>
-        <td align="center" style="border: 4px solid #FF0000 !important; padding: 10px; vertical-align: top;">
-          <img src="screenshots/webortaksiparispaneli.jpeg" style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 12px; border: 2px solid #333; box-shadow: 0 10px 20px rgba(0,0,0,0.4);">
-          <br><sub><b>🖥️ Yönetim Paneli</b></sub>
-        </td>
-        <td align="center" style="border: 4px solid #FF0000 !important; padding: 10px; vertical-align: top;">
-          <img src="screenshots/webdoğakorumaliderlik.jpeg" style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 12px; border: 2px solid #333; box-shadow: 0 10px 20px rgba(0,0,0,0.4);">
-          <br><sub><b>🥇 Çevre Liderliği</b></sub>
-        </td>
-        <td align="center" style="border: 4px solid #FF0000 !important; padding: 10px; vertical-align: top;">
-          <img src="screenshots/webliderliktablosuikonu.jpeg" style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 12px; border: 2px solid #333; box-shadow: 0 10px 20px rgba(0,0,0,0.4);">
-          <br><sub><b>✨ Başarı İkonları</b></sub>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+
