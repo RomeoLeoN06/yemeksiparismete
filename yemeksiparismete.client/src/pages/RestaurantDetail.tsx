@@ -1,8 +1,10 @@
 import { useParams, Link } from 'react-router-dom';
 import { useEffect, useState, useCallback } from 'react';
-import { ChevronLeft, Star, Clock, MapPin, ShoppingCart, Plus, Minus, Info } from 'lucide-react';
+import { ChevronLeft, Star, Clock, MapPin, ShoppingCart, Plus, Minus, Info, User } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 import { motion, AnimatePresence } from 'framer-motion';
+import * as signalR from '@microsoft/signalr';
+import { useAuth } from '../context/AuthContext';
 
 const RestaurantDetail = () => {
   const { id } = useParams();
@@ -11,6 +13,17 @@ const RestaurantDetail = () => {
   const [restaurant, setRestaurant] = useState<any | null>(null);
   const [products, setProducts] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
+  const { user, token } = useAuth();
+
+  // Social Cart States
+  const [groupCode, setGroupCode] = useState<string | null>(null);
+  const [groupItems, setGroupItems] = useState<any[]>([]);
+  const [hubConnection, setHubConnection] = useState<signalR.HubConnection | null>(null);
+  const [isJoiningGroup, setIsJoiningGroup] = useState(false);
+  const [joinCodeInput, setJoinCodeInput] = useState('');
+  const [hubState, setHubState] = useState<string>('Disconnected');
+  const [groupCreatorId, setGroupCreatorId] = useState<string | null>(null);
+  const [groupSessionId, setGroupSessionId] = useState<number | null>(null);
 
   useEffect(() => {
     setLoading(true);
@@ -63,7 +76,132 @@ const RestaurantDetail = () => {
         return current;
       });
     }, 2500);
-  }, [addToCart, restaurant]);
+  }, [addToCart, restaurant, id]);
+
+  // --- SignalR Group Order Logic ---
+  useEffect(() => {
+    if (!token) return;
+
+    const connection = new signalR.HubConnectionBuilder()
+      .withUrl("/grouporderhub", {
+        accessTokenFactory: () => token
+      })
+      .withAutomaticReconnect()
+      .build();
+
+    connection.on("GroupCreated", (code, sessionId, creatorId) => {
+      console.log("GroupCreated:", { code, sessionId, creatorId });
+      setGroupCode(code);
+      setGroupSessionId(sessionId);
+      setGroupCreatorId(creatorId);
+      setIsJoiningGroup(false);
+    });
+
+    connection.on("SyncCart", (items, creatorId, sessionId) => {
+      console.log("SyncCart:", { itemsCount: items?.length, creatorId, sessionId });
+      setGroupItems(items);
+      setGroupCreatorId(creatorId);
+      setGroupSessionId(sessionId);
+    });
+
+    connection.on("CartUpdated", (items) => {
+      setGroupItems(items);
+    });
+
+    connection.on("GroupDisbanded", (msg) => {
+      alert(msg);
+      setGroupCode(null);
+      setGroupItems([]);
+      setGroupSessionId(null);
+      setGroupCreatorId(null);
+    });
+
+    connection.on("GroupOrderCompleted", (orderId) => {
+      alert("Grup siparişi tamamlandı! Sipariş No: " + orderId);
+      setGroupCode(null);
+      setGroupItems([]);
+      setGroupSessionId(null);
+      setGroupCreatorId(null);
+    });
+
+    connection.on("Error", (msg) => {
+      console.error("SignalR Group Error:", msg);
+      alert("Hata: " + msg);
+      setIsJoiningGroup(false);
+    });
+
+    connection.start()
+      .then(() => {
+        console.log("SignalR: Connected to GroupOrderHub");
+        setHubConnection(connection);
+        setHubState('Connected');
+      })
+      .catch(err => {
+        console.error("SignalR: Connection failed: ", err);
+        setHubState('Failed');
+      });
+
+    return () => {
+      connection.stop();
+    };
+  }, [token]);
+
+  const handleCreateGroup = async () => {
+    if (hubConnection && user && hubConnection.state === signalR.HubConnectionState.Connected) {
+      setIsJoiningGroup(true);
+      console.log("SignalR: Creating group for restaurant", id);
+      try {
+        await hubConnection.invoke("CreateGroup", parseInt(id || "0"), user.id);
+      } catch (err) {
+        console.error("SignalR: CreateGroup failed", err);
+        setIsJoiningGroup(false);
+      }
+    } else {
+      alert("Sunucu bağlantısı bekleniyor veya kullanıcı girişi yapılmamış.");
+    }
+  };
+
+  const handleJoinGroup = async () => {
+    if (hubConnection && joinCodeInput && hubConnection.state === signalR.HubConnectionState.Connected) {
+      setIsJoiningGroup(true);
+      console.log("SignalR: Joining group", joinCodeInput);
+      try {
+        await hubConnection.invoke("JoinGroup", joinCodeInput);
+        setGroupCode(joinCodeInput);
+      } catch (err) {
+        console.error("SignalR: JoinGroup failed", err);
+        setIsJoiningGroup(false);
+      }
+    }
+  };
+
+  const addToGroup = async (product: any) => {
+    if (hubConnection && groupCode && user) {
+      const pName = product.name || product.Name;
+      const pPrice = product.price || product.Price;
+      await hubConnection.invoke("AddToGroupCart", groupCode, product.id || product.Id, pName, pPrice, user.id, user.FullName || user.name);
+    }
+  };
+
+  const removeFromGroup = async (productId: number) => {
+    if (hubConnection && groupCode && user) {
+      await hubConnection.invoke("RemoveFromGroupCart", groupCode, productId, user.id);
+    }
+  };
+
+  const handleLeaveGroup = async () => {
+    if (hubConnection && groupCode && user) {
+      try {
+        await hubConnection.invoke("LeaveGroup", groupCode, user.id);
+      } catch (err) {
+        console.error("SignalR: LeaveGroup failed", err);
+      }
+    }
+    setGroupCode(null);
+    setGroupItems([]);
+    setGroupSessionId(null);
+    setGroupCreatorId(null);
+  };
 
   if (loading) return (
     <div className="loader-container">
@@ -118,6 +256,44 @@ const RestaurantDetail = () => {
               <div className="meta-tag"><MapPin size={16} /> {restaurant.address ?? restaurant.Address}</div>
               <div className="meta-tag"><Info size={16} /> Min. 150 TL</div>
             </div>
+            
+            {/* Social Cart Integration */}
+            <div className="social-cart-trigger-box mt-30">
+              <div className="hub-status-bar mb-10">
+                <span className={`status-dot ${hubState.toLowerCase()}`}></span>
+                <span className="status-text">
+                  {hubState === 'Connected' ? 'Sunucuya Bağlı' : hubState === 'Failed' ? 'Bağlantı Hatası' : 'Bağlanıyor...'}
+                </span>
+              </div>
+              {!groupCode ? (
+                <div className="trigger-flex">
+                  <button onClick={handleCreateGroup} className="btn-social-start" disabled={isJoiningGroup}>
+                    <Plus size={20} />
+                    {isJoiningGroup ? 'Başlatılıyor...' : 'Grup Siparişi Başlat'}
+                  </button>
+                  <div className="join-divider">veya</div>
+                  <div className="join-input-wrap">
+                    <input 
+                      type="text" 
+                      placeholder="Grup Kodu" 
+                      maxLength={6} 
+                      value={joinCodeInput} 
+                      onChange={e => setJoinCodeInput(e.target.value)} 
+                    />
+                    <button onClick={handleJoinGroup} className="btn-join-group">Katıl</button>
+                  </div>
+                </div>
+              ) : (
+                <div className="active-group-pill">
+                  <div className="group-info">
+                    <span className="live-dot"></span>
+                    <span className="group-label">CANLI GRUP SİPARİŞİ:</span>
+                    <strong className="group-code-text">{groupCode}</strong>
+                  </div>
+                  <button onClick={handleLeaveGroup} className="btn-leave-group">Ayrıl</button>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </div>
@@ -156,6 +332,26 @@ const RestaurantDetail = () => {
                   
                   {(() => {
                     const cartItem = cart.find(item => String(item.ProductId) === String(product.id || product.Id));
+                    const groupItem = groupCode ? groupItems.find(item => String(item.productId || item.ProductId) === String(product.id || product.Id) && (item.addedByUserId || item.AddedByUserId) === user?.id) : null;
+                    
+                    if (groupCode) {
+                      return (
+                         <div className="group-actions mt-10">
+                            {groupItem ? (
+                              <div className="qty-controls-lux">
+                                <button onClick={() => removeFromGroup(product.id || product.Id)} className="btn-qty-minus"><Minus size={18} /></button>
+                                <span className="qty-value">{groupItem.quantity || groupItem.Quantity}</span>
+                                <button onClick={() => addToGroup(product)} className="btn-qty-plus"><Plus size={18} /></button>
+                              </div>
+                            ) : (
+                              <button onClick={() => addToGroup(product)} className="btn-lux-primary w-full">
+                                GRUP SEPETİNE EKLE
+                              </button>
+                            )}
+                         </div>
+                      );
+                    }
+
                     if (cartItem) {
                       return (
                         <div className="qty-controls-lux mt-10">
@@ -207,58 +403,103 @@ const RestaurantDetail = () => {
             
             <div className="cart-items-scroll">
               <AnimatePresence mode="popLayout">
-                {cart.length === 0 ? (
-                  <div className="empty-cart-state">
-                    <div className="empty-icon">🛍️</div>
-                    <p>Sepetiniz henüz boş.</p>
-                  </div>
+                {groupCode ? (
+                  groupItems.length === 0 ? (
+                    <div className="empty-cart-state">
+                      <div className="empty-icon">🤝</div>
+                      <p>Grup sepeti henüz boş. İlk ürünü sen ekle!</p>
+                    </div>
+                  ) : (
+                    groupItems.map((item) => (
+                      <motion.div 
+                        key={`${item.productId}-${item.addedByUserId}`}
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        className="cart-item-row group-item"
+                      >
+                        <div className="cart-item-info">
+                          <span className="item-name">{item.productName || item.ProductName}</span>
+                          <div className="added-by-tag">
+                            <User size={12} /> {item.addedByUserName || item.AddedByUserName} {item.addedByUserId === user?.id && "(Sen)"}
+                          </div>
+                          <span className="item-price">{(item.price || item.Price) * (item.quantity || item.Quantity)} TL</span>
+                        </div>
+                        <div className="cart-qty-pill">
+                          <button onClick={() => (item.addedByUserId === user?.id) && removeFromGroup(item.productId || item.ProductId)} style={{ opacity: item.addedByUserId === user?.id ? 1 : 0.3 }}><Minus size={12} /></button>
+                          <span>{item.quantity || item.Quantity}</span>
+                          <button onClick={() => (item.addedByUserId === user?.id) && addToGroup({ id: item.productId || item.ProductId, name: item.productName || item.ProductName, price: item.price || item.Price })} style={{ opacity: item.addedByUserId === user?.id ? 1 : 0.3 }}><Plus size={12} /></button>
+                        </div>
+                      </motion.div>
+                    ))
+                  )
                 ) : (
-                  cart.map((item) => (
-                    <motion.div 
-                      key={item.ProductId}
-                      initial={{ opacity: 0, x: 20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      exit={{ opacity: 0, x: -20 }}
-                      className="cart-item-row"
-                    >
-                      <div className="cart-item-img">
-                        <img src={item.ImageUrl} alt={item.ProductName} />
-                      </div>
-                      <div className="cart-item-info">
-                        <span className="item-name">{item.ProductName}</span>
-                        <span className="item-price">
-                          {(() => {
-                            let p = 0;
-                            if (typeof item.Price === 'number') p = item.Price;
-                            else p = parseFloat(String(item.Price || "0").replace(/\./g, '').replace(',', '.')) || 0;
-                            return (p * item.Quantity).toLocaleString('tr-TR');
-                          })()} TL
-                        </span>
-                      </div>
-                      <div className="cart-qty-pill">
-                        <button onClick={() => decrementQuantity(item.ProductId)}><Minus size={12} /></button>
-                        <span>{item.Quantity}</span>
-                        <button onClick={() => incrementQuantity(item.ProductId)}><Plus size={12} /></button>
-                      </div>
-                    </motion.div>
-                  ))
+                  cart.length === 0 ? (
+                    <div className="empty-cart-state">
+                      <div className="empty-icon">🛍️</div>
+                      <p>Sepetiniz henüz boş.</p>
+                    </div>
+                  ) : (
+                    cart.map((item) => (
+                      <motion.div 
+                        key={item.ProductId}
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: -20 }}
+                        className="cart-item-row"
+                      >
+                        <div className="cart-item-img">
+                          <img src={item.ImageUrl} alt={item.ProductName} />
+                        </div>
+                        <div className="cart-item-info">
+                          <span className="item-name">{item.ProductName}</span>
+                          <span className="item-price">
+                            {(() => {
+                              let p = 0;
+                              if (typeof item.Price === 'number') p = item.Price;
+                              else p = parseFloat(String(item.Price || "0").replace(/\./g, '').replace(',', '.')) || 0;
+                              return (p * item.Quantity).toLocaleString('tr-TR');
+                            })()} TL
+                          </span>
+                        </div>
+                        <div className="cart-qty-pill">
+                          <button onClick={() => decrementQuantity(item.ProductId)}><Minus size={12} /></button>
+                          <span>{item.Quantity}</span>
+                          <button onClick={() => incrementQuantity(item.ProductId)}><Plus size={12} /></button>
+                        </div>
+                      </motion.div>
+                    ))
+                  )
                 )}
               </AnimatePresence>
             </div>
 
-            {cart.length > 0 && (
+            {((!groupCode && cart.length > 0) || (groupCode && groupItems.length > 0)) && (
               <div className="cart-footer-summary">
                 <div className="summary-row">
                   <span>Ara Toplam</span>
-                  <span>{totalPrice} TL</span>
+                  <span>
+                    {groupCode 
+                      ? groupItems.reduce((acc, curr) => acc + (curr.price || curr.Price) * (curr.quantity || curr.Quantity), 0).toLocaleString('tr-TR')
+                      : totalPrice
+                    } TL
+                  </span>
                 </div>
                 <div className="summary-row total-grand">
                   <span>Toplam</span>
-                  <span>{totalPrice} TL</span>
+                  <span>
+                    {groupCode 
+                      ? groupItems.reduce((acc, curr) => acc + (curr.price || curr.Price) * (curr.quantity || curr.Quantity), 0).toLocaleString('tr-TR')
+                      : totalPrice
+                    } TL
+                  </span>
                 </div>
-                <Link to="/checkout" className="btn-lux-primary w-full mt-20">
-                  ÖDEME ADIMINA GEÇ
-                </Link>
+                 <Link 
+                   to={(!groupCode || groupSessionId) ? `/checkout${groupSessionId ? `?sessionId=${groupSessionId}` : ''}` : "#"}
+                   className="btn-lux-primary w-full mt-20"
+                 >
+                   ÖDEME ADIMINA GEÇ
+                 </Link>
+                 {groupCode && <p className="text-center mt-10 text-muted" style={{ fontSize: '0.8rem' }}>Grup siparişinde herhangi bir üye ödemeyi tamamlayabilir.</p>}
               </div>
             )}
           </div>
@@ -436,6 +677,34 @@ const RestaurantDetail = () => {
           .lux-product-card { flex-direction: column; }
           .product-thumb { width: 100%; height: 200px; }
         }
+
+        .social-cart-trigger-box { background: rgba(255,255,255,0.05); padding: 20px; border-radius: 25px; border: 1px solid rgba(255,255,255,0.1); }
+        .trigger-flex { display: flex; align-items: center; gap: 20px; }
+        .btn-social-start { background: var(--primary); color: #000; border: none; padding: 12px 25px; border-radius: 15px; font-weight: 900; display: flex; align-items: center; gap: 10px; cursor: pointer; transition: 0.3s; }
+        .btn-social-start:hover { transform: translateY(-3px); box-shadow: 0 10px 20px var(--orange-glow); }
+        .join-divider { font-weight: 900; color: #555; font-size: 0.8rem; text-transform: uppercase; }
+        .join-input-wrap { display: flex; background: #000; border-radius: 15px; padding: 5px; border: 1px solid #333; }
+        .join-input-wrap input { background: none; border: none; color: #fff; padding: 5px 15px; width: 100px; font-weight: 900; outline: none; }
+        .btn-join-group { background: #333; color: #fff; border: none; padding: 8px 15px; border-radius: 10px; font-weight: 800; cursor: pointer; }
+        .btn-join-group:hover { background: #444; }
+
+        .active-group-pill { display: flex; justify-content: space-between; align-items: center; background: #000; padding: 15px 25px; border-radius: 20px; border: 2px solid var(--primary); box-shadow: 0 0 20px rgba(255,126,0,0.15); }
+        .group-info { display: flex; align-items: center; gap: 15px; }
+        .live-dot { width: 10px; height: 10px; background: #10b981; border-radius: 50%; box-shadow: 0 0 10px #10b981; animation: blink 1.5s infinite; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+        .group-label { font-weight: 900; font-size: 0.8rem; color: #888; }
+        .group-code-text { font-size: 1.4rem; color: var(--primary); letter-spacing: 2px; }
+        .btn-leave-group { background: rgba(255,255,255,0.05); color: #888; border: 1px solid #333; padding: 5px 15px; border-radius: 10px; font-weight: 800; cursor: pointer; }
+        .btn-leave-group:hover { background: #ff4d4d; color: #fff; border-color: #ff4d4d; }
+
+        .added-by-tag { display: flex; align-items: center; gap: 5px; font-size: 0.75rem; color: #10b981; font-weight: 800; margin-top: 2px; }
+        .cart-item-row.group-item { padding: 15px 0; border-style: dashed; }
+
+        .hub-status-bar { display: flex; align-items: center; gap: 8px; margin-bottom: 15px; }
+        .status-dot { width: 8px; height: 8px; border-radius: 50%; background: #555; }
+        .status-dot.connected { background: #10b981; box-shadow: 0 0 10px #10b981; }
+        .status-dot.failed { background: #ff4d4d; }
+        .status-text { font-size: 0.7rem; font-weight: 900; color: #666; text-transform: uppercase; letter-spacing: 1px; }
       `}</style>
     </div>
   );

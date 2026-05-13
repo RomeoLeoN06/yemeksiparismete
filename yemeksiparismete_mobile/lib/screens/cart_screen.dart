@@ -4,6 +4,9 @@ import '../providers/cart_provider.dart';
 import 'checkout_screen.dart';
 
 import '../services/coupon_service.dart';
+import '../services/group_order_service.dart';
+import '../providers/auth_provider.dart';
+import '../providers/group_order_provider.dart';
 
 class CartScreen extends StatefulWidget {
   const CartScreen({super.key});
@@ -17,13 +20,13 @@ class _CartScreenState extends State<CartScreen> {
   final CouponService _couponService = CouponService();
   bool _isValidating = false;
 
-  @override
-  void initState() {
-    super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      _fetchAvailableCoupons();
-    });
-  }
+   @override
+   void initState() {
+     super.initState();
+     WidgetsBinding.instance.addPostFrameCallback((_) {
+       _fetchAvailableCoupons();
+     });
+   }
 
   Future<void> _fetchAvailableCoupons() async {
     final coupons = await _couponService.getCoupons();
@@ -89,20 +92,28 @@ class _CartScreenState extends State<CartScreen> {
   Widget build(BuildContext context) {
     final cart = context.watch<CartProvider>();
     final theme = Theme.of(context);
-    final bool isBelowMin = cart.finalAmount < 300;
+    final group = context.watch<GroupOrderProvider>();
+    final isGroup = group.groupCode != null;
+    final items = isGroup ? group.items : cart.items.values.toList();
+    final bool isEmpty = isGroup ? group.items.isEmpty : cart.items.isEmpty;
+    
+    final currentTotal = isGroup 
+        ? group.items.fold<double>(0, (sum, item) => sum + ((item['price'] ?? item['Price'] ?? 0).toDouble() * (item['quantity'] ?? item['Quantity'] ?? 0)))
+        : cart.finalAmount;
+    final bool isBelowMin = currentTotal < 300;
 
     return Scaffold(
       appBar: AppBar(
         title: const Text('Sepetim'),
       ),
-      body: cart.items.isEmpty
+      body: isEmpty
           ? Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Icon(Icons.shopping_cart_outlined, size: 80, color: Colors.grey[400]),
+                  Icon(isGroup ? Icons.people_outline : Icons.shopping_cart_outlined, size: 80, color: Colors.grey[400]),
                   const SizedBox(height: 16),
-                  Text('Sepetiniz şu an boş.', style: theme.textTheme.titleMedium),
+                  Text(isGroup ? 'Grup sepeti şu an boş.' : 'Sepetiniz şu an boş.', style: theme.textTheme.titleMedium),
                 ],
               ),
             )
@@ -142,8 +153,22 @@ class _CartScreenState extends State<CartScreen> {
                   ),
                 Expanded(
                   child: ListView.builder(
-                    itemCount: cart.items.length,
+                    itemCount: items.length,
                     itemBuilder: (context, index) {
+                      final groupProvider = context.watch<GroupOrderProvider>();
+                      if (groupProvider.groupCode != null) {
+                        final gItem = groupProvider.items[index];
+                        return Card(
+                          margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                          child: ListTile(
+                            leading: const Icon(Icons.fastfood, color: Colors.green),
+                            title: Text(gItem['productName'] ?? 'Ürün'),
+                            subtitle: Text('Ekleyen: ${gItem['addedByUserName']}'),
+                            trailing: Text('${gItem['quantity']} adet - ₺${gItem['price']}'),
+                          ),
+                        );
+                      }
+                      
                       final cartItem = cart.items.values.toList()[index];
                       final productId = cart.items.keys.toList()[index];
 
@@ -306,10 +331,16 @@ class _CartScreenState extends State<CartScreen> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           const Text('Ara Toplam:', style: TextStyle(fontSize: 16, color: Colors.grey)),
-                          Text('₺${cart.totalAmount.toStringAsFixed(2)}', style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+                          Text(
+                            '₺${(isGroup 
+                                ? group.items.fold<double>(0, (sum, item) => sum + ((item['price'] ?? item['Price'] ?? 0).toDouble() * (item['quantity'] ?? item['Quantity'] ?? 0)))
+                                : cart.totalAmount
+                              ).toStringAsFixed(2)}', 
+                            style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold)
+                          ),
                         ],
                       ),
-                      if (cart.discountAmount > 0)
+                      if (!isGroup && cart.discountAmount > 0)
                         Padding(
                           padding: const EdgeInsets.only(top: 8),
                           child: Row(
@@ -326,7 +357,10 @@ class _CartScreenState extends State<CartScreen> {
                         children: [
                           const Text('Toplam:', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
                           Text(
-                            '₺${cart.finalAmount.toStringAsFixed(2)}',
+                            '₺${(isGroup 
+                                ? group.items.fold<double>(0, (sum, item) => sum + ((item['price'] ?? item['Price'] ?? 0).toDouble() * (item['quantity'] ?? item['Quantity'] ?? 0)))
+                                : cart.finalAmount
+                              ).toStringAsFixed(2)}',
                             style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: theme.colorScheme.primary),
                           ),
                         ],
@@ -352,13 +386,25 @@ class _CartScreenState extends State<CartScreen> {
                         width: double.infinity,
                         height: 56,
                         child: ElevatedButton(
-                          onPressed: (cart.items.isEmpty || isBelowMin) ? null : _goToCheckout,
+                          onPressed: (isEmpty || isBelowMin) 
+                            ? null 
+                            : _goToCheckout,
                           style: ElevatedButton.styleFrom(
                             backgroundColor: isBelowMin ? Colors.grey : null,
                           ),
-                          child: Text(isBelowMin ? 'MİN. ₺300 OLMALI' : 'Ödemeye Geç', style: const TextStyle(fontSize: 18)),
+                          child: Text(
+                            isBelowMin 
+                              ? 'MİN. ₺300 OLMALI' 
+                              : 'Ödemeye Geç', 
+                            style: const TextStyle(fontSize: 18)
+                          ),
                         ),
                       ),
+                      if (isGroup)
+                        const Padding(
+                          padding: EdgeInsets.only(top: 8.0),
+                          child: Text('Grup siparişinde herhangi bir üye ödemeyi tamamlayabilir.', style: TextStyle(fontSize: 10, color: Colors.grey)),
+                        ),
                     ],
                   ),
                 )

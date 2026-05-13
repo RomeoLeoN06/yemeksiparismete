@@ -1,18 +1,24 @@
 import { useState, useEffect, useCallback } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation as useRouteLocation } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import { useAuth } from '../context/AuthContext';
 import { useLocation } from '../context/LocationContext';
 import { motion, AnimatePresence } from 'framer-motion';
-import { CreditCard, Truck, ShieldCheck, ArrowRight, MapPin, Plus, ChevronLeft, Minus } from 'lucide-react';
+import { CreditCard, Truck, ShieldCheck, ArrowRight, MapPin, Plus, ChevronLeft, Minus, Sparkles } from 'lucide-react';
 
 const Checkout = () => {
   const { cart, totalPrice, clearCart, incrementQuantity, decrementQuantity } = useCart();
   const { user, token } = useAuth();
-  const { selectedCity, selectedDistrict } = useLocation();
+  const { selectedCity, selectedDistrict, setSelectedCity, setSelectedDistrict, cities, districts } = useLocation();
   const navigate = useNavigate();
+  const routeLocation = useRouteLocation();
+  const searchParams = new URLSearchParams(routeLocation.search);
+  const groupSessionIdFromUrl = searchParams.get('sessionId');
+  const { groupSessionId: groupSessionIdFromState } = (routeLocation.state as any) || {};
+  const groupSessionId = groupSessionIdFromUrl || groupSessionIdFromState;
 
   const [loading, setLoading] = useState(false);
+  const [loadingItems, setLoadingItems] = useState(!!groupSessionId);
   const [paymentMethod, setPaymentMethod] = useState('card');
   const [agreeToTerms, setAgreeToTerms] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
@@ -20,9 +26,64 @@ const Checkout = () => {
   const [couponCode, setCouponCode] = useState('');
   const [couponMessage, setCouponMessage] = useState({ type: '', text: '' });
   const [orderNote, setOrderNote] = useState('');
+  const [isEcoFriendly, setIsEcoFriendly] = useState(false);
+
+  const participantId = (cart?.length ?? 0 > 0) 
+    ? (cart?.find((item: any) => (item as any).addedByUserId && (item as any).addedByUserId !== user?.id) as any)?.addedByUserId 
+    : null;
+
+  const [groupItems, setGroupItems] = useState<any[]>([]);
+  const [isGroupOrder, setIsGroupOrder] = useState(false);
+
+  useEffect(() => {
+    if (groupSessionId && token) {
+      setIsGroupOrder(true);
+      setLoadingItems(true);
+      fetch(`/api/orders/group-session/${groupSessionId}`, {
+        headers: { 'Authorization': `Bearer ${token}` }
+      })
+      .then(res => res.json())
+      .then(data => {
+        const items = data.items || data.$values || [];
+        setGroupItems(items);
+        setLoadingItems(false);
+      })
+      .catch(err => {
+        console.error("Error fetching group items for checkout:", err);
+        setLoadingItems(false);
+      });
+    } else {
+      setLoadingItems(false);
+    }
+  }, [groupSessionId, token]);
+
+  useEffect(() => {
+    if (participantId) {
+      fetch(`/api/user/member-address/${participantId}`, {
+        headers: { 'Authorization': `Bearer ${token}` }
+      })
+      .then(res => res.json())
+        .then(data => {
+          if (data.address) {
+            // Basit bir ayrıştırma ile alanları doldurmaya çalışalım veya not kısmına ekleyelim
+            setOrderNote(`Ismarlanan Kişi: ${data.fullName || ''}\nTeslimat Adresi: ${data.address}`);
+            // Formdaki ana adres alanını da dolduralım (Mahalle kısmına tam adresi yazıyoruz)
+            setAddress(prev => ({ ...prev, neighborhood: data.address }));
+          }
+        })
+      .catch(err => console.error('Error fetching member address:', err));
+    }
+  }, [participantId, token]);
+
   const { coupon, applyCoupon, discountAmount, availableCoupons } = useCart();
 
-  const finalAmount = Math.max(0, totalPrice - discountAmount);
+  const effectiveItems = isGroupOrder ? groupItems : cart;
+  
+  const currentTotalPrice = isGroupOrder 
+    ? effectiveItems.reduce((acc, i) => acc + (i.price || i.Price || 0) * (i.quantity || i.Quantity || 0), 0)
+    : totalPrice;
+
+  const finalAmount = Math.max(0, currentTotalPrice - discountAmount);
   const isBelowMinimum = finalAmount < 300;
 
   useEffect(() => {
@@ -125,17 +186,22 @@ const Checkout = () => {
       customerPhone: user?.phoneNumber || '-',
       deliveryAddress: finalDeliveryAddress,
       note: orderNote,
-      restaurantId: cart.length > 0 ? cart[0].RestaurantId : null,
-      items: cart.map(item => {
-        const itemPriceRaw = String(item.Price || "0").replace(/\./g, '').replace(',', '.');
+      isEcoFriendly: isEcoFriendly,
+      groupOrderSessionId: groupSessionId || null,
+      targetUserId: participantId || null,
+      payerUserId: user?.id || null,
+      restaurantId: (effectiveItems && effectiveItems.length > 0) ? ((effectiveItems[0] as any).RestaurantId || (effectiveItems[0] as any).restaurantId || (effectiveItems[0] as any).RestaurantID) : null,
+      items: (effectiveItems || []).map(item => {
+        const itemPriceRaw = String(item.price || item.Price || "0").replace(/\./g, '').replace(',', '.');
         const itemPrice = parseFloat(itemPriceRaw) || 0;
-        const itemQty = item.Quantity || 0;
-        const pId = parseInt(String(item.ProductId));
+        const itemQty = item.quantity || item.Quantity || 0;
+        const pId = parseInt(String(item.productId || item.ProductId));
         return {
           productId: isNaN(pId) ? 0 : pId,
-          productName: item.ProductName || "Ürün",
+          productName: item.productName || item.ProductName || "Ürün",
           quantity: itemQty,
-          price: itemPrice
+          price: itemPrice,
+          addedByUserName: item.addedByUserName || item.AddedByUserName || null
         };
       })
     };
@@ -170,7 +236,16 @@ const Checkout = () => {
     }
   }, [validateAddress, agreeToTerms, paymentMethod, useSavedCard, cardInfo, useSavedAddress, savedAddresses, address, selectedDistrict, selectedCity, totalPrice, user, cart, token, clearCart, navigate]);
 
-  if (cart.length === 0) {
+  if (loadingItems) {
+    return (
+      <div className="container py-100 text-center">
+        <div className="lux-loader"></div>
+        <p className="mt-20">Sipariş detayları yükleniyor...</p>
+      </div>
+    );
+  }
+
+  if ((!cart || cart.length === 0) && (!groupItems || groupItems.length === 0)) {
     return (
       <div className="container py-100 text-center">
         <div className="empty-state-card">
@@ -264,6 +339,41 @@ const Checkout = () => {
                         <input type="text" placeholder="Daire" value={address.apartmentNo} onChange={e => setAddress({...address, apartmentNo: e.target.value})} />
                       </div>
                     </div>
+                    <div className="input-row-2">
+                      <div className="input-group-lux">
+                        <label>İl</label>
+                        <select 
+                          value={selectedCity?.id || (selectedCity as any)?.Id || ''} 
+                          onChange={(e) => {
+                            const city = cities.find(c => (c.id || c.Id) === parseInt(e.target.value));
+                            if (city) setSelectedCity(city);
+                          }}
+                          className="lux-select"
+                        >
+                          <option value="">İl Seçin</option>
+                          {cities.map(c => (
+                            <option key={c.id || c.Id} value={c.id || c.Id}>{c.name || c.Name}</option>
+                          ))}
+                        </select>
+                      </div>
+                      <div className="input-group-lux">
+                        <label>İlçe</label>
+                        <select 
+                          value={selectedDistrict?.id || (selectedDistrict as any)?.Id || ''} 
+                          onChange={(e) => {
+                            const dist = districts.find(d => (d.id || d.Id) === parseInt(e.target.value));
+                            if (dist) setSelectedDistrict(dist);
+                          }}
+                          className="lux-select"
+                        >
+                          <option value="">İlçe Seçin</option>
+                          {districts.map(d => (
+                            <option key={d.id || d.Id} value={d.id || d.Id}>{d.name || d.Name}</option>
+                          ))}
+                        </select>
+                      </div>
+                    </div>
+
                     <div className="input-group-lux">
                       <label>Adres Tarifi (İsteğe Bağlı)</label>
                       <textarea placeholder="Kapı zili, blok adı vb." value={address.directions} onChange={e => setAddress({...address, directions: e.target.value})} rows={2} />
@@ -280,6 +390,23 @@ const Checkout = () => {
                   onChange={e => setOrderNote(e.target.value)} 
                   rows={3} 
                 />
+              </div>
+
+              {/* Eco-Track Toggle */}
+              <div 
+                className={`eco-track-card mt-25 ${isEcoFriendly ? 'active' : ''}`}
+                onClick={() => setIsEcoFriendly(!isEcoFriendly)}
+              >
+                <div className="eco-icon-box">
+                  <Sparkles size={24} />
+                </div>
+                <div className="eco-text">
+                  <div className="eco-title">Doğa Dostu Seçim 🌿</div>
+                  <p className="eco-desc">Plastik çatal, bıçak ve kaşık istemiyorum. (<strong>+10 Yeşil Puan</strong>)</p>
+                </div>
+                <div className={`eco-toggle ${isEcoFriendly ? 'active' : ''}`}>
+                  <div className="toggle-dot" />
+                </div>
               </div>
             </div>
 
@@ -371,27 +498,35 @@ const Checkout = () => {
               </div>
               
               <div className="summary-items-list">
-                {cart.map(item => (
-                  <div key={item.ProductId} className="summary-item-row">
+                {effectiveItems.map(item => (
+                  <div key={item.ProductId || item.productId} className="summary-item-row">
                     <div className="item-main">
                       <div className="summary-item-thumb">
-                        <img src={item.ImageUrl} alt={item.ProductName} />
+                        <img src={item.ImageUrl || item.imageUrl || 'https://via.placeholder.com/60'} alt={item.ProductName || item.productName} />
                       </div>
                       <div className="summary-item-details">
-                        <span className="item-name">{item.ProductName}</span>
-                      <div className="summary-qty-ctrl">
-                        <button onClick={() => decrementQuantity(item.ProductId)} className="qty-btn-mini"><Minus size={12} /></button>
-                        <span className="item-qty">{item.Quantity}</span>
-                        <button onClick={() => incrementQuantity(item.ProductId)} className="qty-btn-mini"><Plus size={12} /></button>
-                      </div>
+                        <span className="item-name">{item.ProductName || item.productName}</span>
+                      {!isGroupOrder && (
+                        <div className="summary-qty-ctrl">
+                          <button onClick={() => decrementQuantity(item.ProductId)} className="qty-btn-mini"><Minus size={12} /></button>
+                          <span className="item-qty">{item.Quantity}</span>
+                          <button onClick={() => incrementQuantity(item.ProductId)} className="qty-btn-mini"><Plus size={12} /></button>
+                        </div>
+                      )}
+                      {isGroupOrder && (
+                        <div className="group-item-meta" style={{ fontSize: '0.7rem', color: '#10b981', fontWeight: 800 }}>
+                           {item.Quantity || item.quantity} Adet - {item.AddedByUserName || item.addedByUserName}
+                        </div>
+                      )}
                     </div>
                   </div>
                   <span className="item-total">
                     {(() => {
                       let p = 0;
-                      if (typeof item.Price === 'number') p = item.Price;
-                      else p = parseFloat(String(item.Price || "0").replace(/\./g, '').replace(',', '.')) || 0;
-                      return (p * item.Quantity).toLocaleString('tr-TR');
+                      const priceVal = item.Price || item.price || 0;
+                      if (typeof priceVal === 'number') p = priceVal;
+                      else p = parseFloat(String(priceVal || "0").replace(/\./g, '').replace(',', '.')) || 0;
+                      return (p * (item.Quantity || item.quantity)).toLocaleString('tr-TR');
                     })()} TL
                   </span>
                 </div>
@@ -401,7 +536,7 @@ const Checkout = () => {
                 <div className="price-breakdown">
                   <div className="price-row">
                     <span>Ara Toplam</span>
-                    <span>{totalPrice.toLocaleString('tr-TR')} TL</span>
+                    <span>{currentTotalPrice.toLocaleString('tr-TR')} TL</span>
                   </div>
                   {discountAmount > 0 && (
                     <div className="price-row text-primary">
@@ -574,7 +709,9 @@ const Checkout = () => {
         .input-group-lux { display: flex; flex-direction: column; gap: 10px; }
         .input-group-lux label { font-size: 0.8rem; font-weight: 900; color: #666; text-transform: uppercase; letter-spacing: 1.5px; padding-left: 5px; }
         .input-group-lux input, .input-group-lux textarea { background: #1a1a1a; border: 1px solid rgba(255,255,255,0.1); padding: 18px; border-radius: 18px; outline: none; transition: 0.3s; font-weight: 700; color: #fff; }
-        .input-group-lux input:focus { border-color: var(--primary); background: #222; box-shadow: 0 0 0 5px rgba(255, 126, 0, 0.05); }
+        .input-group-lux input:focus, .input-group-lux textarea:focus, .lux-select:focus { border-color: var(--primary); background: #222; box-shadow: 0 0 0 5px rgba(255, 126, 0, 0.05); }
+        .lux-select { background: #1a1a1a; border: 1px solid rgba(255,255,255,0.1); padding: 18px; border-radius: 18px; outline: none; transition: 0.3s; font-weight: 700; color: #fff; appearance: none; cursor: pointer; }
+        .lux-select option { background: #1a1a1a; color: #fff; }
 
         .input-row-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
         .input-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
@@ -696,6 +833,30 @@ const Checkout = () => {
           .grand-price-row { font-size: 1.8rem; }
           .btn-checkout-back { width: 100%; }
         }
+
+        .eco-track-card {
+          background: rgba(16, 185, 129, 0.05);
+          border: 1px solid rgba(16, 185, 129, 0.1);
+          border-radius: 20px;
+          padding: 20px;
+          display: flex;
+          align-items: center;
+          gap: 15px;
+          cursor: pointer;
+          transition: 0.3s;
+        }
+        .eco-track-card:hover { background: rgba(16, 185, 129, 0.1); border-color: #10b981; }
+        .eco-track-card.active { border-color: #10b981; background: rgba(16, 185, 129, 0.15); box-shadow: 0 10px 20px rgba(16, 185, 129, 0.1); }
+        .eco-icon-box { width: 45px; height: 45px; background: #10b981; color: #000; border-radius: 12px; display: flex; align-items: center; justify-content: center; }
+        .eco-text { flex: 1; }
+        .eco-title { font-weight: 900; color: #fff; font-size: 1.1rem; }
+        .eco-desc { font-size: 0.85rem; color: #888; margin-top: 2px; }
+        .eco-track-card.active .eco-title { color: #10b981; }
+        
+        .eco-toggle { width: 44px; height: 24px; background: #333; border-radius: 50px; position: relative; transition: 0.3s; }
+        .eco-toggle.active { background: #10b981; }
+        .toggle-dot { width: 18px; height: 18px; background: #fff; border-radius: 50%; position: absolute; top: 3px; left: 3px; transition: 0.3s; }
+        .eco-toggle.active .toggle-dot { left: 23px; }
       `}</style>
     </div>
   );

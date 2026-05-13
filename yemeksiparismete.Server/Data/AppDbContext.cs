@@ -22,6 +22,8 @@ namespace yemeksiparismete.Server.Data
         public DbSet<RestaurantRating> RestaurantRatings { get; set; }
         public DbSet<CourierApplication> CourierApplications { get; set; }
         public DbSet<Coupon> Coupons { get; set; }
+        public DbSet<GroupOrderSession> GroupOrderSessions { get; set; }
+        public DbSet<GroupOrderItem> GroupOrderItems { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -54,6 +56,8 @@ namespace yemeksiparismete.Server.Data
             modelBuilder.Entity<ChatSession>().ToTable("ChatSessions", "dbo");
             modelBuilder.Entity<ChatMessage>().ToTable("ChatMessages", "dbo");
             modelBuilder.Entity<Coupon>().ToTable("Coupons", "dbo");
+            modelBuilder.Entity<GroupOrderSession>().ToTable("GroupOrderSessions", "dbo");
+            modelBuilder.Entity<GroupOrderItem>().ToTable("GroupOrderItems", "dbo");
 
             // İlişki Tanımlamaları
             modelBuilder.Entity<District>()
@@ -76,6 +80,7 @@ namespace yemeksiparismete.Server.Data
             modelBuilder.Entity<Product>().Property(p => p.Price).HasPrecision(18, 2);
             modelBuilder.Entity<Coupon>().Property(c => c.DiscountAmount).HasPrecision(18, 2);
             modelBuilder.Entity<Coupon>().Property(c => c.MinimumOrderAmount).HasPrecision(18, 2);
+            modelBuilder.Entity<GroupOrderItem>().Property(g => g.Price).HasPrecision(18, 2);
         }
     }
 }

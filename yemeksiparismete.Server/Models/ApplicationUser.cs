@@ -10,6 +10,7 @@ namespace yemeksiparismete.Server.Models
         public bool IsCourierActive { get; set; } = false;
         public string? RecoveryCode { get; set; } // Şifre sıfırlama için yedek kod
         public string? ProfileImageBase64 { get; set; } // Profil fotoğrafı (Base64)
+        public int GreenPoints { get; set; } = 0; // Sürdürülebilirlik puanı
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
     }
 }

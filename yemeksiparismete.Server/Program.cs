@@ -48,6 +48,19 @@ builder.Services.AddAuthentication(options =>
         ValidateAudience = false,
         RoleClaimType = System.Security.Claims.ClaimTypes.Role
     };
+    options.Events = new JwtBearerEvents
+    {
+        OnMessageReceived = context =>
+        {
+            var accessToken = context.Request.Query["access_token"];
+            var path = context.HttpContext.Request.Path;
+            if (!string.IsNullOrEmpty(accessToken) && (path.StartsWithSegments("/orderhub") || path.StartsWithSegments("/grouporderhub")))
+            {
+                context.Token = accessToken;
+            }
+            return Task.CompletedTask;
+        }
+    };
 });
 
 builder.Services.AddControllers();
@@ -127,7 +140,7 @@ app.MapGet("/api/direct-customers", async (AppDbContext db) => {
     var allUsers = await db.Users.ToListAsync();
 
     var customers = orderGroups.Select(c => {
-        string matchedUserId = c.UserId;
+        string? matchedUserId = c.UserId;
         string matchedEmail = "";
         
         // Eğer siparişte UserId yoksa, ismine (FullName) bakarak veritabanından ID'sini bul
@@ -160,6 +173,7 @@ app.MapGet("/api/direct-customers", async (AppDbContext db) => {
 
 app.MapControllers();
 app.MapHub<OrderHub>("/orderhub");
+app.MapHub<GroupOrderHub>("/grouporderhub");
 app.MapFallbackToFile("/index.html");
 
 app.Run();

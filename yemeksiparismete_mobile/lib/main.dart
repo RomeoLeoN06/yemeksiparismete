@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'providers/auth_provider.dart';
 import 'providers/cart_provider.dart';
 import 'providers/location_provider.dart';
+import 'providers/group_order_provider.dart';
 import 'screens/login_screen.dart';
 
 void main() {
@@ -13,6 +14,7 @@ void main() {
         ChangeNotifierProvider(create: (_) => AuthProvider()),
         ChangeNotifierProvider(create: (_) => CartProvider()),
         ChangeNotifierProvider(create: (_) => LocationProvider()),
+        ChangeNotifierProvider(create: (_) => GroupOrderProvider()),
       ],
       child: const YemeksiparisApp(),
     ),

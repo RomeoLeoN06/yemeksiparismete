@@ -15,11 +15,13 @@ namespace yemeksiparismete.Server.Controllers
     {
         private readonly AppDbContext _context;
         private readonly IHubContext<OrderHub> _hubContext;
+        private readonly IHubContext<GroupOrderHub> _groupHubContext;
 
-        public OrdersController(AppDbContext context, IHubContext<OrderHub> hubContext)
+        public OrdersController(AppDbContext context, IHubContext<OrderHub> hubContext, IHubContext<GroupOrderHub> groupHubContext)
         {
             _context = context;
             _hubContext = hubContext;
+            _groupHubContext = groupHubContext;
         }
 
         [HttpGet("my-orders")]
@@ -28,10 +30,17 @@ namespace yemeksiparismete.Server.Controllers
             var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
             if (userId == null) return Unauthorized();
 
-            // 1. Sadece UserId ile siparişleri çekiyoruz
+            // 1. Kullanıcının kendi verdiği siparişler
+            // 2. VEYA kullanıcının ürün eklediği grup seanslarına bağlı siparişler
+            var groupSessionIds = await _context.GroupOrderItems
+                .Where(gi => gi.AddedByUserId == userId)
+                .Select(gi => gi.GroupOrderSessionId)
+                .Distinct()
+                .ToListAsync();
+
             var orders = await _context.Orders
                 .Include(o => o.Items)
-                .Where(o => o.UserId == userId)
+                .Where(o => o.UserId == userId || (o.GroupOrderSessionId.HasValue && groupSessionIds.Contains(o.GroupOrderSessionId.Value)))
                 .OrderByDescending(o => o.OrderDate)
                 .ToListAsync();
 
@@ -168,9 +177,18 @@ namespace yemeksiparismete.Server.Controllers
                 return BadRequest(new { message = "Minimum sepet tutarı 300 TL olmalıdır. Lütfen sepetinize daha fazla ürün ekleyin." });
             }
 
+            // Ismarlama mantığı: Eğer grup siparişi ise ve hedef kullanıcı belirtilmişse, 
+            // sipariş sahibi olarak kurucuyu değil, katılımcıyı kaydediyoruz.
+            var orderOwnerId = userId;
+            if (request.GroupOrderSessionId.HasValue && !string.IsNullOrEmpty(request.TargetUserId))
+            {
+                orderOwnerId = request.TargetUserId;
+            }
+
             var newOrder = new Order
             {
-                UserId = userId,
+                UserId = orderOwnerId,
+                RestaurantId = request.RestaurantId,
                 UserEmail = currentUser?.Email ?? "", // E-posta kaydı
                 CustomerName = request.CustomerName ?? currentUser?.FullName ?? "Misafir",
                 CustomerPhone = (request.CustomerPhone == null || request.CustomerPhone == "-") 
@@ -183,21 +201,52 @@ namespace yemeksiparismete.Server.Controllers
                 Note = request.Note,
                 PaymentMethod = request.PaymentMethod ?? "cash_at_door",
                 OrderDate = DateTime.Now,
-                RestaurantId = request.RestaurantId,
                 Status = "preparing",
+                GroupOrderSessionId = request.GroupOrderSessionId,
+                PayerUserId = request.PayerUserId ?? userId, // Ödeyen kişi
+                IsEcoFriendly = request.IsEcoFriendly,
+                CarbonSaved = request.IsEcoFriendly ? 50.0 : 0.0, // Sabit 50g tasarruf (plastik atık vb.)
                 Items = request.Items.Select(i => new OrderItem
                 {
                     ProductId = i.ProductId,
                     ProductName = i.ProductName,
                     Quantity = i.Quantity,
-                    Price = i.Price
+                    Price = i.Price,
+                    AddedByUserName = i.AddedByUserName
                 }).ToList()
             };
+
+            // Yeşil Puan Ekleme
+            if (currentUser != null && request.IsEcoFriendly)
+            {
+                currentUser.GreenPoints += 10; // Her çevreci sipariş +10 puan
+            }
 
             try 
             {
                 _context.Orders.Add(newOrder);
+                
+                // Grup seansı varsa, seansı kapat (IsActive = false)
+                if (request.GroupOrderSessionId.HasValue)
+                {
+                    var session = await _context.GroupOrderSessions.FindAsync(request.GroupOrderSessionId.Value);
+                    if (session != null)
+                    {
+                        session.IsActive = false;
+                    }
+                }
+
                 await _context.SaveChangesAsync();
+
+                // Grup siparişi ise diğer üyelere bildir
+                if (request.GroupOrderSessionId.HasValue)
+                {
+                    var session = await _context.GroupOrderSessions.FindAsync(request.GroupOrderSessionId.Value);
+                    if (session != null)
+                    {
+                        await _groupHubContext.Clients.Group(session.GroupCode).SendAsync("GroupOrderCompleted", newOrder.Id);
+                    }
+                }
 
                 // SinyalR üzerinden canlı admin paneline bildir
                 await _hubContext.Clients.All.SendAsync("ReceiveNewOrder", new {
@@ -232,6 +281,19 @@ namespace yemeksiparismete.Server.Controllers
 
             return Ok(new { success = true });
         }
+
+        [HttpGet("group-session/{sessionId}")]
+        public async Task<IActionResult> GetGroupSessionItems(int sessionId)
+        {
+            var session = await _context.GroupOrderSessions.FindAsync(sessionId);
+            if (session == null) return NotFound("Grup seansı bulunamadı.");
+
+            var items = await _context.GroupOrderItems
+                .Where(i => i.GroupOrderSessionId == sessionId)
+                .ToListAsync();
+
+            return Ok(new { items, creatorId = session.CreatorId });
+        }
     }
 
     public class OrderRequestDto
@@ -245,6 +307,10 @@ namespace yemeksiparismete.Server.Controllers
         public string? CustomerPhone { get; set; }
         public string? DeliveryAddress { get; set; }
         public string? Note { get; set; }
+        public int? GroupOrderSessionId { get; set; }
+        public string? TargetUserId { get; set; }
+        public string? PayerUserId { get; set; }
+        public bool IsEcoFriendly { get; set; }
         public List<OrderItemRequestDto> Items { get; set; } = new();
     }
 
@@ -254,5 +320,6 @@ namespace yemeksiparismete.Server.Controllers
         public string ProductName { get; set; } = string.Empty;
         public int Quantity { get; set; }
         public decimal Price { get; set; }
+        public string? AddedByUserName { get; set; }
     }
 }

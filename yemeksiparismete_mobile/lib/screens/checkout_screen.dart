@@ -1,11 +1,18 @@
+import 'dart:convert';
+import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../providers/cart_provider.dart';
 import '../providers/location_provider.dart';
 import '../providers/auth_provider.dart';
 import '../services/order_service.dart';
+import '../providers/group_order_provider.dart';
 import '../services/user_service.dart';
 import '../services/location_service.dart';
+import '../services/api_constants.dart';
+import '../models/restaurant.dart';
+import '../models/product.dart';
+import '../models/cart_item.dart';
 
 class CheckoutScreen extends StatefulWidget {
   const CheckoutScreen({super.key});
@@ -22,6 +29,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
   bool _isLoading = false;
   String _paymentMethod = 'credit_card'; // or 'cash'
   bool _agreeToTerms = false;
+  bool _isEcoFriendly = false;
 
   List<dynamic> _addresses = [];
   List<dynamic> _paymentMethods = [];
@@ -31,6 +39,9 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
   // New Address Form Data
   bool _showNewAddressForm = false;
   final _addressFormKey = GlobalKey<FormState>();
+  final TextEditingController _nameController = TextEditingController();
+  final TextEditingController _phoneController = TextEditingController();
+  final TextEditingController _addressController = TextEditingController();
   String _addressTitle = '', _neighborhood = '', _street = '', _buildingNo = '', _floor = '', _apartmentNo = '', _directions = '';
   String _orderNote = '';
   
@@ -47,7 +58,47 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
   @override
   void initState() {
     super.initState();
+    final user = context.read<AuthProvider>().user;
+    if (user != null) {
+      _nameController.text = user['fullName'] ?? '';
+      _phoneController.text = user['phoneNumber'] ?? '';
+    }
     _fetchUserData();
+    _fetchGroupMemberAddress();
+  }
+
+  Future<void> _fetchGroupMemberAddress() async {
+    final groupProvider = context.read<GroupOrderProvider>();
+    final auth = context.read<AuthProvider>();
+    
+    String? targetId;
+    for (var item in groupProvider.items) {
+      if (item['addedByUserId'] != auth.user?['id']) {
+        targetId = item['addedByUserId'];
+        break;
+      }
+    }
+
+    if (targetId != null) {
+      try {
+        final token = await auth.token;
+        final response = await http.get(
+          Uri.parse('${ApiConstants.baseUrl}/user/member-address/$targetId'),
+          headers: {'Authorization': 'Bearer ${token ?? ""}'},
+        );
+        if (response.statusCode == 200) {
+          final data = json.decode(response.body);
+          setState(() {
+            _nameController.text = data['fullName'] ?? _nameController.text;
+            _phoneController.text = data['phoneNumber'] ?? _phoneController.text;
+            _addressController.text = data['address'] ?? '';
+            _selectedAddressId = -99; // Özel ID: Katılımcı Adresi
+          });
+        }
+      } catch (e) {
+        print('Error fetching member address: $e');
+      }
+    }
   }
 
   Future<void> _fetchUserData() async {
@@ -154,17 +205,54 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
     
     // Process order
     final authProvider = context.read<AuthProvider>();
+    final groupOrderProvider = context.read<GroupOrderProvider>();
+    
+    // Ismarlama Mantığı: Kurucu olmayan ilk kişiyi bul
+    String? targetUserId;
+    if (groupOrderProvider.items.isNotEmpty) {
+      for (var item in groupOrderProvider.items) {
+        if (item['addedByUserId'] != authProvider.user?['id']) {
+          targetUserId = item['addedByUserId'];
+          break;
+        }
+      }
+    }
+
+    final isGroup = groupOrderProvider.groupCode != null;
+    final groupTotal = groupOrderProvider.items.fold<double>(0, (sum, item) => sum + ((item['price'] ?? item['Price'] ?? 0).toDouble() * (item['quantity'] ?? item['Quantity'] ?? 0)));
+    
+    final finalItems = isGroup ? groupOrderProvider.items.map((i) => CartItem(
+      product: Product(
+        id: i['productId'] ?? i['ProductId'],
+        name: i['productName'] ?? i['ProductName'],
+        price: (i['price'] ?? i['Price'] ?? 0).toDouble(),
+        description: '',
+        imageUrl: '',
+        restaurantId: cart.items.isNotEmpty ? cart.items.values.first.product.restaurantId : (i['restaurantId'] ?? i['RestaurantId'] ?? 0),
+        stock: 999,
+        category: 'Grup'
+      ),
+      quantity: i['quantity'] ?? i['Quantity'] ?? 0,
+      addedByUserName: i['addedByUserName'] ?? i['AddedByUserName']
+    )).toList() : cart.items.values.toList();
+
+    final finalTotal = isGroup ? groupTotal : cart.finalAmount;
+
     final result = await _orderService.createOrder(
-      cartItems: cart.items.values.toList(),
-      totalAmount: cart.finalAmount,
+      cartItems: finalItems,
+      totalAmount: finalTotal,
       couponCode: cart.couponCode,
       discountAmount: cart.discountAmount,
       paymentMethod: _paymentMethod == 'credit_card' ? 'credit_card' : 'cash_at_door',
-      customerName: authProvider.user?['fullName'] ?? 'Müşteri',
-      customerPhone: authProvider.user?['phoneNumber'] ?? '-',
+      customerName: _nameController.text.isNotEmpty ? _nameController.text : (authProvider.user?['fullName'] ?? 'Müşteri'),
+      customerPhone: _phoneController.text.isNotEmpty ? _phoneController.text : (authProvider.user?['phoneNumber'] ?? '-'),
       deliveryAddress: finalDeliveryAddress,
       note: _orderNote,
-      restaurantId: cart.items.isNotEmpty ? cart.items.values.first.product.restaurantId : null,
+      restaurantId: finalItems.isNotEmpty ? finalItems.first.product.restaurantId : null,
+      isEcoFriendly: _isEcoFriendly,
+      groupOrderSessionId: groupOrderProvider.sessionId,
+      targetUserId: targetUserId,
+      payerUserId: authProvider.user?['id'],
     );
 
     setState(() => _isLoading = false);
@@ -217,7 +305,11 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
     final locProvider = context.read<LocationProvider>();
     final theme = Theme.of(context);
 
-    if (cart.items.isEmpty) {
+    final group = context.watch<GroupOrderProvider>();
+    final isGroup = group.groupCode != null;
+    final bool isEmpty = isGroup ? group.items.isEmpty : cart.items.isEmpty;
+
+    if (isEmpty) {
       return Scaffold(
         appBar: AppBar(title: const Text('Ödeme')),
         body: const Center(child: Text('Sepetiniz boş.')),
@@ -416,13 +508,26 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
                     child: Padding(
                       padding: const EdgeInsets.all(16.0),
-                      child: TextFormField(
-                        decoration: const InputDecoration(
-                          hintText: 'Zil çalmasın, kapıya asın vb.',
-                          border: InputBorder.none,
-                        ),
-                        maxLines: 3,
-                        onChanged: (v) => _orderNote = v,
+                      child: Column(
+                        children: [
+                          TextFormField(
+                            decoration: const InputDecoration(
+                              hintText: 'Zil çalmasın, kapıya asın vb.',
+                              border: InputBorder.none,
+                            ),
+                            maxLines: 3,
+                            onChanged: (v) => _orderNote = v,
+                          ),
+                          const Divider(),
+                          SwitchListTile(
+                            contentPadding: EdgeInsets.zero,
+                            title: const Text('Doğa Dostu Seçim 🌿', style: TextStyle(fontWeight: FontWeight.bold, color: Colors.green)),
+                            subtitle: const Text('Plastik çatal, bıçak, peçete istemiyorum. (+10 Yeşil Puan)', style: TextStyle(fontSize: 12)),
+                            value: _isEcoFriendly,
+                            activeColor: Colors.green,
+                            onChanged: (val) => setState(() => _isEcoFriendly = val),
+                          ),
+                        ],
                       ),
                     ),
                   ),
@@ -440,22 +545,40 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                         children: [
                           const Text('Sipariş Özeti', style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold)),
                           const Divider(color: Colors.white30),
-                          ...cart.items.values.map((item) => Padding(
-                                padding: const EdgeInsets.symmetric(vertical: 4.0),
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text('${item.quantity}x ${item.product.name}', style: const TextStyle(color: Colors.white70)),
-                                    Text('${item.product.price * item.quantity} TL', style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
-                                  ],
-                                ),
-                              )),
+                          if (isGroup)
+                            ...group.items.map((item) => Padding(
+                                  padding: const EdgeInsets.symmetric(vertical: 4.0),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text('${item['quantity'] ?? item['Quantity']}x ${item['productName'] ?? item['ProductName']}', style: const TextStyle(color: Colors.white70)),
+                                      Text('${(item['price'] ?? item['Price'] ?? 0) * (item['quantity'] ?? item['Quantity'] ?? 0)} TL', style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+                                    ],
+                                  ),
+                                ))
+                          else
+                            ...cart.items.values.map((item) => Padding(
+                                  padding: const EdgeInsets.symmetric(vertical: 4.0),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text('${item.quantity}x ${item.product.name}', style: const TextStyle(color: Colors.white70)),
+                                      Text('${item.product.price * item.quantity} TL', style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+                                    ],
+                                  ),
+                                )),
                           const Divider(color: Colors.white30),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               const Text('Ara Toplam', style: TextStyle(color: Colors.white70, fontSize: 16)),
-                              Text('${cart.totalAmount.toStringAsFixed(2)} TL', style: const TextStyle(color: Colors.white, fontSize: 16)),
+                              Text(
+                                '${(isGroup 
+                                    ? group.items.fold<double>(0, (sum, item) => sum + ((item['price'] ?? item['Price'] ?? 0).toDouble() * (item['quantity'] ?? item['Quantity'] ?? 0)))
+                                    : cart.totalAmount
+                                  ).toStringAsFixed(2)} TL', 
+                                style: const TextStyle(color: Colors.white, fontSize: 16)
+                              ),
                             ],
                           ),
                           if (cart.discountAmount > 0)
@@ -474,7 +597,13 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               const Text('Toplam', style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold)),
-                              Text('${cart.finalAmount.toStringAsFixed(2)} TL', style: const TextStyle(color: Colors.white, fontSize: 24, fontWeight: FontWeight.bold)),
+                              Text(
+                                '${(isGroup 
+                                    ? group.items.fold<double>(0, (sum, item) => sum + ((item['price'] ?? item['Price'] ?? 0).toDouble() * (item['quantity'] ?? item['Quantity'] ?? 0)))
+                                    : cart.finalAmount
+                                  ).toStringAsFixed(2)} TL', 
+                                style: const TextStyle(color: Colors.white, fontSize: 24, fontWeight: FontWeight.bold)
+                              ),
                             ],
                           ),
                           const SizedBox(height: 16),

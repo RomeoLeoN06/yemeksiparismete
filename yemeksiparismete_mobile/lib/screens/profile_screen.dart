@@ -242,7 +242,27 @@ class _ProfileScreenState extends State<ProfileScreen> with SingleTickerProvider
                 ),
                 const SizedBox(height: 16),
                 Text(user?['fullName'] ?? '', style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
-                const SizedBox(height: 32),
+                const SizedBox(height: 8),
+                Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                  decoration: BoxDecoration(
+                    color: Colors.green.withOpacity(0.1),
+                    borderRadius: BorderRadius.circular(20),
+                    border: Border.all(color: Colors.green.withOpacity(0.2)),
+                  ),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      const Icon(Icons.auto_awesome, color: Colors.green, size: 16),
+                      const SizedBox(width: 8),
+                      Text(
+                        '${user?['greenPoints'] ?? user?['GreenPoints'] ?? 0} Yeşil Puan',
+                        style: const TextStyle(color: Colors.green, fontWeight: FontWeight.bold, fontSize: 13),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 24),
                 _buildInfoField('E-Posta Adresi', user?['email'] ?? user?['Email']),
                 const SizedBox(height: 16),
                 _buildInfoField('Telefon Numarası', user?['phoneNumber'] ?? user?['PhoneNumber'] ?? 'Belirtilmedi'),

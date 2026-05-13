@@ -184,6 +184,40 @@ namespace yemeksiparismete.Server.Controllers
 
             return BadRequest(result.Errors);
         }
+        [AllowAnonymous]
+        [HttpGet("leaderboard")]
+        public async Task<IActionResult> GetLeaderboard()
+        {
+            // SSMS'teki sorgunun aynısını doğrudan SQL olarak çalıştırıyoruz
+            var topUsers = await _context.Users
+                .FromSqlRaw("SELECT TOP 10 * FROM AspNetUsers ORDER BY GreenPoints DESC")
+                .Select(u => new {
+                    u.FullName,
+                    u.GreenPoints,
+                    u.ProfileImageBase64
+                })
+                .ToListAsync();
+
+            return Ok(topUsers);
+        }
+
+        [HttpGet("member-address/{userId}")]
+        public async Task<IActionResult> GetMemberPrimaryAddress(string userId)
+        {
+            var address = await _context.UserAddresses
+                .Include(a => a.City)
+                .Include(a => a.District)
+                .FirstOrDefaultAsync(a => a.UserId == userId);
+
+            var user = await _userManager.FindByIdAsync(userId);
+            if (user == null) return NotFound();
+
+            return Ok(new { 
+                fullName = user.FullName,
+                phoneNumber = user.PhoneNumber,
+                address = address != null ? $"{address.Title}: {address.Neighborhood} Mah. {address.Street} Sok. No:{address.BuildingNo} {address.District?.Name}/{address.City?.Name}" : ""
+            });
+        }
     }
 
     public class UpdateProfileDto

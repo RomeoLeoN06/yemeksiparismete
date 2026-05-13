@@ -8,6 +8,7 @@ import { useState, useEffect } from 'react';
 
 const navLinks = [
   { name: 'Anasayfa', path: '/', icon: <Home size={20} /> },
+  { name: 'Liderlik Tablosu', path: '/leaderboard', icon: <ShieldCheck size={20} /> },
   { name: 'Kurye Ol', path: '/kurye-ol', icon: <Bike size={20} /> },
   { name: 'Hakkımızda', path: '/about', icon: <Info size={20} /> },
   { name: 'Destek', path: '/support', icon: <PhoneCall size={20} /> },
@@ -48,15 +49,21 @@ const Navbar = () => {
           </div>
 
           <div className="header-center desktop-only">
-            <div className="lux-location-pill" onClick={() => setShowLocationModal(true)}>
-              <MapPin size={18} className="text-primary" />
-              <div className="loc-text">
-                <span className="loc-label">Teslimat Adresi</span>
-                <span className="loc-value">
-                  {selectedDistrict ? `${selectedCity?.name ?? selectedCity?.Name}, ${selectedDistrict.name ?? selectedDistrict?.Name}` : 'Konum Seçin'}
-                </span>
+            <div style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
+              <div className="lux-location-pill" onClick={() => setShowLocationModal(true)}>
+                <MapPin size={18} className="text-primary" />
+                <div className="loc-text">
+                  <span className="loc-label">Teslimat Adresi</span>
+                  <span className="loc-value">
+                    {selectedDistrict ? `${selectedCity?.name ?? selectedCity?.Name}, ${selectedDistrict.name ?? selectedDistrict?.Name}` : 'Konum Seçin'}
+                  </span>
+                </div>
+                <ChevronDown size={14} className="text-muted" />
               </div>
-              <ChevronDown size={14} className="text-muted" />
+              <Link to="/leaderboard" className="lux-nav-link-desktop">
+                <ShieldCheck size={18} className="text-primary" />
+                <span>Liderlik Tablosu</span>
+              </Link>
             </div>
           </div>
 
@@ -469,6 +476,14 @@ const Navbar = () => {
         .lux-select-group label { font-size: 0.8rem; font-weight: 900; color: #666; text-transform: uppercase; letter-spacing: 1.5px; }
         .lux-select-group select { background: #1a1a1a; border: 1px solid rgba(255,255,255,0.1); padding: 18px; border-radius: 18px; color: #fff; font-size: 1.1rem; font-weight: 700; outline: none; transition: 0.3s; cursor: pointer; }
         .lux-select-group select:focus { border-color: var(--primary); box-shadow: 0 0 0 4px rgba(255,126,0,0.1); }
+
+        .lux-nav-link-desktop {
+          display: flex; align-items: center; gap: 10px;
+          background: #1a1a1a; padding: 12px 20px; border-radius: 50px;
+          text-decoration: none; color: #fff; font-weight: 800; font-size: 0.95rem;
+          border: 1px solid rgba(255,255,255,0.05); transition: 0.3s;
+        }
+        .lux-nav-link-desktop:hover { border-color: var(--primary); transform: translateY(-2px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
 
         @media (max-width: 768px) {
           .desktop-only { display: none !important; }

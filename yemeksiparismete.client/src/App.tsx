@@ -24,6 +24,7 @@ import Privacy from './pages/Privacy';
 import BecomeCourier from './pages/BecomeCourier';
 import RestaurantPanel from './pages/RestaurantPanel';
 import CourierPanel from './pages/CourierPanel';
+import Leaderboard from './pages/Leaderboard';
 import './App.css';
 
 function App() {
@@ -56,6 +57,7 @@ function App() {
                   <Route path="/kurye-ol" element={<BecomeCourier />} />
                   <Route path="/restaurant-panel" element={<RestaurantPanel />} />
                   <Route path="/courier-panel" element={<CourierPanel />} />
+                  <Route path="/leaderboard" element={<Leaderboard />} />
                   <Route path="*" element={<Navigate to="/" />} />
                 </Routes>
               </main>

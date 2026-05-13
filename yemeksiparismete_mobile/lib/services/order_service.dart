@@ -18,6 +18,10 @@ class OrderService {
     int? restaurantId,
     String? couponCode,
     double discountAmount = 0,
+    bool isEcoFriendly = false,
+    int? groupOrderSessionId,
+    String? targetUserId,
+    String? payerUserId,
   }) async {
     try {
       final token = await _authService.getToken();
@@ -28,6 +32,7 @@ class OrderService {
         'productName': item.product.name,
         'quantity': item.quantity,
         'price': item.product.price,
+        'addedByUserName': item.addedByUserName
       }).toList();
 
       final response = await http.post(
@@ -46,6 +51,10 @@ class OrderService {
           'restaurantId': restaurantId,
           'couponCode': couponCode,
           'discountAmount': discountAmount,
+          'isEcoFriendly': isEcoFriendly,
+          'groupOrderSessionId': groupOrderSessionId,
+          'targetUserId': targetUserId,
+          'payerUserId': payerUserId,
           'items': itemsList,
         }),
       );

@@ -79,6 +79,14 @@ class CartProvider with ChangeNotifier {
 
 
   void addItem(Product product, {String? restaurantName, String? restaurantAddress}) {
+    // Farklı bir restorandan ürün ekleniyorsa sepeti temizleyelim
+    if (_items.isNotEmpty) {
+      final firstItem = _items.values.first;
+      if (firstItem.restaurantName != restaurantName) {
+        _items.clear();
+      }
+    }
+
     if (_items.containsKey(product.id)) {
       _items.update(
         product.id,

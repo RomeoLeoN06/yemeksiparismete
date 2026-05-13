@@ -13,6 +13,7 @@ class AuthProvider with ChangeNotifier {
   bool get isLoading => _isLoading;
   bool get isAuthenticated => _isAuthenticated;
   Map<String, dynamic>? get user => _user;
+  Future<String?> get token => _authService.getToken();
 
   AuthProvider() {
     _checkAuthStatus();

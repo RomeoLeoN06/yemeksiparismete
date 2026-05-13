@@ -309,6 +309,10 @@ const Profile = () => {
               <div className="user-text-lux">
                 <h3 className="user-name-main">{(user as any).FullName || user.name}</h3>
                 <span className="user-role-badge">{user.role === 'admin' ? 'Yönetici' : user.role === 'restaurant_owner' ? 'Restoran Sahibi' : 'Üye'}</span>
+                <div className="green-points-pill mt-15">
+                   <Sparkles size={16} />
+                   <span>{(user as any).greenPoints ?? (user as any).GreenPoints ?? 0} Yeşil Puan</span>
+                </div>
               </div>
             </div>
 
@@ -376,6 +380,50 @@ const Profile = () => {
                         </div>
                       )}
                     </form>
+
+                    {/* Eco-Track Dashboard */}
+                    <div className="green-dashboard-lux mt-50">
+                      <div className="green-dash-header">
+                        <Sparkles size={32} className="text-primary" />
+                        <div className="dash-text">
+                          <h3>Sürdürülebilirlik Karneniz</h3>
+                          <p>Daha temiz bir dünya için yaptığınız katkılar.</p>
+                        </div>
+                      </div>
+                      
+                      <div className="green-stats-grid mt-30">
+                        <div className="green-stat-card">
+                          <span className="stat-label">Toplam Yeşil Puan</span>
+                          <span className="stat-value">{(user as any).greenPoints ?? (user as any).GreenPoints ?? 0}</span>
+                        </div>
+                        <div className="green-stat-card">
+                          <span className="stat-label">Tasarruf Edilen Karbon</span>
+                          <span className="stat-value text-green">
+                            {orders.reduce((acc, curr) => acc + (curr.carbonSaved || curr.CarbonSaved || 0), 0)}g
+                          </span>
+                        </div>
+                        <div className="green-stat-card">
+                          <span className="stat-label">Doğa Dostu Siparişler</span>
+                          <span className="stat-value">
+                            {orders.filter(o => o.isEcoFriendly || o.IsEcoFriendly).length}
+                          </span>
+                        </div>
+                      </div>
+
+                      <div className="green-progress-wrap mt-40">
+                         <div className="progress-labels">
+                            <span>Sıradaki Seviye: <strong>Eko-Kahraman</strong></span>
+                            <span>{((user as any).greenPoints ?? (user as any).GreenPoints ?? 0) % 100} / 100</span>
+                         </div>
+                         <div className="progress-bar-lux">
+                            <motion.div 
+                              initial={{ width: 0 }} 
+                              animate={{ width: `${((user as any).greenPoints ?? (user as any).GreenPoints ?? 0) % 100}%` }} 
+                              className="progress-fill" 
+                            />
+                         </div>
+                      </div>
+                    </div>
                   </div>
                 )}
 
@@ -762,6 +810,21 @@ const Profile = () => {
         .order-actions-row-lux { margin-top: 20px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.03); }
         .btn-support-link-lux { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; padding: 15px; background: rgba(255,126,0,0.05); color: var(--primary); border-radius: 18px; font-weight: 900; text-decoration: none; border: 1px solid rgba(255,126,0,0.1); transition: 0.3s; }
         .btn-support-link-lux:hover { background: var(--primary); color: #000; box-shadow: 0 10px 20px var(--orange-glow); transform: translateY(-2px); }
+
+        .green-points-pill { display: flex; align-items: center; justify-content: center; gap: 8px; background: rgba(16, 185, 129, 0.1); color: #10b981; padding: 8px 15px; border-radius: 50px; font-weight: 900; font-size: 0.85rem; border: 1px solid rgba(16, 185, 129, 0.2); }
+        .green-dashboard-lux { background: #000; border-radius: 35px; padding: 40px; border: 1px solid rgba(16, 185, 129, 0.1); }
+        .green-dash-header { display: flex; align-items: center; gap: 20px; }
+        .green-dash-header h3 { font-size: 1.8rem; font-weight: 900; color: #fff; margin: 0; }
+        .green-dash-header p { color: #888; margin-top: 5px; }
+        .green-stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .green-stat-card { background: #111; padding: 25px; border-radius: 25px; border: 1px solid rgba(255,255,255,0.05); text-align: center; }
+        .stat-label { display: block; font-size: 0.75rem; color: #666; font-weight: 900; text-transform: uppercase; margin-bottom: 10px; }
+        .stat-value { font-size: 2rem; font-weight: 900; color: #fff; }
+        .stat-value.text-green { color: #10b981; }
+        
+        .progress-bar-lux { height: 12px; background: #111; border-radius: 50px; overflow: hidden; margin-top: 15px; border: 1px solid rgba(255,255,255,0.05); }
+        .progress-fill { height: 100%; background: linear-gradient(90deg, #10b981, #34d399); box-shadow: 0 0 15px rgba(16, 185, 129, 0.5); }
+        .progress-labels { display: flex; justify-content: space-between; font-weight: 800; font-size: 0.9rem; color: #ccc; }
       `}</style>
     </div>
   );

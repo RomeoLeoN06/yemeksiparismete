@@ -4,7 +4,7 @@ import RestaurantCard from '../components/RestaurantCard';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLocation } from '../context/LocationContext';
 import { useCart } from '../context/CartContext';
-import { SearchX, Zap, Utensils, Pizza, Coffee, Beef, Cookie, MapPin, MapPinned, ChevronRight } from 'lucide-react';
+import { SearchX, Zap, Utensils, Pizza, Coffee, Beef, Cookie, MapPin, MapPinned, ChevronRight, Sparkles } from 'lucide-react';
 
 const Home = () => {
   const [districtRestaurants, setDistrictRestaurants] = useState<any[]>([]);
@@ -219,35 +219,68 @@ const Home = () => {
           <Hero onSearch={(val) => setSearchTerm(val)} />
           
           <div className="container py-80">
-            {selectedDistrict && (
-              <div className="current-location-banner" onClick={() => setShowLocationGate(true)} style={{ 
-                display: 'flex', 
-                alignItems: 'center', 
-                justifyContent: 'space-between', 
-                padding: '20px 30px', 
-                backgroundColor: 'var(--bg-card)', 
-                color: 'white', 
-                borderRadius: '24px', 
-                marginBottom: '50px', 
-                cursor: 'pointer', 
-                border: '1px solid var(--border-light)',
-                boxShadow: '0 20px 40px rgba(0,0,0,0.3)',
-                position: 'relative',
-                overflow: 'hidden'
-              }}>
-                <div className="banner-glow" style={{ position: 'absolute', top: '-50%', left: '-50%', width: '200%', height: '200%', background: 'radial-gradient(circle at center, rgba(255, 126, 0, 0.05) 0%, transparent 70%)', pointerEvents: 'none' }}></div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '15px', position: 'relative', zIndex: 1 }}>
-                  <div style={{ width: '45px', height: '45px', background: 'var(--accent)', borderRadius: '15px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)' }}>
-                    <MapPin size={24} />
+            <div style={{ display: 'flex', gap: '20px', marginBottom: '40px' }}>
+              {selectedDistrict && (
+                <div className="current-location-banner" onClick={() => setShowLocationGate(true)} style={{ 
+                  flex: 2,
+                  display: 'flex', 
+                  alignItems: 'center', 
+                  justifyContent: 'space-between', 
+                  padding: '20px 30px', 
+                  backgroundColor: 'var(--bg-card)', 
+                  color: 'white', 
+                  borderRadius: '24px', 
+                  cursor: 'pointer', 
+                  border: '1px solid var(--border-light)',
+                  boxShadow: '0 20px 40px rgba(0,0,0,0.3)',
+                  position: 'relative',
+                  overflow: 'hidden'
+                }}>
+                  <div className="banner-glow" style={{ position: 'absolute', top: '-50%', left: '-50%', width: '200%', height: '200%', background: 'radial-gradient(circle at center, rgba(255, 126, 0, 0.05) 0%, transparent 70%)', pointerEvents: 'none' }}></div>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '15px', position: 'relative', zIndex: 1 }}>
+                    <div style={{ width: '45px', height: '45px', background: 'var(--accent)', borderRadius: '15px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)' }}>
+                      <MapPin size={24} />
+                    </div>
+                    <div>
+                      <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', textTransform: 'uppercase', fontWeight: 800, letterSpacing: '1px' }}>Teslimat Bölgesi</div>
+                      <div style={{ fontSize: '1.2rem', fontWeight: 900 }}>{selectedDistrict?.name ?? selectedDistrict?.Name}, {selectedCity?.name ?? selectedCity?.Name}</div>
+                    </div>
                   </div>
-                  <div>
-                    <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', textTransform: 'uppercase', fontWeight: 800, letterSpacing: '1px' }}>Teslimat Bölgesi</div>
-                    <div style={{ fontSize: '1.2rem', fontWeight: 900 }}>{selectedDistrict?.name ?? selectedDistrict?.Name}, {selectedCity?.name ?? selectedCity?.Name}</div>
-                  </div>
+                  <button className="btn-lux-primary" style={{ padding: '10px 20px', fontSize: '0.8rem' }}>Değiştir</button>
                 </div>
-                <button className="btn-lux-primary" style={{ padding: '10px 20px', fontSize: '0.8rem' }}>Değiştir</button>
-              </div>
-            )}
+              )}
+
+              <motion.div 
+                whileHover={{ y: -5, scale: 1.02 }}
+                onClick={() => navigate('/leaderboard')}
+                style={{ 
+                  flex: 1,
+                  display: 'flex', 
+                  alignItems: 'center', 
+                  gap: '20px',
+                  padding: '20px 30px', 
+                  background: 'linear-gradient(135deg, #1a4a2e 0%, #0d2a1a 100%)', 
+                  color: 'white', 
+                  borderRadius: '24px', 
+                  cursor: 'pointer', 
+                  border: '1px solid rgba(0, 255, 127, 0.2)',
+                  boxShadow: '0 20px 40px rgba(0,0,0,0.4)',
+                  position: 'relative',
+                  overflow: 'hidden'
+                }}
+              >
+                <div style={{ width: '45px', height: '45px', background: 'rgba(0, 255, 127, 0.2)', borderRadius: '15px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#00ff7f' }}>
+                  <Sparkles size={24} />
+                </div>
+                <div>
+                  <div style={{ fontSize: '0.75rem', color: '#00ff7f', textTransform: 'uppercase', fontWeight: 800, letterSpacing: '1px' }}>Eco-Heroes</div>
+                  <div style={{ fontSize: '1.1rem', fontWeight: 900 }}>Liderlik Tablosu</div>
+                </div>
+                <div style={{ marginLeft: 'auto', opacity: 0.5 }}>
+                  <ChevronRight size={24} />
+                </div>
+              </motion.div>
+            </div>
 
             <div className="section-header-lux">
               <h2 className="lux-section-title">Neye <span className="text-primary">Odaklanalım?</span></h2>

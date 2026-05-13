@@ -148,6 +148,28 @@ namespace yemeksiparismete.Server.Data
                 await context.SaveChangesAsync();
             }
 
+            // 6. Mock Customers for Leaderboard
+            if (!await userManager.Users.AnyAsync(u => u.Role == "customer" && u.Email != "admin@yemeksiparis.com"))
+            {
+                var mockNames = new[] { "Metehan Yıldız", "Ahmet Yılmaz", "Ayşe Demir", "Fatma Kaya", "Mehmet Öztürk", "Zeynep Çelik", "Ali Can", "Selin Arslan", "Bora Aksoy", "Ece Aydın" };
+                var random = new Random();
+                for (int i = 0; i < mockNames.Length; i++)
+                {
+                    var email = $"user{i+1}@example.com";
+                    var user = new ApplicationUser 
+                    { 
+                        UserName = email, 
+                        Email = email, 
+                        FullName = mockNames[i], 
+                        Role = "customer", 
+                        EmailConfirmed = true,
+                        GreenPoints = random.Next(1000, 5000)
+                    };
+                    await userManager.CreateAsync(user, "User123!");
+                    await userManager.AddToRoleAsync(user, "customer");
+                }
+            }
+
             Console.WriteLine("--- SEEDING COMPLETED ---");
         }
     }

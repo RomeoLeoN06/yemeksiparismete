@@ -20,6 +20,11 @@ namespace yemeksiparismete.Server.Models
         public string? Note { get; set; }
         public string? CourierId { get; set; }
         public string? CourierName { get; set; }
+        public bool IsEcoFriendly { get; set; } = false; // Plastik çatal-bıçak istememe vb.
+        public double CarbonSaved { get; set; } = 0; // Tasarruf edilen karbon (gram)
+        public int? GroupOrderSessionId { get; set; }
+        public string? PayerUserId { get; set; } // Ödemeyi yapan kişi (Ismarlama senaryosu için)
+        public GroupOrderSession? GroupOrderSession { get; set; }
         public List<OrderItem> Items { get; set; } = new List<OrderItem>();
     }
 
@@ -31,5 +36,6 @@ namespace yemeksiparismete.Server.Models
         public string ProductName { get; set; } = string.Empty;
         public int Quantity { get; set; }
         public decimal Price { get; set; }
+        public string? AddedByUserName { get; set; } // Grup siparişinde kimin eklediği
     }
 }

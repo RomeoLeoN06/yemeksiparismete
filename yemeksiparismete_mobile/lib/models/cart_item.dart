@@ -11,7 +11,10 @@ class CartItem {
     this.quantity = 1,
     this.restaurantName,
     this.restaurantAddress,
+    this.addedByUserName,
   });
+
+  final String? addedByUserName;
 
   double get totalPrice => product.price * quantity;
 
@@ -21,6 +24,7 @@ class CartItem {
       quantity: json['quantity'] ?? 1,
       restaurantName: json['restaurantName'],
       restaurantAddress: json['restaurantAddress'],
+      addedByUserName: json['addedByUserName'],
     );
   }
 
@@ -30,6 +34,7 @@ class CartItem {
       'quantity': quantity,
       'restaurantName': restaurantName,
       'restaurantAddress': restaurantAddress,
+      'addedByUserName': addedByUserName,
     };
   }
 }

@@ -12,6 +12,7 @@ import 'profile_screen.dart';
 import 'admin_panel_screen.dart';
 import 'restaurant_panel_screen.dart';
 import 'courier_panel_screen.dart';
+import 'leaderboard_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -286,6 +287,10 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         actions: [
           IconButton(
+            icon: const Icon(Icons.emoji_events_outlined, color: Colors.amber),
+            onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const LeaderboardScreen())),
+          ),
+          IconButton(
             icon: const Icon(Icons.shopping_cart_outlined),
             onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const CartScreen())),
           ),
@@ -384,6 +389,54 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                   ),
+
+                // Eco-Heroes Leaderboard Banner
+                SliverToBoxAdapter(
+                  child: GestureDetector(
+                    onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const LeaderboardScreen())),
+                    child: Container(
+                      margin: const EdgeInsets.only(left: 16, right: 16, top: 20),
+                      padding: const EdgeInsets.all(20),
+                      decoration: BoxDecoration(
+                        gradient: const LinearGradient(
+                          colors: [Color(0xFF1A4A2E), Color(0xFF0D2A1A)],
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomRight,
+                        ),
+                        borderRadius: BorderRadius.circular(24),
+                        border: Border.all(color: const Color(0xFF00FF7F).withOpacity(0.2)),
+                        boxShadow: [
+                          BoxShadow(color: Colors.black.withOpacity(0.3), blurRadius: 15, offset: const Offset(0, 8))
+                        ],
+                      ),
+                      child: Row(
+                        children: [
+                          Container(
+                            padding: const EdgeInsets.all(12),
+                            decoration: BoxDecoration(
+                              color: const Color(0xFF00FF7F).withOpacity(0.2),
+                              borderRadius: BorderRadius.circular(16),
+                            ),
+                            child: const Icon(Icons.auto_awesome, color: Color(0xFF00FF7F), size: 28),
+                          ),
+                          const SizedBox(width: 16),
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                const Text('DOĞA KAHRAMANLARI', style: TextStyle(color: Color(0xFF00FF7F), fontSize: 10, fontWeight: FontWeight.w900, letterSpacing: 1.2)),
+                                const SizedBox(height: 4),
+                                const Text('Liderlik Tablosu', style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold)),
+                                Text('En çevreci 10 kahramanı gör!', style: TextStyle(color: Colors.white.withOpacity(0.6), fontSize: 12)),
+                              ],
+                            ),
+                          ),
+                          Icon(Icons.chevron_right, color: Colors.white.withOpacity(0.5), size: 30),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
                 
                 // Categories
                 SliverToBoxAdapter(
