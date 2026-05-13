@@ -954,7 +954,7 @@ yemeksiparismete/
     <tbody>
       <tr style="border: 4px solid #FF0000 !important; background-color: transparent !important;">
         <td align="center" style="border: 4px solid #FF0000 !important; padding: 10px; vertical-align: top;">
-          <img src="screenshots/mobilcevredostusiralama.jpeg" style="width: 100%; aspect-ratio: 9/16; object-fit: cover; border-radius: 12px; border: 2px solid #333; box-shadow: 0 10px 20px rgba(0,0,0,0.4);">
+          <img src="screenshots/mobilcevredostusıralama.jpeg" style="width: 100%; aspect-ratio: 9/16; object-fit: cover; border-radius: 12px; border: 2px solid #333; box-shadow: 0 10px 20px rgba(0,0,0,0.4);">
           <br><sub><b>🌿 Çevre Dostu Sıralama</b></sub>
         </td>
         <td align="center" style="border: 4px solid #FF0000 !important; padding: 10px; vertical-align: top;">
