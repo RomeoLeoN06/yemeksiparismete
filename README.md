@@ -18,10 +18,12 @@ YemekSiparisMete, modern yazılım mimarilerinin tüm imkanları kullanılarak g
 🏛️ 1. Mimari Şaheser: Sistem Topolojisi
 Sistem, N-Tier (Çok Katmanlı) mimari prensiplerine sadık kalınarak, her bir bileşenin kendi sorumluluğunu (Separation of Concerns) taşıdığı bir yapıda kurgulanmıştır.
 
-IPv4: 10.22.107.60:5101
-HTTP/SignalR
-EF Core 8
-Real-time
+graph TD
+    A[📱 Flutter Mobile] -->|IPv4: 10.22.107.60:5101| B[⚙️ .NET 8 API]
+    C[💻 React 19 Web] -->|HTTP/SignalR| B
+    B -->|EF Core 8| D[(🗄️ SQL Server)]
+    B -->|Real-time| E[📡 SignalR Hub]
+
 📱 Flutter Mobile
 ⚙️ .NET 8 API
 💻 React 19 Web
