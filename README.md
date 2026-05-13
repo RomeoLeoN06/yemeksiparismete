@@ -319,6 +319,34 @@ yemeksiparismete/
       </tbody>
     </table>
   </div>
+  <div align="left" style="background-color: #FDFBF7; padding: 30px; border-radius: 12px; border: 1px solid #EAE8E1; font-family: sans-serif; width: 100%; box-sizing: border-box;">
+  <h2 style="color: #4A4A4A; display: flex; align-items: center; gap: 10px; margin-top: 0; word-wrap: break-word;">
+    🌱 8. Sosyal Sinerji ve Ekolojik Vizyon: Kolektif Sipariş & Sürdürülebilir Sıralama
+  </h2>
+  <p style="color: #666; font-size: 15px; line-height: 1.6; margin-bottom: 20px; word-wrap: break-word;">
+    YemekSiparisMete ekosistemi, dijital gastronomi deneyimini sadece tüketim odaklı olmaktan çıkarıp sosyal bir etkileşime ve çevresel sorumluluk modeline dönüştürür.
+  </p>
+  <div style="width: 100%; overflow-x: auto; box-sizing: border-box;">
+    <table width="100%" style="width: 100%; min-width: 100%; border-collapse: collapse; background-color: #FFFFFF; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); box-sizing: border-box;">
+      <thead>
+        <tr style="background-color: #E2E0D6; border-bottom: 2px solid #C5C3B6;">
+          <th align="left" style="padding: 16px; color: #4A4A4A; font-size: 14px; width: 30%;">Modül / Özellik</th>
+          <th align="left" style="padding: 16px; color: #4A4A4A; font-size: 14px; width: 70%;">Teknik Detay & Operasyonel Vizyon</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="border-bottom: 1px solid #EAE8E1;">
+          <td style="padding: 16px; font-size: 14px;"><b>Ortak Sipariş (Collaborative Ordering)</b></td>
+          <td style="padding: 16px; font-size: 14px; color: #333;">Kullanıcıların arkadaş gruplarıyla sepetlerini <b>gerçek zamanlı</b> birleştirmesini sağlar. "Sadece kurucu öder" kısıtlamasını yıkarak, gruptaki herhangi bir üyenin ödemeyi tamamlamasına izin veren demokratik bir ödeme mimarisi sunar.</td>
+        </tr>
+        <tr>
+          <td style="padding: 16px; font-size: 14px;"><b>Çevre Dostu Sıralama (Eco-Friendly Ranking)</b></td>
+          <td style="padding: 16px; font-size: 14px; color: #333;">Karbon ayak izini minimize eden, plastik kullanımını azaltan ve yeşil paketleme yapan restoranları özel bir puanlama algoritmasıyla ön plana çıkarır; kullanıcıları sürdürülebilir tercihlere teşvik eder.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
 </div>
 <br>
 <div style="width: 100%; box-sizing: border-box;">
