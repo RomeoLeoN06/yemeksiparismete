@@ -96,6 +96,90 @@ yemeksiparismete/
   </table>
 </div>
 <br>
+<!-- 3. VERİTABANI VE VERİ YÖNETİMİ BÖLÜMÜ -->
+<div align="left" style="background-color: #FDFBF7; padding: 20px; border-radius: 12px; border: 1px solid #EAE8E1; font-family: sans-serif;">
+  
+  <!-- BAŞLIK -->
+  <h2 style="color: #4A4A4A; display: flex; align-items: center; gap: 10px; margin-top: 0;">
+    🗄️ 3. Veritabanı ve Veri Yönetimi (SQL Server)
+  </h2>
+  
+  <!-- AÇIKLAMA METNİ -->
+  <p style="color: #666; font-size: 15px; line-height: 1.6; margin-bottom: 20px;">
+    Projenin veri ambarı, <b>Microsoft SQL Server</b> üzerinde optimize edilmiştir. Veri bütünlüğü (integrity) ve ilişkisel modelleme (relational mapping) en üst seviyededir.
+  </p>
+
+  <!-- TABLO -->
+  <table style="width: 100%; border-collapse: collapse; background-color: #FFFFFF; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+    <thead>
+      <tr style="background-color: #E2E0D6; border-bottom: 2px solid #C5C3B6;">
+        <th align="left" style="padding: 12px; color: #4A4A4A; font-size: 14px; width: 30%;">Mimari Özellik</th>
+        <th align="left" style="padding: 12px; color: #4A4A4A; font-size: 14px;">Teknik Detay & Operasyon</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="border-bottom: 1px solid #EAE8E1;">
+        <td style="padding: 12px; font-size: 14px;"><b>İlişkisel Mimari</b></td>
+        <td style="padding: 12px; font-size: 14px; color: #333;">Müşteriler, Restoranlar, Ürünler, Siparişler ve Kuryeler arasındaki karmaşık bağlar, verimli <code>Join</code> operasyonları ve indeksleme stratejileriyle yönetilir.</td>
+      </tr>
+      <tr style="border-bottom: 1px solid #EAE8E1;">
+        <td style="padding: 12px; font-size: 14px;"><b>Veri Güvenliği</b></td>
+        <td style="padding: 12px; font-size: 14px; color: #333;">Tüm hassas veriler, uygulama katmanında normalize edildikten sonra SQL Server'ın güvenli havuzuna aktarılır.</td>
+      </tr>
+      <tr>
+        <td style="padding: 12px; font-size: 14px;"><b>Hızlı Kurulum</b></td>
+        <td style="padding: 12px; font-size: 14px; color: #333;">Proje içerisinde bulunan <code>YemekSiparisDb_Yedek.sql</code> dosyası ile saniyeler içinde tüm şema ve test verileri ayağa kaldırılabilir.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<br><!-- 4. AĞ TOPOLOJİSİ VE IPV4 ERİŞİM BÖLÜMÜ -->
+<div align="left" style="background-color: #FDFBF7; padding: 20px; border-radius: 12px; border: 1px solid #EAE8E1; font-family: sans-serif;">
+  
+  <!-- BAŞLIK -->
+  <h2 style="color: #4A4A4A; display: flex; align-items: center; gap: 10px; margin-top: 0;">
+    🌐 4. Ağ Topolojisi ve IPv4 Erişim Dinamikleri
+  </h2>
+  
+  <!-- AÇIKLAMA METNİ -->
+  <p style="color: #666; font-size: 15px; line-height: 1.6; margin-bottom: 20px;">
+    Çapraz platform (Cross-platform) haberleşmesi, sistemin en güçlü yanlarından biridir. Mobil ve Web istemcilerinin merkezi sunucuyla sorunsuz etkileşimi için özel bir ağ yapılandırması uygulanmıştır.
+  </p>
+
+  <!-- TABLO -->
+  <table style="width: 100%; border-collapse: collapse; background-color: #FFFFFF; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+    <thead>
+      <tr style="background-color: #E2E0D6; border-bottom: 2px solid #C5C3B6;">
+        <th align="left" style="padding: 12px; color: #4A4A4A; font-size: 14px; width: 35%;">Konfigürasyon Parametresi</th>
+        <th align="left" style="padding: 12px; color: #4A4A4A; font-size: 14px;">Tanımlanan Değer / Protokol</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="border-bottom: 1px solid #EAE8E1;">
+        <td style="padding: 12px; font-size: 14px;"><b>Sunucu IPv4 Adresi</b></td>
+        <td style="padding: 12px; font-size: 14px; color: #D32F2F; font-family: monospace;"><b>10.22.107.60</b></td>
+      </tr>
+      <tr style="border-bottom: 1px solid #EAE8E1;">
+        <td style="padding: 12px; font-size: 14px;"><b>Dinleme Portu</b></td>
+        <td style="padding: 12px; font-size: 14px; color: #333;">5101 (HTTP & TCP)</td>
+      </tr>
+      <tr style="border-bottom: 1px solid #EAE8E1;">
+        <td style="padding: 12px; font-size: 14px;"><b>Haberleşme Protokolü</b></td>
+        <td style="padding: 12px; font-size: 14px; color: #333;">HTTP/REST & WebSockets (SignalR)</td>
+      </tr>
+      <tr>
+        <td style="padding: 12px; font-size: 14px;"><b>Erişim Kapsamı</b></td>
+        <td style="padding: 12px; font-size: 14px; color: #333;">Physical Device Testing (Yerel Ağ Köprüsü)</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- ALT NOT -->
+  <p style="color: #888; font-size: 13px; margin-top: 15px; font-style: italic;">
+    * Bu yapılandırma, <b>localhost</b> sınırlarını aşarak gerçek dünya ağ senaryolarında projenin kesintisiz çalışmasını garanti altına alır.
+  </p>
+</div>
+<br>
 <!-- 5. WEB FRONTEND BÖLÜMÜ -->
 <div align="left" style="background-color: #FDFBF7; padding: 20px; border-radius: 12px; border: 1px solid #EAE8E1; font-family: sans-serif;">
   
