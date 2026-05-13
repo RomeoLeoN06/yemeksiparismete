@@ -364,8 +364,6 @@ yemeksiparismete/
     </tr>
   </table>
 </div>
-
-</div>
 </div>
 <div align="center">
   <table style="width: 100%; table-layout: fixed; border-collapse: collapse !important; border: 4px solid #FF0000 !important;">
