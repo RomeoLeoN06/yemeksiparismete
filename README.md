@@ -1048,11 +1048,11 @@ yemeksiparismete/
     <tbody>
       <tr style="border: 4px solid #EAE8E1 !important; background-color: transparent !important;">
         <td align="center" style="border: 4px solid #EAE8E1 !important; padding: 15px; vertical-align: top;">
-          <img src="./Kullanicilarsql.jpeg" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 8px; border: 1px solid #C5C3B6; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+          <img src="./kullanıcılarsql.jpeg" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 8px; border: 1px solid #C5C3B6; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
           <br><sub style="font-family: sans-serif; font-size: 12px; color: #4A4A4A; display: block; margin-top: 8px;"><b>📁 Kullanicilarsql</b></sub>
         </td>
         <td align="center" style="border: 4px solid #EAE8E1 !important; padding: 15px; vertical-align: top;">
-          <img src="./Kullanicilarsql2.jpeg" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 8px; border: 1px solid #C5C3B6; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+          <img src="./kullanıcılarsql2.jpeg" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 8px; border: 1px solid #C5C3B6; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
           <br><sub style="font-family: sans-serif; font-size: 12px; color: #4A4A4A; display: block; margin-top: 8px;"><b>📁 Kullanicilarsql2</b></sub>
         </td>
         <td align="center" style="border: 4px solid #EAE8E1 !important; padding: 15px; vertical-align: top;">
@@ -1144,7 +1144,7 @@ yemeksiparismete/
     <tbody>
       <tr style="border: 4px solid #EAE8E1 !important; background-color: transparent !important;">
         <td align="center" style="border: 4px solid #EAE8E1 !important; padding: 15px; vertical-align: top;">
-          <img src="./restaurantyildizsql.jpeg" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 8px; border: 1px solid #C5C3B6; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+          <img src="./restaurantyıldızsql.jpeg" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 8px; border: 1px solid #C5C3B6; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
           <br><sub style="font-family: sans-serif; font-size: 12px; color: #4A4A4A; display: block; margin-top: 8px;"><b>📁 restaurantyildizsql</b></sub>
         </td>
         <td align="center" style="border: 4px solid #EAE8E1 !important; padding: 15px; vertical-align: top;">
@@ -1152,11 +1152,11 @@ yemeksiparismete/
           <br><sub style="font-family: sans-serif; font-size: 12px; color: #4A4A4A; display: block; margin-top: 8px;"><b>📁 restaurantbilgilerisql</b></sub>
         </td>
         <td align="center" style="border: 4px solid #EAE8E1 !important; padding: 15px; vertical-align: top;">
-          <img src="./ornekkartkaydisql.jpeg" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 8px; border: 1px solid #C5C3B6; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+          <img src="./ornekkartkaydısql.jpeg" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 8px; border: 1px solid #C5C3B6; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
           <br><sub style="font-family: sans-serif; font-size: 12px; color: #4A4A4A; display: block; margin-top: 8px;"><b>📁 ornekkartkaydisql</b></sub>
         </td>
         <td align="center" style="border: 4px solid #EAE8E1 !important; padding: 15px; vertical-align: top;">
-          <img src="./ornekadreskayitsql.jpeg" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 8px; border: 1px solid #C5C3B6; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+          <img src="./ornekadreskayıtsql.jpeg" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 8px; border: 1px solid #C5C3B6; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
           <br><sub style="font-family: sans-serif; font-size: 12px; color: #4A4A4A; display: block; margin-top: 8px;"><b>📁 ornekadreskayitsql</b></sub>
         </td>
       </tr>
@@ -1188,7 +1188,7 @@ yemeksiparismete/
           <br><sub style="font-family: sans-serif; font-size: 12px; color: #4A4A4A; display: block; margin-top: 8px;"><b>📁 fonksiyondegiskensql</b></sub>
         </td>
         <td align="center" style="border: 4px solid #EAE8E1 !important; padding: 15px; vertical-align: top;">
-          <img src="./devami.jpeg" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 8px; border: 1px solid #C5C3B6; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+          <img src="./devamı.jpeg" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 8px; border: 1px solid #C5C3B6; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
           <br><sub style="font-family: sans-serif; font-size: 12px; color: #4A4A4A; display: block; margin-top: 8px;"><b>📁 devami</b></sub>
         </td>
       </tr>
