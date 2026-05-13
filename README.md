@@ -12,10 +12,10 @@ yemeksiparismete/
 ├── 📄 screenshot/README.md  #Projenin Hem Web Hem Mobil Üzerinden Çalıştığına Dair Kanıtlar
 └── 🧪 AutoSeeder/     # Mock Data: Akıllı Test Veri Üreticisi
 ```
-<div align="center" style="width: 100%; display: block; box-sizing: border-box; overflow-x: hidden;">
+<div align="center" style="width: 100%; box-sizing: border-box; overflow-x: hidden;">
 
-<div style="width: 100%; display: block; box-sizing: border-box;">
-  <table style="width: 100%; display: table; border-collapse: collapse; border: 3px solid #FF0000; box-sizing: border-box;">
+<div style="width: 100%; box-sizing: border-box;">
+  <table width="100%" style="width: 100%; min-width: 100%; border-collapse: collapse; border: 3px solid #FF0000; box-sizing: border-box;">
     <tr>
       <td align="center" style="padding: 20px;">
         <h1>🍕 YemekSiparisMete</h1>
@@ -26,7 +26,7 @@ yemeksiparismete/
 </div>
 
 <br>
-<div align="left" style="background-color: #FDFBF7; padding: 30px; border-radius: 15px; border: 1px solid #EAE8E1; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; width: 100%; display: block; box-sizing: border-box;">
+<div align="left" style="background-color: #FDFBF7; padding: 30px; border-radius: 15px; border: 1px solid #EAE8E1; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; width: 100%; box-sizing: border-box;">
   
   <h2 style="color: #2C3E50; margin-top: 0; border-bottom: 2px solid #E2E0D6; padding-bottom: 10px; word-wrap: break-word;">
     🏛️ 1. Mimari Şaheser: Sistem Topolojisi
@@ -36,8 +36,8 @@ yemeksiparismete/
     Sistem, yüksek erişilebilirlik ve sürdürülebilirlik için <b>N-Tier (Çok Katmanlı)</b> mimari standartlarında kurgulanmıştır.
   </p>
 
-  <div style="width: 100%; overflow-x: auto; padding-bottom: 15px; text-align: center; box-sizing: border-box; display: block;">
-    <table border="0" cellpadding="0" cellspacing="0" align="center" style="border: none; background: transparent; margin: auto; width: 100%; min-width: 600px; display: table;">
+  <div style="width: 100%; overflow-x: auto; padding-bottom: 15px; text-align: center; box-sizing: border-box;">
+    <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" style="border: none; background: transparent; margin: auto; width: 100%; min-width: 100%;">
           <tr>
         <td align="center" style="width: 40%;">
           <div style="background: #FFFFFF; border: 2px solid #3498DB; padding: 15px 25px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
@@ -98,7 +98,7 @@ yemeksiparismete/
   </div>
 </div>
 <br>
-<div align="left" style="background-color: #FDFBF7; padding: 30px; border-radius: 12px; border: 1px solid #EAE8E1; font-family: sans-serif; width: 100%; display: block; box-sizing: border-box;">
+<div align="left" style="background-color: #FDFBF7; padding: 30px; border-radius: 12px; border: 1px solid #EAE8E1; font-family: sans-serif; width: 100%; box-sizing: border-box;">
   
     <h2 style="color: #4A4A4A; display: flex; align-items: center; gap: 10px; margin-top: 0; word-wrap: break-word;">
     🛡️ 2. Backend Mühendisliği: Verimlilik ve Ölçeklenebilirlik
@@ -108,8 +108,8 @@ yemeksiparismete/
     Sistemin kalbi olan backend tarafında, kurumsal düzeyde (enterprise-grade) teknolojiler kullanılarak sarsılmaz bir iş mantığı katmanı oluşturulmuştur.
   </p>
 
-  <div style="width: 100%; overflow-x: auto; display: block; box-sizing: border-box;">
-    <table style="width: 100%; display: table; min-width: 600px; border-collapse: collapse; background-color: #FFFFFF; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); box-sizing: border-box;">
+  <div style="width: 100%; overflow-x: auto; box-sizing: border-box;">
+    <table width="100%" style="width: 100%; min-width: 100%; border-collapse: collapse; background-color: #FFFFFF; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); box-sizing: border-box;">
       <thead>
         <tr style="background-color: #E2E0D6; border-bottom: 2px solid #C5C3B6;">
           <th align="left" style="padding: 16px; color: #4A4A4A; font-size: 14px; width: 25%;">Teknoloji</th>
@@ -148,7 +148,7 @@ yemeksiparismete/
   </div>
 </div>
 <br>
-<div align="left" style="background-color: #FDFBF7; padding: 30px; border-radius: 12px; border: 1px solid #EAE8E1; font-family: sans-serif; width: 100%; display: block; box-sizing: border-box;">
+<div align="left" style="background-color: #FDFBF7; padding: 30px; border-radius: 12px; border: 1px solid #EAE8E1; font-family: sans-serif; width: 100%; box-sizing: border-box;">
   
     <h2 style="color: #4A4A4A; display: flex; align-items: center; gap: 10px; margin-top: 0; word-wrap: break-word;">
     🗄️ 3. Veritabanı ve Veri Yönetimi (SQL Server)
@@ -158,8 +158,8 @@ yemeksiparismete/
     Projenin veri ambarı, <b>Microsoft SQL Server</b> üzerinde optimize edilmiştir. Veri bütünlüğü (integrity) ve ilişkisel modelleme (relational mapping) en üst seviyededir.
   </p>
 
-  <div style="width: 100%; overflow-x: auto; display: block; box-sizing: border-box;">
-    <table style="width: 100%; display: table; min-width: 600px; border-collapse: collapse; background-color: #FFFFFF; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); box-sizing: border-box;">
+  <div style="width: 100%; overflow-x: auto; box-sizing: border-box;">
+    <table width="100%" style="width: 100%; min-width: 100%; border-collapse: collapse; background-color: #FFFFFF; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); box-sizing: border-box;">
       <thead>
         <tr style="background-color: #E2E0D6; border-bottom: 2px solid #C5C3B6;">
           <th align="left" style="padding: 16px; color: #4A4A4A; font-size: 14px; width: 30%;">Mimari Özellik</th>
@@ -184,7 +184,7 @@ yemeksiparismete/
   </div>
 </div>
 <br>
-<div align="left" style="background-color: #FDFBF7; padding: 30px; border-radius: 12px; border: 1px solid #EAE8E1; font-family: sans-serif; width: 100%; display: block; box-sizing: border-box;">
+<div align="left" style="background-color: #FDFBF7; padding: 30px; border-radius: 12px; border: 1px solid #EAE8E1; font-family: sans-serif; width: 100%; box-sizing: border-box;">
   
     <h2 style="color: #4A4A4A; display: flex; align-items: center; gap: 10px; margin-top: 0; word-wrap: break-word;">
     🌐 4. Ağ Topolojisi ve IPv4 Erişim Dinamikleri
@@ -194,8 +194,8 @@ yemeksiparismete/
     Çapraz platform (Cross-platform) haberleşmesi, sistemin en güçlü yanlarından biridir. Mobil ve Web istemcilerinin merkezi sunucuyla sorunsuz etkileşimi için özel bir ağ yapılandırması uygulanmıştır.
   </p>
 
-  <div style="width: 100%; overflow-x: auto; display: block; box-sizing: border-box;">
-    <table style="width: 100%; display: table; min-width: 600px; border-collapse: collapse; background-color: #FFFFFF; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); box-sizing: border-box;">
+  <div style="width: 100%; overflow-x: auto; box-sizing: border-box;">
+    <table width="100%" style="width: 100%; min-width: 100%; border-collapse: collapse; background-color: #FFFFFF; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); box-sizing: border-box;">
       <thead>
         <tr style="background-color: #E2E0D6; border-bottom: 2px solid #C5C3B6;">
           <th align="left" style="padding: 16px; color: #4A4A4A; font-size: 14px; width: 40%;">Konfigürasyon Parametresi</th>
@@ -228,7 +228,7 @@ yemeksiparismete/
   </p>
 </div>
 <br>
-<div align="left" style="background-color: #FDFBF7; padding: 30px; border-radius: 12px; border: 1px solid #EAE8E1; font-family: sans-serif; width: 100%; display: block; box-sizing: border-box;">
+<div align="left" style="background-color: #FDFBF7; padding: 30px; border-radius: 12px; border: 1px solid #EAE8E1; font-family: sans-serif; width: 100%; box-sizing: border-box;">
   
     <h2 style="color: #4A4A4A; display: flex; align-items: center; gap: 10px; margin-top: 0; word-wrap: break-word;">
     🎨 5. Web Frontend: Estetik ve Fonksiyonelliğin Senfonisi
@@ -238,8 +238,8 @@ yemeksiparismete/
     Web arayüzü, <b>React 19</b> ve modern CSS teknikleriyle tasarlanmış, kullanıcı deneyimini (UX) odağına alan bir görsel şölen sunar.
   </p>
 
-  <div style="width: 100%; overflow-x: auto; display: block; box-sizing: border-box;">
-    <table style="width: 100%; display: table; min-width: 600px; border-collapse: collapse; background-color: #FFFFFF; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); box-sizing: border-box;">
+  <div style="width: 100%; overflow-x: auto; box-sizing: border-box;">
+    <table width="100%" style="width: 100%; min-width: 100%; border-collapse: collapse; background-color: #FFFFFF; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); box-sizing: border-box;">
       <thead>
         <tr style="background-color: #E2E0D6; border-bottom: 2px solid #C5C3B6;">
           <th align="left" style="padding: 16px; color: #4A4A4A; font-size: 14px; width: 25%;">Bileşen</th>
@@ -273,7 +273,7 @@ yemeksiparismete/
   </div>
 </div>
 <br>
-<div align="left" style="background-color: #FDFBF7; padding: 30px; border-radius: 12px; border: 1px solid #EAE8E1; font-family: sans-serif; width: 100%; display: block; box-sizing: border-box;">
+<div align="left" style="background-color: #FDFBF7; padding: 30px; border-radius: 12px; border: 1px solid #EAE8E1; font-family: sans-serif; width: 100%; box-sizing: border-box;">
   
     <h2 style="color: #4A4A4A; display: flex; align-items: center; gap: 10px; margin-top: 0; word-wrap: break-word;">
     📲 6. Mobil Teknoloji: Avucunuzdaki Hız ve Zarafet
@@ -283,8 +283,8 @@ yemeksiparismete/
     Flutter ile inşa edilen mobil uygulama, native performansını şık bir tasarım diliyle birleştirir.
   </p>
 
-  <div style="width: 100%; overflow-x: auto; display: block; box-sizing: border-box;">
-    <table style="width: 100%; display: table; min-width: 600px; border-collapse: collapse; background-color: #FFFFFF; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); box-sizing: border-box;">
+  <div style="width: 100%; overflow-x: auto; box-sizing: border-box;">
+    <table width="100%" style="width: 100%; min-width: 100%; border-collapse: collapse; background-color: #FFFFFF; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); box-sizing: border-box;">
       <thead>
         <tr style="background-color: #E2E0D6; border-bottom: 2px solid #C5C3B6;">
           <th align="left" style="padding: 16px; color: #4A4A4A; font-size: 14px; width: 25%;">Özellik</th>
@@ -318,7 +318,7 @@ yemeksiparismete/
   </div>
 </div>
 <br>
-<div align="left" style="background-color: #FDFBF7; padding: 30px; border-radius: 12px; border: 1px solid #EAE8E1; font-family: sans-serif; width: 100%; display: block; box-sizing: border-box;">
+<div align="left" style="background-color: #FDFBF7; padding: 30px; border-radius: 12px; border: 1px solid #EAE8E1; font-family: sans-serif; width: 100%; box-sizing: border-box;">
   
     <h2 style="color: #4A4A4A; display: flex; align-items: center; gap: 10px; margin-top: 0; word-wrap: break-word;">
     🔐 7. Siber Güvenlik: Kırılmaz Bir Dijital Kale
@@ -328,8 +328,8 @@ yemeksiparismete/
     Kullanıcı verileri ve sistem bütünlüğü, endüstri standardı modern siber güvenlik protokolleri ile korunmaktadır:
   </p>
 
-  <div style="width: 100%; overflow-x: auto; display: block; box-sizing: border-box;">
-    <table style="width: 100%; display: table; min-width: 600px; border-collapse: collapse; background-color: #FFFFFF; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); box-sizing: border-box;">
+  <div style="width: 100%; overflow-x: auto; box-sizing: border-box;">
+    <table width="100%" style="width: 100%; min-width: 100%; border-collapse: collapse; background-color: #FFFFFF; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); box-sizing: border-box;">
       <thead>
         <tr style="background-color: #E2E0D6; border-bottom: 2px solid #C5C3B6;">
           <th align="left" style="padding: 16px; color: #4A4A4A; font-size: 14px; width: 30%;">Güvenlik Katmanı</th>
@@ -352,9 +352,10 @@ yemeksiparismete/
       </tbody>
     </table>
   </div>
+</div>
 <br>
-<div style="width: 100%; display: block; box-sizing: border-box;">
-  <table style="width: 100%; display: table; border-collapse: collapse; border: 2px solid #333; box-sizing: border-box;">
+<div style="width: 100%; box-sizing: border-box;">
+  <table width="100%" style="width: 100%; border-collapse: collapse; border: 2px solid #333; box-sizing: border-box;">
     <tr>
       <td align="center" style="padding: 20px; background-color: #333; color: white;">
         <b style="word-wrap: break-word;">🌟 YemekSiparisMete: Teknolojik Sınırların Ötesinde Bir Başarı Hikayesi</b><br>
@@ -362,6 +363,7 @@ yemeksiparismete/
       </td>
     </tr>
   </table>
+</div>
 </div>
 <div align="center">
   <table style="width: 100%; table-layout: fixed; border-collapse: collapse !important; border: 4px solid #FF0000 !important;">
