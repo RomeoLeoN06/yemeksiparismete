@@ -26,73 +26,77 @@ yemeksiparismete/
 
 <br>
 <!-- 1. SİSTEM TOPOLOJİSİ BÖLÜMÜ -->
-<div align="left" style="background-color: #FDFBF7; padding: 20px; border-radius: 12px; border: 1px solid #EAE8E1; font-family: sans-serif;">
+<!-- 1. PROFESYONEL SİSTEM TOPOLOJİSİ -->
+<div align="left" style="background-color: #FDFBF7; padding: 30px; border-radius: 15px; border: 1px solid #EAE8E1; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
   
-  <!-- BAŞLIK -->
-  <h2 style="color: #4A4A4A; display: flex; align-items: center; gap: 10px; margin-top: 0;">
+  <h2 style="color: #2C3E50; margin-top: 0; border-bottom: 2px solid #E2E0D6; padding-bottom: 10px;">
     🏛️ 1. Mimari Şaheser: Sistem Topolojisi
   </h2>
   
-  <!-- AÇIKLAMA METNİ -->
-  <p style="color: #666; font-size: 15px; line-height: 1.6; margin-bottom: 30px;">
-    Sistem, <b>N-Tier (Çok Katmanlı)</b> mimari prensiplerine sadık kalınarak, her bir bileşenin kendi sorumluluğunu taşıdığı bir yapıda kurgulanmıştır.
+  <p style="color: #7F8C8D; font-size: 15px; margin-bottom: 40px;">
+    Sistem, yüksek erişilebilirlik ve sürdürülebilirlik için <b>N-Tier (Çok Katmanlı)</b> mimari standartlarında kurgulanmıştır.
   </p>
 
-  <!-- DİYAGRAM TABLOSU -->
-  <table align="center" style="border-collapse: collapse; border: none; background: transparent;">
-    <!-- ÜST KATMAN: CLIENTS -->
+  <!-- DİYAGRAM ALANI -->
+  <table border="0" cellpadding="0" cellspacing="0" align="center" style="border: none; background: transparent;">
+    <!-- CLIENT KATMANI -->
     <tr>
-      <td align="center" style="padding: 10px;">
-        <div style="background-color: #F0F0FF; border: 1px solid #B0B0FF; padding: 15px 25px; border-radius: 4px; color: #333; font-weight: bold;">
-          📱 Flutter Mobile
+      <td align="center">
+        <div style="background: #FFFFFF; border: 2px solid #3498DB; padding: 15px 25px; border-radius: 8px; min-width: 160px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+          <span style="font-size: 20px;">📱</span><br><b style="color: #2980B9;">Flutter Mobile</b>
         </div>
       </td>
-      <td width="50"></td>
-      <td align="center" style="padding: 10px;">
-        <div style="background-color: #F0F0FF; border: 1px solid #B0B0FF; padding: 15px 25px; border-radius: 4px; color: #333; font-weight: bold;">
-          💻 React 19 Web
+      <td width="80" align="center"></td>
+      <td align="center">
+        <div style="background: #FFFFFF; border: 2px solid #3498DB; padding: 15px 25px; border-radius: 8px; min-width: 160px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+          <span style="font-size: 20px;">💻</span><br><b style="color: #2980B9;">React 19 Web</b>
         </div>
       </td>
     </tr>
-    <!-- OK KATMANI 1 -->
+    <!-- BAĞLANTI OKLARI 1 -->
     <tr>
-      <td align="center" style="padding: 5px; color: #888;">
-        IPv4: 10.22.107.60:5101<br><b>╲ </b>
+      <td align="center" style="padding: 10px 0;">
+        <small style="color: #95A5A6;">IPv4 Access</small><br>
+        <span style="font-size: 24px; color: #BDC3C7;">↓</span>
       </td>
       <td></td>
-      <td align="center" style="padding: 5px; color: #888;">
-        HTTP / SignalR<br><b> ╱</b>
+      <td align="center" style="padding: 10px 0;">
+        <small style="color: #95A5A6;">SignalR Realtime</small><br>
+        <span style="font-size: 24px; color: #BDC3C7;">↓</span>
       </td>
     </tr>
-    <!-- ORTA KATMAN: API -->
+    <!-- API KATMANI -->
     <tr>
-      <td colspan="3" align="center" style="padding: 10px;">
-        <div style="background-color: #F5F0FF; border: 1px solid #D0B0FF; padding: 15px 40px; border-radius: 4px; color: #333; font-weight: bold; display: inline-block;">
-          ⚙️ .NET 8 API
+      <td colspan="3" align="center">
+        <div style="background: #2C3E50; border: 2px solid #1A252F; padding: 20px 50px; border-radius: 10px; color: #ECF0F1; min-width: 200px; box-shadow: 0 6px 12px rgba(0,0,0,0.2);">
+          <span style="font-size: 22px;">⚙️</span><br><b>.NET 8 CORE API</b>
+          <br><small style="color: #BDC3C7; font-weight: normal;">Central Orchestrator</small>
         </div>
       </td>
     </tr>
-    <!-- OK KATMANI 2 -->
+    <!-- BAĞLANTI OKLARI 2 -->
     <tr>
-      <td align="center" style="padding: 5px; color: #888;">
-        <b>↙</b><br>EF Core 8
+      <td align="center" style="padding: 10px 0;">
+        <span style="font-size: 24px; color: #BDC3C7;">↓</span><br>
+        <small style="color: #95A5A6;">Persistence</small>
       </td>
       <td></td>
-      <td align="center" style="padding: 5px; color: #888;">
-        <b>↘</b><br>Real-time
+      <td align="center" style="padding: 10px 0;">
+        <span style="font-size: 24px; color: #BDC3C7;">↓</span><br>
+        <small style="color: #95A5A6;">Push Notify</small>
       </td>
     </tr>
-    <!-- ALT KATMAN: STORAGE & REALTIME -->
+    <!-- DATA & REALTIME KATMANI -->
     <tr>
-      <td align="center" style="padding: 10px;">
-        <div style="background-color: #FFFFFF; border: 1px solid #888; border-bottom: 4px solid #888; padding: 15px 25px; border-radius: 50% / 15%; color: #333; font-weight: bold;">
-          🗄️ SQL Server
+      <td align="center">
+        <div style="background: #FFFFFF; border: 2px solid #7F8C8D; padding: 15px 25px; border-radius: 10px; min-width: 160px;">
+          <span style="font-size: 20px;">🗄️</span><br><b style="color: #34495E;">SQL SERVER</b>
         </div>
       </td>
       <td></td>
-      <td align="center" style="padding: 10px;">
-        <div style="background-color: #F0F9FF; border: 1px solid #B0D0FF; padding: 15px 25px; border-radius: 4px; color: #333; font-weight: bold;">
-          📡 SignalR Hub
+      <td align="center">
+        <div style="background: #FFFFFF; border: 2px solid #E67E22; padding: 15px 25px; border-radius: 8px; min-width: 160px;">
+          <span style="font-size: 20px;">📡</span><br><b style="color: #D35400;">SignalR Hub</b>
         </div>
       </td>
     </tr>
