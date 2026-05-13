@@ -11,75 +11,143 @@ yemeksiparismete/
 ├── 📄 README.md       # Proje Dokümantasyonu
 ├── 📄 screenshot/README.md  #Projenin Hem Web Hem Mobil Üzerinden Çalıştığına Dair Kanıtlar
 └── 🧪 AutoSeeder/     # Mock Data: Akıllı Test Veri Üreticisi
-
 ```
-YemekSiparisMete, modern yazılım mimarilerinin tüm imkanları kullanılarak geliştirilmiş, uçtan uca bir yemek sipariş ve yönetim ekosistemidir. Bu proje; ölçeklenebilir bir Backend, estetik bir Web arayüzü ve yüksek performanslı bir Mobil uygulama üçlemesinden oluşmaktadır.
+<div align="center">
 
-🏛️ 1. Mimari Şaheser: Sistem Topolojisi
-Sistem, N-Tier (Çok Katmanlı) mimari prensiplerine sadık kalınarak, her bir bileşenin kendi sorumluluğunu (Separation of Concerns) taşıdığı bir yapıda kurgulanmıştır.
+<!-- BAŞLIK VE BADGE'LER -->
+<table style="width: 100%; border-collapse: collapse; border: 3px solid #FF0000;">
+  <tr>
+    <td align="center" style="padding: 20px;">
+      <h1>🍕 YemekSiparisMete</h1>
+      <p><b>Gastronomi ve Teknolojinin Kusursuz Senfonisi</b></p>
+      <img src="https://img.shields.io/github/contributors/mete/yemeksiparismete?style=for-the-badge" />
+      <img src="https://img.shields.io/github/repo-size/mete/yemeksiparismete?style=for-the-badge" />
+      <img src="https://img.shields.io/github/languages/top/mete/yemeksiparismete?style=for-the-badge" />
+    </td>
+  </tr>
+</table>
 
-graph TD
-    A[📱 Flutter Mobile] -->|IPv4: 10.22.107.60:5101| B[⚙️ .NET 8 API]
-    C[💻 React 19 Web] -->|HTTP/SignalR| B
-    B -->|EF Core 8| D[(🗄️ SQL Server)]
-    B -->|Real-time| E[📡 SignalR Hub]
+<br>
 
-📱 Flutter Mobile
-⚙️ .NET 8 API
-💻 React 19 Web
-🗄️ SQL Server
-📡 SignalR Hub
-⚙️ 2. Backend Mühendisliği: Verimlilik ve Ölçeklenebilirlik
-Sistemin kalbi olan backend tarafında, kurumsal düzeyde (enterprise-grade) teknolojiler kullanılarak sarsılmaz bir iş mantığı katmanı oluşturulmuştur.
+<!-- PROJE ÖZETİ -->
+<table style="width: 100%; border-collapse: collapse; border: 2px solid #333;">
+  <tr style="background-color: #f8f9fa;">
+    <th align="left" style="padding: 10px; border-bottom: 2px solid #333;">📄 Proje Vizyonu</th>
+  </tr>
+  <tr>
+    <td style="padding: 15px; line-height: 1.6;">
+      YemekSiparisMete, modern yazılım mimarilerinin tüm imkanları kullanılarak geliştirilmiş, uçtan uca bir yemek sipariş ve yönetim ekosistemidir. Bu proje; ölçeklenebilir bir <b>Backend</b>, estetik bir <b>Web arayüzü</b> ve yüksek performanslı bir <b>Mobil uygulama</b> üçlemesinden oluşmaktadır. Her bir satır kod, kullanıcı deneyimini zirveye taşımak amacıyla titizlikle işlenmiştir.
+    </td>
+  </tr>
+</table>
 
-Teknoloji	Versiyon	Görev & Stratejik Avantaj
-Microsoft .NET Core	8.0	Yüksek işlem kapasiteli, düşük gecikme süreli ana motor.
-Entity Framework Core	8.0	Veritabanı yönetiminde nesne-tabanlı (ORM) esneklik.
-SQL Server	Enterprise	ACID prensiplerine tam uyumlu, güvenilir veri depolama.
-SignalR	Real-Time	Mutfak ve müşteri arasında kesintisiz canlı veri akışı.
-ASP.NET Identity	JWT	Role-based (Rol tabanlı) kriptografik güvenlik sistemi.
-🗄️ 3. Veritabanı ve Veri Yönetimi (SQL Server)
-Projenin veri ambarı, Microsoft SQL Server üzerinde optimize edilmiştir. Veri bütünlüğü (integrity) ve ilişkisel modelleme (relational mapping) en üst seviyededir.
+<br>
 
-İlişkisel Mimari: Müşteriler, Restoranlar, Ürünler, Siparişler ve Kuryeler arasındaki karmaşık bağlar, verimli Join operasyonları ve indeksleme stratejileriyle yönetilir.
-Veri Güvenliği: Tüm hassas veriler, uygulama katmanında normalize edildikten sonra SQL Server'ın güvenli havuzuna aktarılır.
-Hızlı Kurulum: Proje içerisinde bulunan YemekSiparisDb_Yedek.sql dosyası ile saniyeler içinde tüm şema ve test verileri ayağa kaldırılabilir.
-🌐 4. Ağ Topolojisi ve IPv4 Erişim Dinamikleri
-Çapraz platform (Cross-platform) haberleşmesi, sistemin en güçlü yanlarından biridir. Mobil ve Web istemcilerinin merkezi sunucuyla sorunsuz etkileşimi için özel bir ağ yapılandırması uygulanmıştır.
+<!-- TEKNOLOJİK MATRİS (TABLO İÇİNDE TABLO) -->
+<table style="width: 100%; border-collapse: collapse; border: 2px solid #333;">
+  <tr style="background-color: #f8f9fa;">
+    <th colspan="2" align="center" style="padding: 10px; border-bottom: 2px solid #333;">🛠️ Teknolojik Altyapı</th>
+  </tr>
+  <tr>
+    <td width="50%" valign="top" style="padding: 15px; border-right: 1px solid #ddd;">
+      <h3 align="center">⚙️ Backend & Veritabanı</h3>
+      <ul>
+        <li><b>.NET 8.0 Core:</b> Yüksek performanslı API motoru.</li>
+        <li><b>EF Core 8:</b> Nesne-tabanlı veri yönetimi.</li>
+        <li><b>SQL Server:</b> Kurumsal veri depolama.</li>
+        <li><b>SignalR:</b> Real-time canlı veri akışı.</li>
+      </ul>
+    </td>
+    <td width="50%" valign="top" style="padding: 15px;">
+      <h3 align="center">🎨 Frontend & Mobil</h3>
+      <ul>
+        <li><b>React 19:</b> Yeni nesil web mimarisi.</li>
+        <li><b>Framer Motion:</b> Premium animasyonlar.</li>
+        <li><b>Flutter/Dart:</b> Native mobil performans.</li>
+        <li><b>Provider:</b> Reaktif state yönetimi.</li>
+      </ul>
+    </td>
+  </tr>
+</table>
 
-IMPORTANT
+<br>
 
-IPv4 Bağlantı Yapılandırması: Fiziksel cihazlar ve mobil emülatörlerin sunucuya erişebilmesi için Backend API, statik IPv4 adresi üzerinden yayın yapmaktadır.
+<!-- AĞ VE GÜVENLİK -->
+<table style="width: 100%; border-collapse: collapse; border: 2px solid #FF0000;">
+  <tr style="background-color: #fff5f5;">
+    <th align="left" style="padding: 10px; border-bottom: 2px solid #FF0000;">🌐 Ağ ve Siber Güvenlik Yapılandırması</th>
+  </tr>
+  <tr>
+    <td style="padding: 15px;">
+      <b>📡 IPv4 Erişim Protokolü:</b> Mobil cihazların sunucuya erişimi için sistem <code>10.22.107.60:5101</code> statik adresi üzerinden yayın yapmaktadır.<br><br>
+      <b>🔒 Güvenlik Katmanları:</b>
+      <ul>
+        <li><b>PBKDF2:</b> Kriptografik şifreleme ve tuzlama (Salting).</li>
+        <li><b>JWT:</b> Güvenli ve stateless oturum yönetimi.</li>
+        <li><b>Validation:</b> Veri girişlerinde tam denetim (Fluent Validation).</li>
+      </ul>
+    </td>
+  </tr>
+</table>
 
-Sunucu IPv4 Adresi: 10.22.107.60
-Dinleme Portu: 5101
-Protokol: HTTP/REST & WebSockets (SignalR)
-Bu yapılandırma, localhost sınırlarını aşarak gerçek dünya ağ senaryolarında (Physical Device Testing) projenin kesintisiz çalışmasını garanti altına alır.
+<br>
 
-🎨 5. Web Frontend: Estetik ve Fonksiyonelliğin Senfonisi
-Web arayüzü, React 19 ve modern CSS teknikleriyle tasarlanmış, kullanıcı deneyimini (UX) odağına alan bir görsel şölen sunar.
+<!-- GÖRSEL GALERİ - WEB KULLANICI -->
+<table style="width: 100%; border-collapse: collapse; border: 4px solid #FF0000;">
+  <thead>
+    <tr style="background-color: #f8f9fa;">
+      <th colspan="4" align="center" style="padding: 20px;"><h3>🖼️ Web Kullanıcı Deneyimi</h3></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td align="center" style="padding: 10px;"><img src="screenshot/web_konum.jpeg" width="100%"><br><sub><b>📍 Bölge Filtreleme</b></sub></td>
+      <td align="center" style="padding: 10px;"><img src="screenshot/anasayfaweb.jpeg" width="100%"><br><sub><b>🏠 Ana Dashboard</b></sub></td>
+      <td align="center" style="padding: 10px;"><img src="screenshot/restoran2.jpeg" width="100%"><br><sub><b>🍴 Restoran Katalog</b></sub></td>
+      <td align="center" style="padding: 10px;"><img src="screenshot/webaramakısmı.jpeg" width="100%"><br><sub><b>🔍 Akıllı Arama</b></sub></td>
+    </tr>
+    <tr>
+      <td align="center" style="padding: 10px;"><img src="screenshot/webpizza.jpeg" width="100%"><br><sub><b>🍕 Pizza Dünyası</b></sub></td>
+      <td align="center" style="padding: 10px;"><img src="screenshot/kebaplar.jpeg" width="100%"><br><sub><b>🍢 Kebap Kültürü</b></sub></td>
+      <td align="center" style="padding: 10px;"><img src="screenshot/webtatlılar.jpeg" width="100%"><br><sub><b>🍰 Tatlı Serüveni</b></sub></td>
+      <td align="center" style="padding: 10px;"><img src="screenshot/kahveler.jpeg" width="100%"><br><sub><b>☕ Kahve & İçecek</b></sub></td>
+    </tr>
+  </tbody>
+</table>
 
-Bileşen	Teknolojik Derinlik	Stratejik Avantaj
-React 19	Latest Release	Modern rendering ve üstün component hiyerarşisi.
-Vite Engine	Ultra Fast	Saniyeler içinde yüklenen sayfalar ve optimize bundle.
-TypeScript	Type-Safe	Çalışma zamanı hatalarını sıfıra indiren güçlü kod yapısı.
-Framer Motion	3D & Glass	3D hover efektleri ve premium cam efekti (Glassmorphism).
-📲 6. Mobil Teknoloji: Avucunuzdaki Hız ve Zarafet
-Flutter ile inşa edilen mobil uygulama, native performansını şık bir tasarım diliyle birleştirir.
+<br>
 
-Özellik	Detay	Kullanıcı Deneyimi (UX)
-Flutter / Dart	Reaktif Mimari	Takılmayan, 60 FPS akıcılığında ekran geçişleri.
-Provider	State Management	Verilerin cihaz hafızasında anlık ve tutarlı yönetimi.
-Material 3	Tasarım Dili	Modern, temiz ve göz yormayan profesyonel arayüz.
-API Sync	Optimized HTTP	Düşük internet hızına sahip ortamlarda bile kararlı veri alışverişi.
-🔐 7. Siber Güvenlik: Kırılmaz Bir Dijital Kale
-Kullanıcı verileri, en modern siber güvenlik standartları ile korunmaktadır:
+<!-- GÖRSEL GALERİ - MOBİL -->
+<table style="width: 100%; border-collapse: collapse; border: 4px solid #FF0000;">
+  <thead>
+    <tr style="background-color: #f8f9fa;">
+      <th colspan="4" align="center" style="padding: 20px;"><h3>📱 Mobil Uygulama Ekosistemi</h3></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td align="center" style="padding: 10px;"><img src="screenshot/mobilgiris.jpeg" width="100%"><br><sub><b>🔐 Güvenli Giriş</b></sub></td>
+      <td align="center" style="padding: 10px;"><img src="screenshot/mobildasboard.jpeg" width="100%"><br><sub><b>🏠 Dashboard</b></sub></td>
+      <td align="center" style="padding: 10px;"><img src="screenshot/mobilpizza.jpeg" width="100%"><br><sub><b>🍕 Kategoriler</b></sub></td>
+      <td align="center" style="padding: 10px;"><img src="screenshot/mobilsepetvekupon.jpeg" width="100%"><br><sub><b>🛒 Akıllı Sepet</b></sub></td>
+    </tr>
+  </tbody>
+</table>
 
-Parola Güvenliği: PBKDF2 hashing algoritması ile binlerce kez tekrarlanmış tuzlama (salting) işlemi.
-Yetkilendirme: JWT (JSON Web Token) ile stateless ve güvenli oturum yönetimi.
-Veri Validasyonu: Fluent Validation ile backend tarafında enjekte edilen katı veri doğrulama kuralları.
-🌟 Sonuç
-YemekSiparisMete, sadece bir ödev veya hobi projesi değil; SQL Server'ın derinliklerinden React 19'un en güncel özelliklerine, IPv4 tabanlı hibrit ağ mimarisinden Flutter'ın performansına kadar her noktası titizlikle işlenmiş profesyonel bir yazılım ekosistemidir.
+<br>
+
+<!-- SONUÇ TABLE -->
+<table style="width: 100%; border-collapse: collapse; border: 2px solid #333;">
+  <tr>
+    <td align="center" style="padding: 20px; background-color: #333; color: white;">
+      <b>🌟 YemekSiparisMete: Teknolojik Sınırların Ötesinde Bir Başarı Hikayesi</b><br>
+      <small>Bu proje, modern yazılım dünyasının tüm nimetlerinden faydalanan devasa bir ekosistemdir.</small>
+    </td>
+  </tr>
+</table>
+
+</div>
+
 
 <div align="center">
   <table style="width: 100%; table-layout: fixed; border-collapse: collapse !important; border: 4px solid #FF0000 !important;">
