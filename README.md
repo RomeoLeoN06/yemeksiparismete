@@ -43,32 +43,48 @@ yemeksiparismete/
 
 <br>
 
-<!-- TEKNOLOJİK MATRİS (TABLO İÇİNDE TABLO) -->
-<table style="width: 100%; border-collapse: collapse; border: 2px solid #333;">
-  <tr style="background-color: #f8f9fa;">
-    <th colspan="2" align="center" style="padding: 10px; border-bottom: 2px solid #333;">🛠️ Teknolojik Altyapı</th>
-  </tr>
-  <tr>
-    <td width="50%" valign="top" style="padding: 15px; border-right: 1px solid #ddd;">
-      <h3 align="center">⚙️ Backend & Veritabanı</h3>
-      <ul>
-        <li><b>.NET 8.0 Core:</b> Yüksek performanslı API motoru.</li>
-        <li><b>EF Core 8:</b> Nesne-tabanlı veri yönetimi.</li>
-        <li><b>SQL Server:</b> Kurumsal veri depolama.</li>
-        <li><b>SignalR:</b> Real-time canlı veri akışı.</li>
-      </ul>
-    </td>
-    <td width="50%" valign="top" style="padding: 15px;">
-      <h3 align="center">🎨 Frontend & Mobil</h3>
-      <ul>
-        <li><b>React 19:</b> Yeni nesil web mimarisi.</li>
-        <li><b>Framer Motion:</b> Premium animasyonlar.</li>
-        <li><b>Flutter/Dart:</b> Native mobil performans.</li>
-        <li><b>Provider:</b> Reaktif state yönetimi.</li>
-      </ul>
-    </td>
-  </tr>
-</table>
+<!-- 2. BACKEND MÜHENDİSLİĞİ BÖLÜMÜ -->
+<div align="left">
+  <table style="width: 100%; border-collapse: collapse; font-family: sans-serif; background-color: #FDFBF7; border-radius: 8px; overflow: hidden;">
+    <!-- BAŞLIK KISMI -->
+    <thead>
+      <tr style="background-color: #E2E0D6; border-bottom: 2px solid #C5C3B6;">
+        <th align="left" style="padding: 12px; color: #4A4A4A; font-size: 14px;">Teknoloji</th>
+        <th align="left" style="padding: 12px; color: #4A4A4A; font-size: 14px;">Versiyon</th>
+        <th align="left" style="padding: 12px; color: #4A4A4A; font-size: 14px;">Görev & Stratejik Avantaj</th>
+      </tr>
+    </thead>
+    <!-- İÇERİK KISMI -->
+    <tbody>
+      <tr style="border-bottom: 1px solid #EAE8E1;">
+        <td style="padding: 12px; font-size: 14px;"><b>Microsoft .NET Core</b></td>
+        <td style="padding: 12px; font-size: 14px; color: #666;">8.0</td>
+        <td style="padding: 12px; font-size: 14px; color: #333;">Yüksek işlem kapasiteli, düşük gecikme süreli ana motor.</td>
+      </tr>
+      <tr style="border-bottom: 1px solid #EAE8E1;">
+        <td style="padding: 12px; font-size: 14px;"><b>Entity Framework Core</b></td>
+        <td style="padding: 12px; font-size: 14px; color: #666;">8.0</td>
+        <td style="padding: 12px; font-size: 14px; color: #333;">Veritabanı yönetiminde nesne-tabanlı (ORM) esneklik.</td>
+      </tr>
+      <tr style="border-bottom: 1px solid #EAE8E1;">
+        <td style="padding: 12px; font-size: 14px;"><b>SQL Server</b></td>
+        <td style="padding: 12px; font-size: 14px; color: #666;">Enterprise</td>
+        <td style="padding: 12px; font-size: 14px; color: #333;">ACID prensiplerine tam uyumlu, güvenilir veri depolama.</td>
+      </tr>
+      <tr style="border-bottom: 1px solid #EAE8E1;">
+        <td style="padding: 12px; font-size: 14px;"><b>SignalR</b></td>
+        <td style="padding: 12px; font-size: 14px; color: #666;">Real-Time</td>
+        <td style="padding: 12px; font-size: 14px; color: #333;">Mutfak ve müşteri arasında kesintisiz canlı veri akışı.</td>
+      </tr>
+      <tr>
+        <td style="padding: 12px; font-size: 14px;"><b>ASP.NET Identity</b></td>
+        <td style="padding: 12px; font-size: 14px; color: #666;">JWT</td>
+        <td style="padding: 12px; font-size: 14px; color: #333;">Role-based (Rol tabanlı) kriptografik güvenlik sistemi.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
 
 <br>
 
