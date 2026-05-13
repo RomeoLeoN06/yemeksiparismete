@@ -348,6 +348,38 @@ yemeksiparismete/
       </tbody>
     </table>
   </div>
+    <div align="left" style="background-color: #FDFBF7; padding: 30px; border-radius: 12px; border: 1px solid #EAE8E1; font-family: sans-serif; width: 100%; box-sizing: border-box; margin-top: 25px; margin-bottom: 25px;">
+  <h2 style="color: #4A4A4A; display: flex; align-items: center; gap: 10px; margin-top: 0; word-wrap: break-word;">
+    🗄️ 9. Veritabanı İlişkisel Şema ve SQL Doğrulama Mimarisi
+  </h2>
+  <p style="color: #666; font-size: 15px; line-height: 1.6; margin-bottom: 20px; word-wrap: break-word;">
+    YemekSiparisMete projesinin veri ambarı, <b>Microsoft SQL Server</b> üzerinde minimize edilmiş gecikme süreleri ve maksimum veri bütünlüğü (data integrity) ilkeleriyle kurgulanmıştır.
+  </p>
+  <div style="width: 100%; overflow-x: auto; box-sizing: border-box;">
+    <table width="100%" style="width: 100%; min-width: 100%; border-collapse: collapse; background-color: #FFFFFF; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); box-sizing: border-box;">
+      <thead>
+        <tr style="background-color: #E2E0D6; border-bottom: 2px solid #C5C3B6;">
+          <th align="left" style="padding: 16px; color: #4A4A4A; font-size: 14px; width: 30%;">Doğrulama Katmanı</th>
+          <th align="left" style="padding: 16px; color: #4A4A4A; font-size: 14px; width: 70%;">Teknik Detay & Veri Güvenliği Protokolü</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="border-bottom: 1px solid #EAE8E1;">
+          <td style="padding: 16px; font-size: 14px;"><b>Veri Bütünlüğü & Roller</b></td>
+          <td style="padding: 16px; font-size: 14px; color: #333;">Kullanıcılar, Siparişler, Restoranlar ve Kuryeler arasındaki çok-bire ve çok-çoğa ilişkiler; <code>Foreign Key</code> kısıtlamaları ve optimize edilmiş <code>Index</code> mimarileriyle taranır.</td>
+        </tr>
+        <tr style="border-bottom: 1px solid #EAE8E1;">
+          <td style="padding: 16px; font-size: 14px;"><b>Fonksiyonel Tetikleyiciler</b></td>
+          <td style="padding: 16px; font-size: 14px; color: #333;">Sistemdeki dinamik sepet hesaplamaları, kupon tanımlamaları ve rol atamaları uygulama katmanını yormadan doğrudan SQL Server tarafındaki gelişmiş fonksiyon ve değişkenlerle idare edilir.</td>
+        </tr>
+        <tr>
+          <td style="padding: 16px; font-size: 14px;"><b>Canlı Sistem Kanıtları</b></td>
+          <td style="padding: 16px; font-size: 14px; color: #333;">Üretim ortamından alınan gerçek veri setleri, şemalar ve tablo çıktılarının görsel dökümantasyonu 4'lü matris düzeninde aşağıda raporlanmıştır.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
 </div>
 </div>
 <br>
